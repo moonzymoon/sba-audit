@@ -6,11 +6,11 @@ import numpy as np
 from scipy import stats as st
 from sklearn.metrics import roc_auc_score
 
-sys.path.insert(0, r"D:/0科研/工作1/第15篇SCI/src/mixed")
+sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 15SCI/src/mixed")
 from e1_full import build_table  # noqa: E402
 
-CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
-RES = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
+RES = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
 CORE6 = ["SMD", "PSM", "MSL", "SMAP", "SWaT", "WADI"]
 DET6 = ["cmhmil", "iforest", "pca", "gmm", "ocsvm", "lof"]
 CMH_SEEDS = {"SMD": [0, 1, 2, 3, 7, 31, 42, 97, 123, 2024],

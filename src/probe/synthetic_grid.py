@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-"""合成因子网格 (R6 增补): Gaussian 序列 + 受控段结构, 同一副本机制.
+"""zh:zh_4016factorzh_4544cell (R6 zh:zh_299): Gaussian zh:series + zh:zh_6628segmentzh:zh_7202, samezh:zh_718local machinezh_2861.
 
-因子: K(事件块数, 等量正常块) x phi(块内 AR1 依赖) x sigma_b(块均值异质性).
-每格 B=2000 副本: 窗口级 paired-t vs 块级 paired-t 的经验 size,
-实测 r = T*Var(gbar*)/(2*Var(g)) 与解析预测 2*Phi(-1.96/sqrt(r)) 对照.
+zh:factor: K(zh:eventblockzh:zh_4930, zh:etc.zh_1031normalblock) x phi(blockzh:zh_3990 AR1 zh:zh_8749) x sigma_b(blockmeanzh:zh_6024).
+each cell B=2000 zh:zh_8698: windowzh:zh_4542 paired-t vs blockzh:zh_4542 paired-t  empirical size,
+zh:zh_6340 r = T*Var(gbar*)/(2*Var(g)) withzh:parseprediction 2*Phi(-1.96/sqrt(r)) pairzh:zh_9388.
 """
 import numpy as np
 import pandas as pd
@@ -11,13 +11,13 @@ from scipy import stats
 from scipy.signal import lfilter
 
 SEED = 20260903
-L = 200          # 块长(窗口)
+L = 200          # blockzh:zh_1935(window)
 B = 5000
 
 def gen_series(K, phi, sigma_b, rng):
     T = 2 * K * L
     e = rng.normal(0, np.sqrt(1 - phi**2), T)
-    x = lfilter([1.0], [1.0, -phi], e)          # 平稳 AR(1), var=1
+    x = lfilter([1.0], [1.0, -phi], e)          # zh:zh_1662 AR(1), var=1
     be = rng.normal(0, sigma_b, K)
     bn = rng.normal(0, sigma_b, K)
     g = x.reshape(2 * K, L).copy()
@@ -28,14 +28,14 @@ def gen_series(K, phi, sigma_b, rng):
 def run_cell(K, phi, sigma_b, rng):
     g = gen_series(K, phi, sigma_b, rng)
     T = len(g)
-    ev = np.arange(2 * K)[1::2]                  # 事件块索引
+    ev = np.arange(2 * K)[1::2]                  # zh:eventblockindex
     no = np.arange(2 * K)[0::2]
     ev_means = g.reshape(2 * K, L)[ev].mean(axis=1)
     no_means = g.reshape(2 * K, L)[no].mean(axis=1)
     v_g = g.var(ddof=1)
     p_win = np.empty(B); p_blk = np.empty(B); rbar = np.empty(B)
     for b in range(B):
-        # 副本 = 抽中块按 normal/event 交错结构拼接
+        # zh:zh_8698 = zh:zh_4463blockper normal/event zh:zh_3170
         seq_e = rng.choice(ev, K, replace=True)
         seq_n = rng.choice(no, K, replace=True)
         gs = np.concatenate([np.concatenate([g[s * L:(s + 1) * L], g[t * L:(t + 1) * L]])
@@ -61,6 +61,6 @@ if __name__ == "__main__":
                 rows.append(dict(K=K, phi=phi, sigma_b=sb, r=r, pred=pred, win_t=pw, blk_t=pb))
                 print("K=%2d phi=%.1f sb=%.1f  r=%8.1f  pred=%.3f  win=%.3f  blk=%.3f"
                       % (K, phi, sb, r, pred, pw, pb))
-    out = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/synthetic_grid.csv"
+    out = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/synthetic_grid.csv"
     pd.DataFrame(rows).to_csv(out, index=False)
     print("saved:", out)

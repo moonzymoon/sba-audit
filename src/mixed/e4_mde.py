@@ -1,11 +1,11 @@
-"""E4 MDE 与条件功效曲线 (预注册 §11: t 分布 + 参数 bootstrap, 非普适查表).
+"""E4 MDE withrowszh:zh_9625powercurve (pre-registered §11: t zh:zh_2806 + zh:parameter bootstrap, zh:zh_2144table).
 
-量纲: 块级配对差 d_j = m1*_j − m2*_j (秩尺度). 每数据集从 E3-clean 的块均值池估计
-σ_d (块级配对差标准差), K = 合格块数; MDE = (t_{0.975,K-1} + t_{0.8,K-1}) · σ_d/√K.
-AUROC 当量换算: 总体恒等 E[d̄] = 2π·ΔAUROC (π=异常率) => ΔA = MDE/(2π)
-(U 统计量线性化, 并列/有限样本修正忽略 — 方法节注明).
-参数 bootstrap 功效曲线: d_j ~ N(Δ, σ_d²), K 块 paired-t, 2000 次模拟/点.
-可分辨性谱系: 各数据集在当前 K / 2K / 4K 下能否检出 ΔA=0.05 (power≥0.8).
+zh:zh_350: blockzh:zh_4542paireddifference d_j = m1*_j − m2*_j (rankzh:zh_405). each datasetfrom  E3-clean  blockmeanzh:zh_5414estimate
+σ_d (blockzh:zh_4542paireddifferencezh:zh_7947difference), K = zh:zh_7974cellblockzh:zh_4930; MDE = (t_{0.975,K-1} + t_{0.8,K-1}) · σ_d/√K.
+AUROC zh:zh_7892: zh:zh_9131etc. E[d̄] = 2π·ΔAUROC (π=zh:anomalyrate) => ΔA = MDE/(2π)
+(U zh:statisticszh_9498, zh:zh_3017/zh:zh_1003correctedzh:zh_3845 — zh:methodzh_7775).
+zh:parameter bootstrap zh:powercurve: d_j ~ N(Δ, σ_d²), K block paired-t, 2000 zh:zh_4885/zh:point.
+zh:zh_9272: zh:zh_5226datasetzh:zh_3757current K / 2K / 4K zh:zh_2071 ΔA=0.05 (power≥0.8).
 """
 from __future__ import annotations
 
@@ -22,13 +22,13 @@ from common.blocks import build_blocks, block_stats  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness, block_mean_pools, GLOBAL_SEED  # noqa: E402
 
-OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
 ALPHA, POWER = 0.05, 0.8
-DA_TARGET = 0.05  # AUROC 点差目标
+DA_TARGET = 0.05  # AUROC zh:pointdifferencezh:zh_3829
 
 
 def sigma_d_from_pool(g, blocks, n_draw=2000, rng_seed=GLOBAL_SEED):
-    """N2 块均值两次独立抽取配对的 σ_d 与块数."""
+    """N2 blockmeanzh:zh_3207paired  σ_d withblockzh:zh_4930."""
     ev, no = block_mean_pools(g, blocks)
     if len(ev) < 2 or len(no) < 2:
         return np.nan, 0
@@ -50,7 +50,7 @@ def mde(sigma_d, K):
 
 
 def power_curve(sigma_d, K, deltas, n_sim=2000, seed=GLOBAL_SEED):
-    """参数 bootstrap 功效曲线 (paired-t @ α)."""
+    """zh:parameter bootstrap zh:powercurve (paired-t @ α)."""
     rng = np.random.default_rng(seed)
     out = []
     for dl in deltas:
@@ -64,7 +64,7 @@ def power_curve(sigma_d, K, deltas, n_sim=2000, seed=GLOBAL_SEED):
 
 
 def k_needed(sigma_d, delta):
-    """检出 delta (d̄ 尺度) 所需块数 (大样本 t≈z 近似后向上扫描)."""
+    """zh:zh_848 delta (d̄ zh:zh_405) zh:zh_2440blockzh:zh_4930 (zh:zh_9525 t≈z zh:zh_3235scan)."""
     for K in range(3, 400000):
         if mde(sigma_d, K) <= delta:
             return K
@@ -90,8 +90,8 @@ def main(datasets=None, scorer="cmhmil_seed7"):
                           sigma_d=round(sd_d, 5), MDE_dbar=round(m, 5) if np.isfinite(m) else np.nan,
                           MDE_AUROC_pts=round(da * 100, 1) if np.isfinite(da) else np.nan,
                           K_needed_for_5AUROCpts=(k2 if k2 < 400000 else ">400000") if np.isfinite(k2) else ">400000",
-                          verdict=("可分辨(ΔA=5点)" if np.isfinite(da) and da <= DA_TARGET
-                                   else "不可分辨" if np.isfinite(da) else "NA")))
+                          verdict=("zh:zh_8190(ΔA=5zh:point)" if np.isfinite(da) and da <= DA_TARGET
+                                   else "notzh:zh_8190" if np.isfinite(da) else "NA")))
         deltas = np.linspace(0, max(m * 2, 2 * pi * (1 - pi) * DA_TARGET), 15)
         pw = power_curve(sd_d, K, deltas)
         curves[ds] = dict(deltas=deltas.tolist(), power=pw.tolist(),
@@ -101,7 +101,7 @@ def main(datasets=None, scorer="cmhmil_seed7"):
     df.to_csv(os.path.join(OUT, "e4_mde_table.csv"), index=False, encoding="utf-8-sig")
     with open(os.path.join(OUT, "e4_power_curves.json"), "w") as f:
         json.dump(curves, f)
-    print("\n== 可分辨性谱系 (ΔA=0.05, power≥0.8) ==")
+    print("\n== zh:zh_9272 (ΔA=0.05, power≥0.8) ==")
     print(df[["dataset", "K_blocks", "MDE_AUROC_pts", "K_needed_for_5AUROCpts", "verdict"]].to_string(index=False))
 
 

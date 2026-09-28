@@ -1,8 +1,8 @@
-"""E3-clean N1: 块级随机对分 + 符号置换 (预注册 §7.1).
+"""E3-clean N1: blockzh:zh_4542randompairzh:zh_746 + signpermutation (pre-registered §7.1).
 
-N1 = 同一条缓存分数序列, 把块(事件段+正常间隔)随机对分为 G1/G2 (按类型分层),
-伪检测器 A=(s,G1), B=(s,G2) —— H0 按构造成立; 参考检验 = 块级配对差的符号置换.
-符号置换以块为单位 (整块翻符号), 是校准参照: 其经验 size 应 ≈ α.
+N1 = samezh:zh_6443rowscachezh:scoreseries, zh:zh_1239block(zh:eventsegment+zh:normalzh_6966)zh:randompairzh:zh_746is  G1/G2 (perzh:typestratified),
+zh:zh_2493detector A=(s,G1), B=(s,G2) —— H0 perzh:constructionzh_2725; zh:referencetest = blockzh:zh_4542paireddifference signpermutation.
+signpermutationzh:zh_5665blockis zh:zh_696bit (zh:zh_8990blockzh:zh_4670sign), zh:zh_5050calibrationreference: zh:zh_7753empirical size zh:zh_2483 ≈ α.
 """
 from __future__ import annotations
 
@@ -10,10 +10,10 @@ import numpy as np
 
 
 def split_halves(block_stat_list, rng):
-    """块级统计量随机对分 (按 kind 分层, 各取一半入 G1/G2).
+    """blockzh:zh_4542statisticszh_1031randompairzh:zh_746 (per kind stratified, zh:zh_2897 G1/G2).
 
-    block_stat_list: [{block,kind,n,m,...}] — block_stats() 的输出.
-    Returns: (g1_means, g2_means) 两组块均值数组 (进入配对序列的块).
+    block_stat_list: [{block,kind,n,m,...}] — block_stats()  writes.
+    Returns: (g1_means, g2_means) zh:zh_4920blockmeanzh:array (zh:zh_534pairedzh:series block).
     """
     idx = {"event": [], "normal": []}
     for j, b in enumerate(block_stat_list):
@@ -24,16 +24,16 @@ def split_halves(block_stat_list, rng):
         rng.shuffle(ids)
         half = len(ids) // 2
         g1.extend(ids[:half])
-        g2.extend(ids[half:2 * half])  # 奇数个时余一块不入配对(双侧对称)
+        g2.extend(ids[half:2 * half])  # zh:zh_6571 zh:zh_1126blocknotzh:zh_854paired(two-zh:zh_2149pairzh:zh_3065)
     m = np.array([block_stat_list[j]["m"] for j in range(len(block_stat_list))])
     return m[g1], m[g2]
 
 
 def sign_perm_test(m, rng, n_perm=999):
-    """块级配对差 m_k (已中心化前) 的符号置换检验.
+    """blockzh:zh_4542paireddifference m_k (zh:zh_4345)  signpermutationzh:test.
 
-    H0: m_k 对称分布于 0. 统计量 = mean(m); 置换 = 整体翻符号.
-    返回双侧 p 值 (含观测值在内的置换分布).
+    H0: m_k pairzh:zh_2246 0. zh:statisticszh_1031 = mean(m); permutation = zh:zh_5163sign.
+    returnstwo-zh:zh_2149 p zh:value (zh:zh_1640valuezh_8095 permutationzh:zh_2806).
     """
     m = np.asarray(m, float)
     if len(m) < 3:
@@ -47,10 +47,10 @@ def sign_perm_test(m, rng, n_perm=999):
 
 
 def n1_pvalue(d, blocks, rng, min_seg=10):
-    """一次 N1 重复: 分层对分 + 分层组置换 p 值.
+    """zh:zh_3485 N1 replicates: stratifiedpairzh:zh_746 + stratifiedzh:zh_2928permutation p zh:value.
 
-    置换必须保持事件/正常块的组内平衡 (与对分的分层机制一致),
-    否则置换零分布过宽 → 检验系统性保守 (B=500 全不拒绝的教训).
+    permutationzh:mustzh_8172event/zh:normalblock zh:zh_6940 (withpairzh:zh_746 stratifiedzh:zh_678identical),
+    zh:otherwisepermutationzh:zh_5472 → zh:testzh_3059 (B=500 zh:zh_9405notzh:zh_5465 zh:zh_3874).
     """
     from common.blocks import block_stats
     bstat = [b for b in block_stats(d, blocks, min_seg=min_seg)]
@@ -62,7 +62,7 @@ def n1_pvalue(d, blocks, rng, min_seg=10):
     def stat(e1, e2, n1v, n2v):
         return (np.concatenate([e1, n1v]).mean() - np.concatenate([e2, n2v]).mean())
 
-    # 观测: 各 kind 内对分
+    # zh:zh_6331: zh:zh_5226 kind zh:zh_3990pairzh:zh_746
     rng.shuffle(ev)
     rng.shuffle(no)
     he, ho = len(ev) // 2, len(no) // 2

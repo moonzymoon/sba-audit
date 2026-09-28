@@ -16,13 +16,13 @@ import sys
 import numpy as np
 from sklearn.metrics import roc_auc_score
 
-sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src")
-sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src/bootstrap")
+sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src")
+sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src/bootstrap")
 from common.blocks import build_blocks, resample_blocks  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness  # noqa: E402
 
-R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
+R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
 SC = ["cmhmil_seed7", "pca", "iforest"]
 BMS = {"SMD": 70.6, "PSM": 26.6, "MSL": 43.1, "SMAP": 49.2, "WADI": 610.1}
 B = 400

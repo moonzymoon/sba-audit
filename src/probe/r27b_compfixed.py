@@ -11,7 +11,7 @@ import os, sys, json
 import numpy as np
 from scipy import stats as st
 
-sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
+sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
 from bootstrap.e3_clean import load_goodness  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from common.blocks import build_blocks  # noqa: E402
@@ -57,5 +57,5 @@ for ds in ["SMD", "PSM", "MSL", "SMAP", "WADI"]:
                     size_compfixed=round(float(size), 3)))
     print(ds, out[-1], flush=True)
 
-json.dump(out, open(r"D:\0科研\工作1\第15篇SCI\02_实验记录\results\r27b_compfixed.json", "w"), indent=1)
+json.dump(out, open(r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results\r27b_compfixed.json", "w"), indent=1)
 print("saved r27b_compfixed.json")

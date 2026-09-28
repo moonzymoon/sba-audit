@@ -1,18 +1,18 @@
-"""事件段清单构建 (阶段0-4, 全部推断的骨架).
+"""zh:eventsegmentzh:zh_6725 (zh:zh_5303segment0-4, allzh:zh_5348 zh:zh_5604).
 
-每数据集输出 CSV: 段ID/起止(缓存坐标+原始test坐标)/时长/涉及channel/标注来源.
+each datasetwrites CSV: segmentID/zh:zh_1435(cachezh:axis+zh:zh_3710testzh:axis)/zh:zh_7211/zh:zh_1996andchannel/zh:zh_663source.
 
-坐标口径:
-- 缓存坐标: cmhmil_{ds}_seed7.npz 的 labels 索引 (本文全部推断实际使用的序列);
-  它 = 35/15/50 时序切分的 test 段, 再前移 w-1=15 (滑窗修剪, 标签锚点=窗口右端).
-- 原始坐标: 未修剪的 test 段坐标 (与 SMD interpretation_label / iTrust 攻击表对齐用).
-- 验证: 用第2篇 loaders+chronological_split 重建 test 标签, 校验 缓存labels == testY[15:].
-  (SWaT/WADI loader 解析大 CSV 较慢, 允许 --no-verify 跳过并在 notes 标注.)
+zh:axiszh_4371:
+- cachezh:axis: cmhmil_{ds}_seed7.npz   labels index (zh:zh_136allzh:zh_2310use zh:series);
+  zh:zh_8388 = 35/15/50 chronological split  test segment, zh:zh_9603 w-1=15 (zh:zh_5328, labelzh:zh_2874point=windowzh:zh_1538).
+- zh:zh_3710axis: zh:zh_1257  test segmentzh:axis (with SMD interpretation_label / iTrust zh:zh_4879tablepairzh:zh_6385).
+- zh:verify: zh:zh_8215paper 2 loaders+chronological_split zh:zh_335 test label, zh:zh_8488 cachelabels == testY[15:].
+  (SWaT/WADI loader zh:parsezh_916 CSV zh:zh_250, zh:zh_8227 --no-verify skipzh:zh_4845 notes zh:zh_8044.)
 
-channel 归属:
-- SMD: interpretation_label/machine-1-1.txt 逐段根因通道 (1-based), 按原始坐标重叠映射;
-- MSL/SMAP: 本仓库 NASA AllInOne 已合并为单流且 info.json 为空 -> aggregate (逐通道区间不可复原);
-- PSM/SWaT/WADI: 标签即整体流标签 -> aggregate.
+channel zh:zh_3121:
+- SMD: interpretation_label/machine-1-1.txt zh:zh_2843segmentzh:zh_671 (1-based), perzh:zh_3710axiszh_5188;
+- MSL/SMAP: zh:zh_4251 NASA AllInOne zh:zh_7289is zh:zh_8759and info.json is zh:zh_6162 -> aggregate (zh:zh_4389intervalnotzh:zh_8356);
+- PSM/SWaT/WADI: labelzh:i.e.zh_4348label -> aggregate.
 """
 from __future__ import annotations
 
@@ -26,10 +26,10 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common.events import events_from_binary  # noqa: E402
 
-CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
-DS_ROOT = r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/datasets"
-OUT_DIR = r"D:/0科研/工作1/第15篇SCI/01_立项与调研/事件段清单"
-W_TRIM = 15  # cmhmil 缓存标签相对原始 test 起点的前移量 (w-1)
+CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
+DS_ROOT = r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/datasets"
+OUT_DIR = r"D:/0keyan/gongzuo1/paper 15SCI/01_zh:zh_8028withzh:zh_9766/zh:eventsegmentzh:zh_7558"
+W_TRIM = 15  # cmhmil cachelabelzh:zh_9362pairzh:zh_3710 test zh:zh_8664point zh:zh_3576 (w-1)
 
 DATASETS = ["SMD", "PSM", "MSL", "SMAP", "SWaT", "WADI"]
 
@@ -40,7 +40,7 @@ def cached_labels(ds):
 
 
 def parse_smd_interpretation(path):
-    """'15849-16368:1,9,10' -> [(s,e,[ch...]), ...] (原始坐标, 1-based 通道号)."""
+    """'15849-16368:1,9,10' -> [(s,e,[ch...]), ...] (zh:zh_3710axis, 1-based zh:zh_5220)."""
     out = []
     with open(path) as f:
         for line in f:
@@ -54,8 +54,8 @@ def parse_smd_interpretation(path):
 
 
 def rebuild_test_labels(ds):
-    """第2篇 loader 重建 (train+test 全序列标签, test 起点偏移). 返回 (Y_all, n_before_test)."""
-    sys.path.insert(0, r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/src")
+    """paper 2 loader zh:zh_335 (train+test zh:zh_9405serieslabel, test zh:zh_8664pointzh_853). returns (Y_all, n_before_test)."""
+    sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/src")
     from data.loaders import load_dataset
     from data.split import chronological_split
     _, Y = load_dataset(ds)
@@ -73,29 +73,29 @@ def build(ds, verify=True):
         interp = parse_smd_interpretation(
             os.path.join(DS_ROOT, "SMD", "interpretation_label", "machine-1-1.txt"))
 
-    # 验证坐标锚定
+    # zh:verifyaxiszh_970
     note_verify = "verified"
     if verify:
         try:
             y_test, test_start = rebuild_test_labels(ds)
             if len(y_test) - W_TRIM != T or not np.array_equal(y_test[W_TRIM:], y):
-                raise ValueError("缓存标签与 loader 重建不一致")
+                raise ValueError("cachelabelwith loader zh:zh_335notidentical")
         except Exception as e:  # noqa: BLE001
             note_verify = f"verify-failed({e})"
     else:
-        note_verify = "not-verified(loader慢, 跳过)"
+        note_verify = "not-verified(loaderzh:zh_424, skip)"
 
     for seg_id, (s, e) in enumerate(events):
         s_orig, e_orig = s + W_TRIM, e + W_TRIM
         if interp is not None:
             chs = []
             for is_, ie, ic in interp:
-                if min(e_orig, ie + 1) > max(s_orig, is_):  # 原始坐标重叠
+                if min(e_orig, ie + 1) > max(s_orig, is_):  # zh:zh_3710axiszh_8297
                     chs.extend(c for c in ic if c not in chs)
             ch_str = ",".join(str(c) for c in sorted(chs)) if chs else "unannotated"
             n_ch, src = (len(chs), "SMD interpretation_label")
         else:
-            ch_str, n_ch, src = ("aggregate", np.nan, "整体流标签(无逐通道标注)")
+            ch_str, n_ch, src = ("aggregate", np.nan, "zh:zh_4348label(no zh:zh_2613)")
         rows.append(dict(
             dataset=ds, seg_id=seg_id, start=s, end=e, duration=e - s,
             start_orig=s_orig, end_orig=e_orig,
@@ -113,7 +113,7 @@ def main():
     summary = []
     for ds in args.datasets:
         df, T = build(ds, verify=not args.no_verify)
-        out = os.path.join(OUT_DIR, f"{ds}_事件段清单.csv")
+        out = os.path.join(OUT_DIR, f"{ds}_zh:eventsegmentzh:zh_7558.csv")
         df.to_csv(out, index=False, encoding="utf-8-sig")
         big = df[df.duration >= 10]
         summary.append(dict(dataset=ds, T_test=T, n_segments=len(df),
@@ -121,10 +121,10 @@ def main():
                             median_dur=big.duration.median() if len(big) else np.nan,
                             max_dur=big.duration.max() if len(big) else np.nan,
                             anom_ratio=round(float(y_sum(df, T)), 4)))
-        print(f"{ds}: T={T}, 段数={len(df)} (>=10点: {len(big)}), "
-              f"段长中位数={summary[-1]['median_dur']}, 已写出 {out}")
+        print(f"{ds}: T={T}, segmentzh:zh_4930={len(df)} (>=10zh:point: {len(big)}), "
+              f"segmentzh:zh_8199bitzh_4930={summary[-1]['median_dur']}, written {out}")
     sm = pd.DataFrame(summary)
-    sm.to_csv(os.path.join(OUT_DIR, "_汇总.csv"), index=False, encoding="utf-8-sig")
+    sm.to_csv(os.path.join(OUT_DIR, "_zh:zh_5435.csv"), index=False, encoding="utf-8-sig")
     print(sm.to_string(index=False))
 
 

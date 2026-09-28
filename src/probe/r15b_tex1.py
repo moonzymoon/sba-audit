@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """R15b tex part 1: bridge disclosure (sec 4), AP-link, anatomy scale note."""
 BS = chr(92)
-p = r"D:\0科研\工作1\第15篇SCI\03_论文\main.tex"
+p = r"D:\0keyan\gongzuo1\paper 15SCI\03_lunwen\main.tex"
 s = open(p, encoding="utf-8").read()
 
 def rep(a, b, tag):

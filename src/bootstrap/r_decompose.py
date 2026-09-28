@@ -1,17 +1,17 @@
-"""r 的解析分解与验证 (§6.3 升级): r = T·Var(ḡ1)/(2·Var(g)).
+"""r  zh:parsedecompositionwithzh:verify (§6.3 zh:zh_1955): r = T·Var(ḡ1)/(2·Var(g)).
 
-分解 (重抽样设计下, ḡ 为常量, Var(d̄)=Var(ḡ1)):
-  ḡ1 = w·m̄*_e + (1−w)·m̄*_n   (w = 副本中事件块窗口占比)
-  ≈ Term_mix    : Var(w)·(μ_e − μ_n)^2             [类混合: 副本含多少事件块]
+zh:decomposition (zh:resamplingdesignzh_5169, ḡ is zh:zh_465, Var(d̄)=Var(ḡ1)):
+  ḡ1 = w·m̄*_e + (1−w)·m̄*_n   (w = zh:zh_8029eventblockwindowzh:zh_1750)
+  ≈ Term_mix    : Var(w)·(μ_e − μ_n)^2             [zh:zh_9530: zh:zh_2194eventblock]
   + Term_select : E[w²]·σ²_{m,e}·E[1/n_e] + E[(1−w)²]·σ²_{m,n}·E[1/n_n]
-                                            [类内选段: 抽到哪些段]
-  + residual    (长度加权、截尾、类内计数与选段耦合等)
+                                            [zh:zh_9936segment: zh:zh_4937segment]
+  + residual    (zh:lengthzh_2944、zh:zh_448、zh:zh_2173withzh:zh_3970segmentzh:zh_6308etc.)
 
-预测只用单次运行的池统计 (μ, σ²_m) 与设计层面的 w/n 分布
-(对索引数组做纯组成重抽 MC, 不触及检验机制) → r_pred 与经验 r 对比.
+zh:predictionzh_5648row zh:zh_5414statistics (μ, σ²_m) withzh:designzh_6945  w/n zh:zh_2806
+(pairindexzh:arrayzh_9431pure zh:zh_4623 MC, notzh:zh_1226andzh:testzh_678) → r_pred withempirical r pairzh:zh_8961.
 
-用法: python bootstrap/r_decompose.py
-输出: results/r_decomposition.csv + 控制台摘要
+zh:zh_966: python bootstrap/r_decompose.py
+writes: results/r_decomposition.csv + zh:zh_3200
 """
 from __future__ import annotations
 
@@ -27,7 +27,7 @@ from bootstrap.e3_clean import load_goodness, block_mean_pools  # noqa: E402
 from common.blocks import build_blocks, resample_blocks, block_stats  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 
-RES = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+RES = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
 MC = 4000
 SEED = 20260902
 
@@ -37,7 +37,7 @@ def decompose_cell(dataset, scorer, mc=MC):
     T = len(g)
     events = events_from_binary(y)
     blocks = build_blocks(events, T)
-    # pos → kind 查找表 (索引数组重抽后可直接反查来源块)
+    # pos → kind zh:zh_9007table (indexzh:arrayzh_9151directzh_8600sourceblock)
     pos_kind = np.zeros(T, dtype=np.int8)
     pos_blk = np.full(T, -1, dtype=np.int32)
     for i, (kd, a, b) in enumerate(blocks):
@@ -53,7 +53,7 @@ def decompose_cell(dataset, scorer, mc=MC):
     mu_e, mu_n = float(ev.mean()), float(no.mean())
     v_e, v_n = float(ev.var(ddof=1)), float(no.var(ddof=1))
 
-    # 设计层 MC: 对索引数组重抽 (与主检验同一 resample_blocks, 但 rng 独立流)
+    # zh:designzh_419 MC: pairindexzh:arrayzh_17 (withzh:zh_8529testsamezh:zh_6443 resample_blocks, zh:zh_3107 rng zh:zh_1073)
     ws = np.empty(mc)
     inv_ne = np.empty(mc)
     inv_nn = np.empty(mc)
@@ -62,7 +62,7 @@ def decompose_cell(dataset, scorer, mc=MC):
         drawn = resample_blocks(idx, blocks, rng)[0]
         kat = pos_kind[drawn]
         w = kat.mean()
-        # 去重块 ID 计数 (同块被抽多次仍是一个"来源段", 选段项按来源段数)
+        # zh:zh_3226block ID zh:zh_4001 (sameblockzh:zh_5624 "zh:zh_1325sourcesegment", zh:zh_3970segmentzh:zh_9939perzh:zh_1325sourcesegmentzh:zh_4930)
         ne = np.unique(pos_blk[drawn][kat == 1]).size
         nn_ = np.unique(pos_blk[drawn][kat == 0]).size
         ws[b] = w
@@ -88,7 +88,7 @@ def main():
     for _, c in cells.iterrows():
         try:
             out = decompose_cell(c.dataset, c.scorer)
-        except Exception as e:  # 缺缓存/退化结构: 记录不中断
+        except Exception as e:  # zh:zh_1963cache/zh:zh_4068: recordnotzh:zh_6644
             print(f"  skip {c.dataset}/{c.scorer}: {type(e).__name__} {e}")
             out = None
         if out is not None:
@@ -100,14 +100,14 @@ def main():
     df = pd.DataFrame(rows)
     df.to_csv(os.path.join(RES, "r_decomposition.csv"), index=False, encoding="utf-8-sig")
     lr_p, lr_e = np.log(df.r_pred), np.log(df.r_emp)
-    print("\n=== r 解析分解验证 ===")
+    print("\n=== r zh:parsedecompositionverify ===")
     print(f"cells: {len(df)}")
     print(f"corr(log r_pred, log r_emp) = {np.corrcoef(lr_p, lr_e)[0,1]:.3f}")
     sl = np.polyfit(lr_e, lr_p, 1)
-    print(f"OLS log-log slope = {sl[0]:.3f} (1=理想), intercept = {sl[1]:.3f}")
-    print(f"median share_mix (类混合占比) = {df.share_mix.median():.3f} "
+    print(f"OLS log-log slope = {sl[0]:.3f} (1=zh:zh_5289), intercept = {sl[1]:.3f}")
+    print(f"median share_mix (zh:zh_8075) = {df.share_mix.median():.3f} "
           f"(IQR {df.share_mix.quantile(.25):.3f}–{df.share_mix.quantile(.75):.3f})")
-    print(f"r_pred/r_emp 几何均值 = {np.exp((lr_p - lr_e).mean()):.3f}")
+    print(f"r_pred/r_emp zh:zh_7829mean = {np.exp((lr_p - lr_e).mean()):.3f}")
     print(df[["dataset", "scorer", "r_emp", "r_pred", "share_mix",
               "K_e", "K_n"]].to_string(index=False))
 

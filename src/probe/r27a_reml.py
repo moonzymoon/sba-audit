@@ -13,8 +13,8 @@ import numpy as np
 from scipy.optimize import minimize
 from scipy.linalg import cho_factor, cho_solve
 
-CACHE = r"D:\0科研\工作1\第6篇SCI\src\_score_cache"
-RES = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results"
+CACHE = r"D:\0keyan\gongzuo1\paper 6SCI\src\_score_cache"
+RES = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results"
 CORE6 = ["SMD", "PSM", "MSL", "SMAP", "SWaT", "WADI"]
 CMH_SEEDS = {"SMD": [0, 1, 2, 3, 7, 31, 42, 97, 123, 2024],
              "PSM": [0, 1, 2, 3, 7, 31, 42, 97, 123, 2024],

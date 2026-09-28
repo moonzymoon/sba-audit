@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""扫描收尾后的计数同步分析器 (armed; 聚合完成后运行).
+"""zh:scanzh_5995 zh:zh_4001samezh:zh_7803 (armed; aggregationdonezh:zh_5693row).
 
-输出论文需要联动更新的全部数字: 总格数/窗口可算/退化/块可算, 尺寸范围,
-新增格明细(按 dataset×scorer 显式识别, 不依赖行序), Table 3 受影响行.
+writeslunwenzh:needzh_6577new allzh:zh_2623: zh:zh_8811cellzh:zh_4930/windowzh:zh_8742/zh:zh_3558/blockzh:zh_8742, zh:zh_6265range,
+newzh:zh_9164cellzh:zh_796(per dataset×scorer zh:zh_271, notzh:zh_8749rowzh:zh_2250), Table 3 zh:zh_4509row.
 """
 import pandas as pd
 
-R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
+R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
 df = pd.read_csv(R + "e3_clean_summary.csv")
 print("total cells:", len(df))
 

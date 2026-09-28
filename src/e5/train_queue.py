@@ -1,9 +1,9 @@
-"""E5 十种子训练队列 (预注册 §6 seed 协议 + R3 扩充).
+"""E5 zh:zh_9092seedtrainingzh:zh_4696 (pre-registered §6 seed zh:zh_1063 + R3 extended).
 
-预注册新种子 {0,1,2,3,4,5,6,8,9,10}; 既有独立种子 {7,31,42,97,123,2024}(第2篇 checkpoint).
-本队列逐 (dataset, seed) 训练(跳过已有 checkpoint)并立即推理缓存分数, GPU 单流串行.
-优先级: SMD(最快) -> PSM -> SWaT -> MSL -> SMAP -> WADI.
-用法: python e5/train_queue.py [--max-runs N]
+pre-registerednewzh:seed {0,1,2,3,4,5,6,8,9,10}; zh:zh_7758seed {7,31,42,97,123,2024}(paper 2 checkpoint).
+zh:zh_1426 (dataset, seed) training(skipzh:zh_6379 checkpoint)zh:zh_2878i.e.zh_4655cachezh:score, GPU zh:zh_4017row.
+zh:zh_5354: SMD(zh:zh_2235) -> PSM -> SWaT -> MSL -> SMAP -> WADI.
+zh:zh_966: python e5/train_queue.py [--max-runs N]
 """
 import argparse
 import os
@@ -11,12 +11,12 @@ import sys
 import time
 import traceback
 
-sys.path.insert(0, r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/src")
-sys.path.insert(0, r"D:/0科研/工作1/第6篇SCI/src")
+sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/src")
+sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 6SCI/src")
 
-CKPT_DIR = r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/results/checkpoints"
-CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
-LOG = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results/e5_train_queue.log"
+CKPT_DIR = r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/results/checkpoints"
+CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
+LOG = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/e5_train_queue.log"
 
 QUEUE = [
     ("SMD", [0, 1, 2, 3]),
@@ -41,9 +41,9 @@ def main():
     args = ap.parse_args()
     import torch
     from utils.repro import load_config
-    cfg = load_config(r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/configs/default.yaml")
+    cfg = load_config(r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/configs/default.yaml")
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    log(f"E5 训练队列启动, device={device}")
+    log(f"E5 trainingzh:zh_5486, device={device}")
     from train import train_one_seed
     from cadms.scorers import cmh_mil_scores
     n = 0
@@ -64,13 +64,13 @@ def main():
             if os.path.exists(ckpt) and not os.path.exists(cache):
                 try:
                     s, y = cmh_mil_scores(ds, seed=seed, use_cache=False)
-                    log(f"SCORE {ds} seed{seed}: T={len(s)} 已缓存")
+                    log(f"SCORE {ds} seed{seed}: T={len(s)} cache")
                 except Exception as e:  # noqa: BLE001
                     log(f"SCORE FAIL {ds} seed{seed}: {e}")
             if n >= args.max_runs:
-                log(f"达到 max-runs={args.max_runs}, 队列退出")
+                log(f"zh:zh_787 max-runs={args.max_runs}, zh:zh_1889")
                 return
-    log("队列全部完成")
+    log("zh:zh_4696alldone")
 
 
 if __name__ == "__main__":

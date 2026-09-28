@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """R15b tex part 2a: e1 method sentence -> direct recomputation (framework text)."""
-p = r"D:\0科研\工作1\第15篇SCI\03_论文\main.tex"
+p = r"D:\0keyan\gongzuo1\paper 15SCI\03_lunwen\main.tex"
 s = open(p, encoding="utf-8").read()
 BS = chr(92)
 

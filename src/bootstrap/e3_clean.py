@@ -1,15 +1,15 @@
-"""E3-clean 驱动 (预注册 §7.1): 纯评估噪声零假设下的经验 Type I.
+"""E3-clean driver (pre-registered §7.1): pure zh:zh_9398assumptionzh_5169 empirical Type I.
 
-被审计协议 (每格 B=10000 次重复, 记录每次 p 值):
-  ① 窗口级 paired-t        — d_t 视为 iid (真实论文的窗口级做法)
-  ② 窗口级 Wilcoxon 符号秩
-  ③ 块级 paired-t          — m_k (块内 d 均值) 视为 iid
-  ④ 块级 Wilcoxon
-  ⑤ 块级符号置换 (校准参照, N1 对分实现)
-主定义: N2 配对 (s, s*) — 预注册冻结原文;
-附列 robust: (s1*, s2*) 两独立 bootstrap 副本配对 — 防同块重抽的零簇伪影 (文档化扩展, 非静默).
+zh:zh_4307auditzh:zh_1063 (each cell B=10000 zh:zh_6249replicates, recordeach zh:zh_6249 p zh:value):
+  ① windowzh:zh_4542 paired-t        — d_t treated as iid (reallunwen windowzh:zh_4557)
+  ② windowzh:zh_4542 Wilcoxon signed-rank
+  ③ blockzh:zh_4542 paired-t          — m_k (blockzh:zh_3990 d mean) treated as iid
+  ④ blockzh:zh_4542 Wilcoxon
+  ⑤ blockzh:zh_4542signpermutation (calibrationreference, N1 pairzh:zh_1456)
+zh:zh_8529definition: N2 paired (s, s*) — pre-registeredfrozenoriginal text;
+zh:zh_538 robust: (s1*, s2*) zh:zh_222 bootstrap zh:zh_8698paired — zh:zh_3417sameblockzh:zh_17 zh:zh_6336 (zh:zh_3218, zh:zh_4704).
 
-用法: python bootstrap/e3_clean.py SMD cmhmil_seed7 [B]
+zh:zh_966: python bootstrap/e3_clean.py SMD cmhmil_seed7 [B]
 """
 from __future__ import annotations
 
@@ -25,9 +25,9 @@ from common.blocks import build_blocks, resample_blocks, block_stats  # noqa: E4
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.n1_split_sign import n1_pvalue  # noqa: E402
 
-CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
-RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
-GLOBAL_SEED = 20260902  # 预注册 §6
+CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
+RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
+GLOBAL_SEED = 20260902  # pre-registered §6
 
 
 def cache_file(scorer, dataset):
@@ -37,22 +37,22 @@ def cache_file(scorer, dataset):
 
 
 def load_goodness(scorer, dataset):
-    """秩尺度符号裕量 (预注册 §4 + 修订记录 R1).
+    """rankzh:zh_405signzh:zh_4040 (pre-registered §4 + zh:zh_6924record R1).
 
-    R1: 缓存原始分数重尾 (cmhmil |s| 至 5e13, 中位数 1.6), 原始尺度配对差使 t 检验崩溃、
-    方差被离群块主导. 改用 run 内秩变换 rank(s)/N (并列取平均秩) —— 与主指标 AUROC 的
-    U 统计量结构对齐. 两臂对称施加, 不影响零假设成立性.
+    R1: cachezh:zh_3710scorezh_5936 (cmhmil |s| zh:zh_9468 5e13, zh:zh_4657bitzh_4930 1.6), zh:zh_2701paireddifferencezh:zh_7495 t zh:testzh_7153、
+    zh:zh_6254differencezh:zh_2616blockzh:zh_7467. zh:zh_2562 run zh:zh_3990rankzh:zh_2034 rank(s)/N (zh:zh_6700rank) —— withzh:zh_8529metric AUROC  
+    U zh:statisticszh_170pairzh:zh_4248. zh:zh_6670pairzh:zh_5145, notzh:zh_8946assumptionzh_8116.
     """
     from scipy.stats import rankdata
     d = np.load(cache_file(scorer, dataset))
     s, y = d["scores"].astype(np.float64), d["labels"].astype(np.int8)
     r = rankdata(s) / len(s)
-    g = r * (2.0 * y - 1.0)  # 符号裕量, 秩尺度
+    g = r * (2.0 * y - 1.0)  # signzh:zh_4040, rankzh:zh_405
     return g, y
 
 
 def block_mean_pools(g, blocks, min_seg=10):
-    """合格块均值池 (按 kind 分, 修订 R2 的块级配对原料)."""
+    """zh:zh_7974cellblockmeanzh:zh_5414 (per kind zh:zh_746, zh:zh_6924 R2  blockzh:zh_4542pairedzh:zh_9968)."""
     st = block_stats(g, blocks, min_seg=min_seg)
     ev = np.array([b["m"] for b in st if b["kind"] == "event"])
     no = np.array([b["m"] for b in st if b["kind"] == "normal"])
@@ -60,12 +60,12 @@ def block_mean_pools(g, blocks, min_seg=10):
 
 
 def block_level_pvalues(g, blocks, rng, min_seg=10):
-    """块级协议 ③④⑤ (修订 R2): 块均值层配对自助——**两次独立抽取配对**.
+    """blockzh:zh_4714 ③④⑤ (zh:zh_6924 R2): blockmeanzh:zh_419pairedzh:zh_1777——**zh:zh_3207paired**.
 
-    d_j = m1*_j − m2*_j, 两者皆从同 kind 合格块均值池有放回独立抽取.
-    E[mean(d_j)]=0 精确成立, 且分子分母方差结构匹配 (单侧固定的 original-vs-一次重抽
-    会把 t 压低 √2 → 系统保守). 两次独立抽取也更贴近被审计场景: 两个种子 = 两次实现.
-    ⑤ 符号置换 = 对 {d_j} 整体翻符号 (预注册原文的字面实现).
+    d_j = m1*_j − m2*_j, zh:zh_5329from same kind zh:zh_7974cellblockmeanzh:zh_4598.
+    E[mean(d_j)]=0 zh:zh_3902, andzh:zh_3711differencezh:zh_7202match (zh:zh_333fixed  original-vs-zh:zh_6966
+    zh:zh_3783 t zh:zh_5953 √2 → zh:zh_9707). zh:zh_5917auditzh:zh_9542: zh:zh_1666 zh:seed = zh:zh_6429.
+    ⑤ signpermutation = pair {d_j} zh:zh_5163sign (pre-registeredoriginal text zh:zh_2799).
     """
     ev, no = block_mean_pools(g, blocks, min_seg)
     if len(ev) < 2 or len(no) < 2:
@@ -88,11 +88,11 @@ def block_level_pvalues(g, blocks, rng, min_seg=10):
 
 
 def proto_pvalues(d, blocks, rng, min_seg=10):
-    """窗口级协议 ①② (块级协议已移至 block_level_pvalues, 修订 R2)."""
+    """windowzh:zh_4714 ①② (blockzh:zh_5499 block_level_pvalues, zh:zh_6924 R2)."""
     p1 = float(stats.ttest_1samp(d, 0.0).pvalue)
     try:
         p2 = float(stats.wilcoxon(d).pvalue)
-    except ValueError:  # 全零差
+    except ValueError:  # zh:zh_2770difference
         p2 = 1.0
     return p1, p2
 
@@ -110,18 +110,18 @@ def run(dataset, scorer, B=10000, shard=None, n_shards=1):
     lo = 0 if shard is None else B * shard // n_shards
     hi = B if shard is None else B * (shard + 1) // n_shards
     for b in range(lo, hi):
-        rng = np.random.default_rng(GLOBAL_SEED + b)  # 每次重复可独立复现
+        rng = np.random.default_rng(GLOBAL_SEED + b)  # each zh:zh_6249replicateszh:zh_3030reproduction
         g1 = resample_blocks(g, blocks, rng)[0]
         d = g - g1
-        p1, p2 = proto_pvalues(d, blocks, rng)                      # 窗口级 ①②
-        p3, p4, p5 = block_level_pvalues(g, blocks, rng)            # 块级 ③④⑤ (修订 R2)
-        p6 = n1_pvalue(g, blocks, rng)                              # N1 对分参照
+        p1, p2 = proto_pvalues(d, blocks, rng)                      # windowzh:zh_4542 ①②
+        p3, p4, p5 = block_level_pvalues(g, blocks, rng)            # blockzh:zh_4542 ③④⑤ (zh:zh_6924 R2)
+        p6 = n1_pvalue(g, blocks, rng)                              # N1 pairzh:zh_746reference
         res["win_t"][b - lo], res["win_wilcox"][b - lo] = p1, p2
         res["blk_t"][b - lo], res["blk_wilcox"][b - lo] = p3, p4
         res["blk_signperm"][b - lo] = p5
         res["n1_signperm"][b - lo] = p6
         dbar[b - lo] = d.mean()
-        # robust: 窗口级=两独立副本; 块级=块均值池独立再抽
+        # robust: windowzh:zh_4542=zh:zh_6313; blockzh:zh_4542=blockmeanzh:zh_4283
         rng2 = np.random.default_rng(GLOBAL_SEED + 1000000 + b)
         ga = resample_blocks(g, blocks, rng2)[0]
         gb = resample_blocks(g, blocks, rng2)[0]
@@ -137,7 +137,7 @@ def run(dataset, scorer, B=10000, shard=None, n_shards=1):
     np.savez_compressed(os.path.join(RCACHE, f"e3clean_{tag}.npz"),
                         B=B, T=T, dbar=dbar,
                         n_blocks=len(blocks), **res)
-    # 汇总
+    # zh:zh_5435
     alpha = 0.05
     out = {"dataset": dataset, "scorer": scorer, "B": hi - lo, "T": T,
            "n_blocks": len(blocks)}

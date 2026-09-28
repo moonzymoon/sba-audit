@@ -1,17 +1,17 @@
 # -*- coding: utf-8 -*-
-"""R7 增补: 配对尺度分析 — 真实跨检测器块级差 vs 两独立抽取σ_d (外部审查V5/M10回应)."""
+"""R7 zh:zh_299: pairedzh:zh_3615 — realzh:zh_8800detectorblockzh:zh_4542difference vs zh:zh_9771σ_d (zh:externalzh_8980V5/M10zh:zh_1311)."""
 import sys
 
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src")
-sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src/bootstrap")
+sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src")
+sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src/bootstrap")
 from common.blocks import build_blocks, block_stats  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness  # noqa: E402
 
-R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
+R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
 BMS = ["SMD", "PSM", "MSL", "SMAP", "WADI"]
 SC = ["cmhmil_seed7", "iforest", "pca", "gmm", "ocsvm", "lof"]
 
@@ -51,13 +51,13 @@ for bm in BMS:
              x.mde_new.iloc[0], x.mde_paired.max(), int((x.rho_paired >= 1).sum()), len(x)))
 print("\nmax rho_paired overall: %.3f" % df.rho_paired.max())
 
-print("\n== V_seed 逐数据集诊断 ==")
+print("\n== V_seed zh:zh_2843datasetzh:zh_6589 ==")
 mt = pd.read_csv(R + "e1_full_metric_table.csv")
 cmh = mt[(mt.detector == "cmhmil") & (mt.dataset.isin(BMS))]
 v = cmh.groupby("dataset")["AUROC"].agg(["var", "count", "std"])
 print(v.round(5).to_string())
 
-print("\n== WADI 块长 CV ==")
+print("\n== WADI blockzh:zh_1935 CV ==")
 g, y = load_goodness("cmhmil_seed7", "WADI")
 st = block_stats(g, build_blocks(events_from_binary(y), len(y)), min_seg=10)
 ev = np.array([b["n"] for b in st if b["kind"] == "event"])

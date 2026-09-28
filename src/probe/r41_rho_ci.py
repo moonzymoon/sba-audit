@@ -4,7 +4,7 @@ import os, json
 import numpy as np
 import pandas as pd
 
-RES = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results"
+RES = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results"
 d = pd.read_csv(os.path.join(RES, "direct_scale_verdict.csv"), encoding="utf-8-sig")
 d["rho"] = d["gap_pts"] / d["mde_direct_pts"]
 obs_below = int((d["gap_pts"] < d["mde_direct_pts"]).sum())

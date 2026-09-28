@@ -1,7 +1,7 @@
-"""Fig2 修复版: 为 E3-clean 全部数据集补算 τ (pca-gmm 对, stride=1), 画 size vs tau.
+"""Fig2 fixed version: for  E3-clean recomputed for all datasets τ (pca-gmm pair , stride=1), plot  size vs tau.
 
-审查意见落实: ① 补低 τ 格子(点异常序列) 使谱系跨 1->1455; ② 图例错位修复;
-③ y 网格; ④ stride 说明移至图注(轴标签简化).
+review comments implemented: ① add low-tau τ  cells(point-anomaly series) so the spectrum spans 1->1455; ② legend offset fixed;
+③ y grid; ④ stride stride note moved to caption(simplified axis labels).
 """
 import os
 import sys
@@ -16,9 +16,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common.events import events_from_binary                    # noqa: E402
 from probe.tau_probe import load_pair, zscore, cluster_ips_tau  # noqa: E402
 
-RES = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
-FIG = r"D:/0科研/工作1/第15篇SCI/03_论文/figs"
-CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
+RES = r"D:/0keyan/gongzuo1/paper15/02_shiyanjilu/results"
+FIG = r"D:/0keyan/gongzuo1/paper15/03_lunwen/figs"
+CACHE = r"D:/0keyan/gongzuo1/paper6/src/_score_cache"
 
 summ = pd.read_csv(os.path.join(RES, "e3_clean_summary.csv"))
 summ = summ[summ.size_win_t.notna()].copy()
@@ -37,7 +37,7 @@ for ds in summ.dataset.unique():
 
 summ["tau1"] = summ.dataset.map(taus)
 sub = summ[summ.tau1.notna() & (summ.tau1 > 0)].copy()
-print(f"可画格子: {len(sub)} / {len(summ)}")
+print(f"plottable cells: {len(sub)} / {len(summ)}")
 
 ORANGE, B_ORANGE = "#FFB66D", "#F27C2B"
 SKY, BLUE, COBALT = "#A7CFF2", "#3B82D6", "#0D47A1"
@@ -61,7 +61,7 @@ ax.legend(frameon=False, fontsize=8, loc="center left")
 ax.set_title("Window-level false positives vs. segment structure (49 cells)", fontsize=9)
 fig.savefig(os.path.join(FIG, "fig2_size_vs_tau.png"))
 plt.close(fig)
-# 落盘 tau 补充表供论文引用
+# writes tau supplementary tables for the paper
 pd.DataFrame([{"dataset": k, "tau_pca_gmm_stride1": v} for k, v in taus.items()]).to_csv(
-    os.path.join(RES, "tau_pca_gmm补充.csv"), index=False, encoding="utf-8-sig")
-print("fig2 updated + tau_pca_gmm补充.csv")
+    os.path.join(RES, "tau_pca_gmmsupp_.csv"), index=False, encoding="utf-8-sig")
+print("fig2 updated + tau_pca_gmmsupp_.csv")

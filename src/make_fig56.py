@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Fig5 (缺口景观) 与 Fig6 (MDE(K) 设计图) 重生成 — R7 修正桥接 2π(1-π)."""
+"""Fig5 (gap landscape) with Fig6 (MDE(K) design chart) regenerated — R7 corrected bridge 2π(1-π)."""
 import matplotlib
 matplotlib.use("Agg")
 import json
@@ -10,8 +10,8 @@ import numpy as np
 import pandas as pd
 from scipy import stats as st
 
-RES = "D:/0科研/工作1/第15篇SCI/02_实验记录/results"
-FIG = "D:/0科研/工作1/第15篇SCI/03_论文/figs"
+RES = "D:/0keyan/gongzuo1/paper15/02_shiyanjilu/results"
+FIG = "D:/0keyan/gongzuo1/paper15/03_lunwen/figs"
 BLUE, COBALT, O = "#2c7fb8", "#1c4f81", "#e08214"
 
 e4 = pd.read_csv(os.path.join(RES, "e4_mde_table.csv"))

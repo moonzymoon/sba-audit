@@ -1,10 +1,10 @@
-"""事件段工具 (第15篇全部推断的骨架).
+"""zh:eventsegmentzh:zh_9231 (paper 15allzh:zh_5348 zh:zh_5604).
 
-事件段 = 连续异常标签区间 (start, end), end exclusive. 与第6篇 cadms.eval_utils.events_from_binary
-逐位等价 (单元测试验证), 但向量化实现以支持长序列.
+zh:eventsegment = zh:zh_6840anomalylabelinterval (start, end), end exclusive. withpaper 6 cadms.eval_utils.events_from_binary
+bit-exact zh:etc.zh_3812 (zh:zh_3208testzh:verify), zh:zh_3107vectorzh_2584series.
 
-硬约束 (预注册): 事件段是块的最小单位 —— 任何重采样 (N1/N2/block bootstrap) 中,
-同一段内的窗口同进同出, 禁止跨段切块.
+zh:zh_9806approxzh_2453 (pre-registered): zh:eventsegmentzh:zh_5050block zh:zh_6369bit —— zh:zh_8318resampling (N1/N2/block bootstrap) zh:zh_4657,
+samezh:zh_6443segmentzh:zh_3990 windowsamezh:zh_3207samezh:zh_8942, zh:zh_7240segmentzh:zh_6164block.
 """
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ import numpy as np
 
 
 def events_from_binary(b) -> list[tuple[int, int]]:
-    """连续 1-段 -> [(start, end), ...], end exclusive. 与 cadms 版逐位等价."""
+    """zh:zh_6840 1-segment -> [(start, end), ...], end exclusive. with cadms zh:zh_2687bit-exact zh:etc.zh_3812."""
     b = np.asarray(b, dtype=np.int8)
     if b.ndim != 1:
         raise ValueError(f"labels must be 1-D, got {b.shape}")
@@ -23,10 +23,10 @@ def events_from_binary(b) -> list[tuple[int, int]]:
 
 
 def windows_in_event(start: int, end: int, T: int, w: int, stride: int = 1) -> np.ndarray:
-    """段 [start,end) 内的滑窗锚点 (窗口右端/标签锚点落入段内).
+    """segment [start,end) zh:zh_3990 zh:zh_5992point (windowzh:zh_1538/labelzh:zh_2874pointzh_1022segmentzh:zh_3990).
 
-    窗口 i 覆盖 [i-w+1, i], 标签锚点为 i (与 cmhmil 缓存口径一致: yw = Yt[w-1:]).
-    返回锚点数组. stride>1 时段内按 stride 取.
+    window i zh:zh_8518 [i-w+1, i], labelzh:zh_2874pointis  i (with cmhmil cachezh:zh_4371identical: yw = Yt[w-1:]).
+    returnszh:zh_2874pointarray. stride>1 zh:zh_5104segmentzh:zh_3990per stride zh:zh_6701.
     """
     lo = max(start, w - 1)
     hi = min(end, T)
@@ -36,7 +36,7 @@ def windows_in_event(start: int, end: int, T: int, w: int, stride: int = 1) -> n
 
 
 def seg_anchor_list(events, T, w=16, stride=1, min_len=0):
-    """每个事件段 -> 该段窗口锚点数组. 过滤原始时长 < min_len 的微段.
+    """each  zh:eventsegment -> zh:thissegmentwindowzh:zh_2874pointarray. zh:zh_3043 < min_len  zh:zh_5458segment.
 
     Returns: [(seg_id, start, end, anchors), ...]
     """

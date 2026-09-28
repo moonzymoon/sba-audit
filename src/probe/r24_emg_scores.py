@@ -12,14 +12,14 @@ Protocol mirrors the suite exactly:
   pca/gmm/ocsvm/lof fit on the calibration slice [35%,50%) (scorers_extra
   convention, n_sub=8000 subsample for kernel methods)
 - score sign: larger = more anomalous
-Data: D:/0科研/数据/TSAD_数据集/EMG/test/{data,label}.npy (sparse-cloned from
+Data: D:/0keyan/zh:data/TSAD_dataset/EMG/test/{data,label}.npy (sparse-cloned from
 github.com/UCSC-REAL/NRdetector; T=130,900 x 8ch, pi=.057).
 """
 import os
 import numpy as np
 
-EMG = r"D:\0科研\数据\TSAD_数据集\EMG\test"
-CACHE = r"D:\0科研\工作1\第6篇SCI\src\_score_cache"
+EMG = r"D:\0keyan\zh:data\TSAD_dataset\EMG\test"
+CACHE = r"D:\0keyan\gongzuo1\paper 6SCI\src\_score_cache"
 W = 16
 
 X = np.load(os.path.join(EMG, "data.npy")).astype(np.float32)

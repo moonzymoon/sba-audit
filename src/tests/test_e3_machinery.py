@@ -1,4 +1,4 @@
-"""E3 机器的单元测试: 事件段硬约束 / N1 校准 / R 计算 (阶段1-2 交付要求)."""
+"""E3 zh:zh_1953 zh:zh_3208test: zh:eventsegmentzh:zh_9806approxzh_2453 / N1 calibration / R zh:compute (zh:zh_5303segment1-2 zh:zh_7103)."""
 import os
 import sys
 
@@ -13,28 +13,28 @@ from bootstrap.n1_split_sign import n1_pvalue  # noqa: E402
 
 
 def synthetic_series(rng, T=3000):
-    """3 个事件段 (含一个微段) + 正常间隔."""
+    """3  zh:eventsegment (zh:zh_1920 zh:zh_5458segment) + zh:normalzh_6966."""
     y = np.zeros(T, dtype=np.int8)
-    y[200:500] = 1     # 段1 长300
-    y[800:1600] = 1    # 段2 长800
-    y[2100:2103] = 1   # 微段 长3
-    y[2500:2900] = 1   # 段3 长400
-    x = rng.normal(size=T) + 2.0 * y  # 段内整体抬高 (段聚集结构)
+    y[200:500] = 1     # segment1 zh:zh_1935300
+    y[800:1600] = 1    # segment2 zh:zh_1935800
+    y[2100:2103] = 1   # zh:zh_5458segment zh:zh_19353
+    y[2500:2900] = 1   # segment3 zh:zh_1935400
+    x = rng.normal(size=T) + 2.0 * y  # segmentzh:zh_570 (segmentzh:zh_9807)
     return x, y
 
 
 @pytest.mark.parametrize("seed", [0, 1, 2])
 def test_hard_constraint_no_segment_split(seed):
-    """人工构造 4 段序列: 任一重采样中同段窗口不分裂 (事件块永不被截断/拆分)."""
+    """zh:zh_2385construction 4 segmentzh:series: zh:zh_5485resamplingzh_4657samesegmentwindownotzh:zh_7624 (zh:eventblockzh:zh_443notzh:zh_3264/zh:zh_440)."""
     rng = np.random.default_rng(seed)
     x, y = synthetic_series(rng)
     blocks = build_blocks(events_from_binary(y), len(x))
     ev_lens = {i: e - s for i, (k, s, e) in enumerate(blocks) if k == "event"}
     for _ in range(300):
         xs, new_blocks, origin = resample_blocks(x, blocks, rng)
-        assert len(xs) == len(x), "重采样长度必须等于原长"
-        check_hard_constraint(blocks, new_blocks, origin)  # 事件块完整
-        # 每个拼接事件块的内容 == 某原始事件块的完整拷贝
+        assert len(xs) == len(x), "zh:resamplinglengthmustequal tozh_2431"
+        check_hard_constraint(blocks, new_blocks, origin)  # zh:eventblockzh:zh_2476
+        # each  zh:zh_260eventblock zh:zh_6287 == zh:zh_2111eventblock zh:zh_838
         for (kd, s, e), (oi, _, n) in zip(new_blocks, origin):
             if kd == "event":
                 os_, oe = blocks[oi][1], blocks[oi][2]
@@ -48,9 +48,9 @@ def test_micro_segment_excluded_but_kept_in_pool():
     blocks = build_blocks(events_from_binary(y), len(x))
     st = block_stats(x, blocks)
     ev_in_test = [b for b in st if b["kind"] == "event"]
-    assert len(ev_in_test) == 3, "微段(长3<10)不应进入块级检验配对序列"
+    assert len(ev_in_test) == 3, "zh:zh_5458segment(zh:zh_19353<10)notzh:zh_5916blockzh:zh_4542testpairedzh:series"
     assert all(b["n"] >= MIN_SEG for b in ev_in_test)
-    # 微段仍是重采样池中的完整块
+    # zh:zh_5458segmentzh:zh_6385resamplingzh_8881 zh:zh_2476block
     xs, new_blocks, origin = resample_blocks(x, blocks, rng)
     micro_copies = [1 for (kd, s, e) in new_blocks
                     if kd == "event" and e - s == 3]
@@ -59,34 +59,34 @@ def test_micro_segment_excluded_but_kept_in_pool():
 
 
 def test_n1_signperm_calibrated_under_null():
-    """iid 块均值 + 分层对分置换: 经验 size 应接近 0.05.
+    """iid blockmean + stratifiedpairzh:zh_746permutation: empirical size zh:zh_5336 0.05.
 
-    注: 块数须足够多 (≥8+9) — 置换参考的 p 值粒度 ~1/C(K/2,K/4), 块太少时天然保守
-    (4+5 块时粒度≈1/60, 这是离散性不是偏差; 真实数据最小 SMD 也有 17 块).
+    zh:zh_2317: blockzh:zh_32 (≥8+9) — permutationzh:reference  p zh:valuezh_3627 ~1/C(K/2,K/4), blockzh:zh_4643
+    (4+5 blockzh:zh_4179≈1/60, zh:zh_6336notzh:zh_4296difference; realzh:datazh_7191 SMD zh:zh_2962 17 block).
     """
     rng = np.random.default_rng(42)
     T, pos = 6000, 100
     y = np.zeros(T, dtype=np.int8)
-    for k in range(8):  # 8 个事件段, 长度 150-350 交替
+    for k in range(8):  # 8  zh:eventsegment, zh:length 150-350 zh:zh_518
         ln = 150 + 100 * (k % 3)
         y[pos:pos + ln] = 1
         pos += ln + 300
     blocks = build_blocks(events_from_binary(y), T)
     n_rep, rej = 400, 0
     for _ in range(n_rep):
-        d = rng.normal(size=T)  # H0 真成立
+        d = rng.normal(size=T)  # H0 zh:zh_3563
         p = n1_pvalue(d, blocks, rng)
         rej += (p < 0.05)
-    # 400 次, 真 size 0.05 -> 95% 接受带约 [0.028, 0.077]; 放宽到 [0.02, 0.10] 防 MC 抖动
-    assert 0.02 <= rej / n_rep <= 0.10, f"N1 经验 size {rej / n_rep:.3f} 偏离校准"
+    # 400 zh:zh_6249, zh:zh_4219 size 0.05 -> 95% zh:zh_6953approx [0.028, 0.077]; zh:zh_3247 [0.02, 0.10] zh:zh_3417 MC zh:zh_5131
+    assert 0.02 <= rej / n_rep <= 0.10, f"N1 empirical size {rej / n_rep:.3f} zh:zh_4232calibration"
 
 
 def test_block_level_compositional_null():
-    """修订 R2 的回归测试: 成分结构零假设下块级协议必须校准.
+    """zh:zh_6924 R2  zh:zh_5164test: zh:componentzh_678assumptionzh_5169blockzh:zh_4714mustcalibration.
 
-    构造与 MSL 诊断同构的数据: 事件块均值 ~ +0.5, 正常块均值 ~ −0.5 (H0 真成立——
-    同一检测器自己). 旧实现 (原始分区块 ∩ 重排序列) 在此构造下 size→1;
-    块均值层配对 (block_level_pvalues) 应 ≈0.05.
+    zh:constructionwith MSL zh:zh_6589samezh:zh_2058 zh:data: zh:eventblockmean ~ +0.5, zh:normalblockmean ~ −0.5 (H0 zh:zh_3563——
+    samezh:zh_6443detectorzh:zh_6748). oldzh:zh_3965 (zh:zh_7452block ∩ zh:zh_8031series) zh:zh_3346constructionzh_5169 size→1;
+    blockmeanzh:zh_419paired (block_level_pvalues) zh:zh_2483 ≈0.05.
     """
     from bootstrap.e3_clean import block_level_pvalues
     rng = np.random.default_rng(11)
@@ -103,8 +103,8 @@ def test_block_level_compositional_null():
         p3, p4, _ = block_level_pvalues(g, blocks, np.random.default_rng(1000 + i))
         rej_t += (not np.isnan(p3)) and (p3 < 0.05)
         rej_w += (not np.isnan(p4)) and (p4 < 0.05)
-    assert 0.02 <= rej_t / n_rep <= 0.10, f"块级 t 经验 size {rej_t / n_rep:.3f} 偏离"
-    assert 0.02 <= rej_w / n_rep <= 0.10, f"块级 Wilcoxon 经验 size {rej_w / n_rep:.3f} 偏离"
+    assert 0.02 <= rej_t / n_rep <= 0.10, f"blockzh:zh_4542 t empirical size {rej_t / n_rep:.3f} zh:zh_4232"
+    assert 0.02 <= rej_w / n_rep <= 0.10, f"blockzh:zh_4542 Wilcoxon empirical size {rej_w / n_rep:.3f} zh:zh_4232"
 
 
 def test_resample_blocks_seed_reproducible():
@@ -114,4 +114,4 @@ def test_resample_blocks_seed_reproducible():
     blocks = build_blocks(events_from_binary(y), len(x))
     a = resample_blocks(x, blocks, rng1)
     b = resample_blocks(x, blocks, rng2)
-    assert np.array_equal(a[0], b[0]) and a[2] == b[2], "同种子重采样必须可复现"
+    assert np.array_equal(a[0], b[0]) and a[2] == b[2], "samezh:seedresamplingmustreproducible"

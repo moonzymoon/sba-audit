@@ -1,12 +1,12 @@
-"""E5 分析: 十种子真值校验 + 现实轨全量 (预注册 §12 + R3).
+"""E5 zh:zh_7069: zh:zh_9092seedzh_4219valuezh_8488 + zh:zh_8228 (pre-registered §12 + R3).
 
-数据: cmhmil × {SMD,PSM,SWaT}(10种子) ∪ {MSL,SMAP,WADI}(11种子) = 63 个独立 run.
-产出:
-1) 现实轨全量: 每数据集全部种子对 (45/55 对) 的 d̄ 与窗口级/块级 p 值 -> 经验假阳性率;
-2) V_seed 识别: run 级均值方差 − V_clean(bootstrap 评估噪声) = σ²_seed (下截 0);
-3) R 终值: R = 2(σ²_seed + V_clean) 的观测对照 —— 分半标定: 种子随机分 A/B 两半,
-   σ²_seed 从 A 估, 观测方差取 A×B 跨组 25 对 d̄ (非循环), log 方差比 95%CI + TOST[0.67,1.5];
-4) SWaT/MSL/SMAP/WADI 块级按各自段结构 (SWaT 仅窗口级).
+zh:data: cmhmil × {SMD,PSM,SWaT}(10zh:seed) ∪ {MSL,SMAP,WADI}(11zh:seed) = 63  zh:zh_6802 run.
+zh:zh_7185:
+1) zh:zh_8228: each datasetallzh:seedpair (45/55 pair)   d̄ withwindowzh:zh_4542/blockzh:zh_4542 p zh:value -> empiricalzh:false positiverate;
+2) V_seed zh:zh_6898: run zh:zh_4542meanzh:zh_6254difference − V_clean(bootstrap zh:zh_8441) = σ²_seed (zh:zh_64 0);
+3) R zh:zh_7221value: R = 2(σ²_seed + V_clean)  zh:zh_6331pairzh:zh_9388 —— zh:zh_6523: zh:seedrandomzh_746 A/B zh:zh_418,
+   σ²_seed from  A zh:zh_8611, zh:zh_5717differencezh:zh_6701 A×B zh:zh_2568 25 pair d̄ (zh:zh_5820), log zh:zh_6254differencezh:zh_8961 95%CI + TOST[0.67,1.5];
+4) SWaT/MSL/SMAP/WADI blockzh:zh_4542perzh:zh_9925segmentzh:zh_7202 (SWaT onlywindowzh:zh_4542).
 """
 from __future__ import annotations
 
@@ -25,7 +25,7 @@ from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness, block_mean_pools  # noqa: E402
 from bootstrap.r_ratio import load_clean_dbar  # noqa: E402
 
-OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
 GLOBAL_SEED = 20260902
 SEEDS = {"SMD": [0, 1, 2, 3, 7, 31, 42, 97, 123, 2024],
          "PSM": [0, 1, 2, 3, 7, 31, 42, 97, 123, 2024],
@@ -36,12 +36,12 @@ SEEDS = {"SMD": [0, 1, 2, 3, 7, 31, 42, 97, 123, 2024],
 
 
 def tost(log_ratios, lo=0.67, hi=1.5, alpha=0.05):
-    """TOST 等价检验 on 方差比 (输入为比值数组)."""
+    """TOST zh:etc.zh_3812test on zh:zh_6254differencezh:zh_8961 (zh:zh_6507is zh:zh_8961valuearray)."""
     r = np.asarray(log_ratios, float)
     r = r[np.isfinite(r) & (r > 0)]
     if len(r) < 3:
         return dict(n=len(r), p=np.nan, equiv=np.nan)
-    # TOST: 双单侧 t 检验, 均值的对数尺度
+    # TOST: two-zh:zh_333 t zh:test, mean pairzh:zh_8362
     lr = np.log(r)
     se = lr.std(ddof=1) / np.sqrt(len(lr))
     if se == 0:
@@ -62,7 +62,7 @@ def main():
             gs[s] = g
         T = len(g)
         blocks = build_blocks(events_from_binary(y), T)
-        # run 级窗口均值 m̄_r
+        # run zh:zh_4542windowmean m̄_r
         mbar = {s: float(gs[s].mean()) for s in seeds}
         pairs = list(itertools.combinations(seeds, 2))
         pw_rej = bw_rej = 0
@@ -80,8 +80,8 @@ def main():
                     bw_rej += p3 < 0.05
                     nvalid_b += 1
         dbars = np.array(dbars)
-        # V_clean (E3-clean 缓存; 无缓存的非退化数据集用块均值池两次抽取近似;
-        # SWaT K_event=1 退化 -> 不可估, 记 NaN)
+        # V_clean (E3-clean cache; no cache zh:zh_6434datasetzh:zh_8215blockmeanzh:zh_7421;
+        # SWaT K_event=1 zh:zh_3558 -> notzh:zh_8450, zh:zh_1152 NaN)
         dbar_clean = load_clean_dbar(ds)
         n_ev = len([1 for k, _, _ in blocks if k == "event"])
         if dbar_clean is not None:
@@ -99,12 +99,12 @@ def main():
             v_clean = float(np.var(sims, ddof=1))
             v_clean_src = "blockmean-pool"
         else:
-            v_clean, v_clean_src = float("nan"), "退化(K_event<2)不可估"
+            v_clean, v_clean_src = float("nan"), "zh:zh_3558(K_event<2)notzh:zh_8450"
         v_run = float(np.var(list(mbar.values()), ddof=1))  # σ²_seed + V_eval_run
         v_seed = max(0.0, v_run - v_clean) if np.isfinite(v_clean) else float("nan")
-        # 分半标定 (可加性检验): A 半 run 级方差 -> 预测 A×B 跨组对 d̄ 方差 = 2·vA
-        # 注: 此处 vA 直接为 run 级方差 (种子+不可抵消评估噪声), 不加 V_clean —— 因为
-        # 真实配对共享段结构, 段成分噪声抵消; V_clean 含成分项故是配对设计的上界 (E7 发现).
+        # zh:zh_6523 (zh:zh_980test): A zh:zh_8303 run zh:zh_1852difference -> zh:prediction A×B zh:zh_2568pair d̄ zh:zh_6254difference = 2·vA
+        # zh:zh_2317: zh:zh_4053 vA zh:directis  run zh:zh_1852difference (zh:seed+notzh:zh_865), notzh:zh_9936 V_clean —— zh:zh_3729is 
+        # realpairedzh:zh_1787segmentzh:zh_7202, segmentzh:componentzh_2070; V_clean zh:zh_6816componentzh_3521pairedzh:design zh:zh_9513 (E7 zh:zh_0).
         rng = np.random.default_rng(GLOBAL_SEED + 1)
         ratios = []
         for rep in range(20):
@@ -125,12 +125,12 @@ def main():
                           R_seed_over_clean=(v_seed / v_clean) if (np.isfinite(v_clean) and v_clean > 0 and np.isfinite(v_seed)) else np.nan,
                           tost_p=t["p"], tost_equiv=t["equiv"], tost_ci=t.get("ci95"),
                           ratio_pred_over_obs=float(np.mean(ratios)) if ratios else np.nan))
-        print(f"{ds}: {len(seeds)}种子 {len(pairs)}对 | 窗口级假阳 {pw_rej}/{len(pairs)} | "
-              f"块级 {rows[-1]['blk_fp']} | V_seed={v_seed:.2e} V_clean={v_clean:.2e} "
-              f"R={rows[-1]['R_seed_over_clean']:.3f} | TOST p={t['p']:.3f} 等价={t['equiv']}")
+        print(f"{ds}: {len(seeds)}zh:seed {len(pairs)}pair | windowzh:zh_870 {pw_rej}/{len(pairs)} | "
+              f"blockzh:zh_4542 {rows[-1]['blk_fp']} | V_seed={v_seed:.2e} V_clean={v_clean:.2e} "
+              f"R={rows[-1]['R_seed_over_clean']:.3f} | TOST p={t['p']:.3f} zh:etc.zh_3812={t['equiv']}")
     df = pd.DataFrame(rows)
     df.to_csv(os.path.join(OUT, "e5_analysis.csv"), index=False, encoding="utf-8-sig")
-    print("\n已写出 e5_analysis.csv")
+    print("\nwritten e5_analysis.csv")
 
 
 if __name__ == "__main__":

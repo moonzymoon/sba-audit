@@ -1,8 +1,8 @@
-"""E3-realistic (预注册 §7.2): 同检测器不同 seed 的真实配对 — 端到端零假设.
+"""E3-realistic (pre-registered §7.2): samedetectornotsame seed  realpaired — zh:zh_7063assumption.
 
-cmhmil ∈ {(7,42),(7,123),(42,123)} × {SMD,PSM,SWaT}; 被审计协议同 E3-clean ①–④.
-SWaT 段结构退化 (N_seg=1) -> 只做窗口级 (①②), 块级标注不可用.
-同时产出 R 比值所需的 d̄ (seed 对) — 与 E3-clean 的 d̄* 缓存配对使用.
+cmhmil ∈ {(7,42),(7,123),(42,123)} × {SMD,PSM,SWaT}; zh:zh_4307auditzh:zh_1063same E3-clean ①–④.
+SWaT segmentzh:zh_4092 (N_seg=1) -> zh:zh_7674windowzh:zh_4542 (①②), blockzh:zh_9363notzh:zh_9412.
+samezh:zh_2567 R zh:zh_8961valuezh_2440  d̄ (seed pair) — with E3-clean   d̄* cachepairedzh:use.
 """
 from __future__ import annotations
 
@@ -21,8 +21,8 @@ from bootstrap.r_ratio import r_report  # noqa: E402
 
 
 def real_block_pvalues(d, blocks, min_seg=10):
-    """realistic 轨块级: 真实种子对在同一窗口结构上配对, d 的原始分区块均值即合法
-    (无重排伪影, 修订 R2 只涉及 clean 轨的 original-vs-reshuffled 配对)."""
+    """realistic zh:zh_5429blockzh:zh_4542: realzh:seedpairzh:zh_3757samezh:zh_6443windowzh:zh_6814paired, d  zh:zh_7452blockmeanzh:i.e.zh_6767
+    (no zh:zh_3847, zh:zh_6924 R2 zh:zh_6650and clean zh:zh_5429  original-vs-reshuffled paired)."""
     m = np.array([b["m"] for b in block_stats(d, blocks, min_seg=min_seg)])
     if len(m) < 3:
         return np.nan, np.nan
@@ -33,8 +33,8 @@ def real_block_pvalues(d, blocks, min_seg=10):
         p4 = 1.0
     return p3, p4
 
-RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
-OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results/e3_realistic.csv"
+RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
+OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/e3_realistic.csv"
 SEEDS = [7, 42, 123]
 DATASETS = ["SMD", "PSM", "SWaT"]
 
@@ -58,7 +58,7 @@ def main():
                 except ValueError:
                     p2 = 1.0
                 p3, p4 = real_block_pvalues(d, blocks)
-                if ds == "SWaT":  # 段结构退化: 块级不可用
+                if ds == "SWaT":  # segmentzh:zh_4092: blockzh:zh_4542notzh:zh_9412
                     p3 = p4 = np.nan
                 dbar = float(d.mean())
                 dbar_by_ds.append(dbar)
@@ -69,12 +69,12 @@ def main():
         rep = r_report(dbar_by_ds, ds)
         rep["dbar_pairs"] = str([round(v, 5) for v in dbar_by_ds])
         rrows.append(rep)
-        print(f"{ds}: d̄(种子对)={[round(v,5) for v in dbar_by_ds]}, R={rep['R']}")
+        print(f"{ds}: d̄(zh:seedpair)={[round(v,5) for v in dbar_by_ds]}, R={rep['R']}")
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     pd.DataFrame(rows).to_csv(OUT, index=False, encoding="utf-8-sig")
     pd.DataFrame(rrows).to_csv(OUT.replace(".csv", "_R.csv"), index=False, encoding="utf-8-sig")
     df = pd.DataFrame(rows)
-    print("\n经验假阳性率 (α=0.05, 9 格):")
+    print("\nempiricalzh:false positiverate (α=0.05, 9 cell):")
     for c in ["p_win_t", "p_win_wilcox", "p_blk_t", "p_blk_wilcox"]:
         v = df[c].dropna()
         print(f"  {c}: {(v < 0.05).mean():.3f} ({(v < 0.05).sum()}/{len(v)})")

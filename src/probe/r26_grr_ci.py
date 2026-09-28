@@ -10,14 +10,14 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import roc_auc_score
 
-sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
-sys.path.insert(0, r"D:\0科研\工作1\第6篇SCI\src")
+sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
+sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 6SCI\src")
 from cadms.scorers import get_scorer  # noqa: E402
 
 CORE6 = ["SMD", "PSM", "MSL", "SMAP", "SWaT", "WADI"]
 DET6 = ["cmhmil", "iforest", "pca", "gmm", "ocsvm", "lof"]
-CACHE = r"D:\0科研\工作1\第6篇SCI\src\_score_cache"
-RES = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results"
+CACHE = r"D:\0keyan\gongzuo1\paper 6SCI\src\_score_cache"
+RES = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results"
 
 def cell_auc(path):
     d = np.load(path)

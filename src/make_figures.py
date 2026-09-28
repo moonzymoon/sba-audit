@@ -1,9 +1,9 @@
-"""论文四联图 (2026-09-02). 配色: 橙蓝互补 (配色图/配色.txt 第一组). 300 DPI PNG.
+"""four-panel paper figure (2026-09-02). palette: orange/blue contrast (color scheme/palette.txt first group). 300 DPI PNG.
 
-Fig1 tau_map: 9 数据集 × 3 stride 的 tau_seg (log 轴)
-Fig2 size_vs_tau: 窗口级经验 size vs tau_seg —— 膨胀随段结构单调 (核心图)
-Fig3 power_curves: 条件功效曲线 (K/2K/4K) + 5 AUROC 点目标线
-Fig4 win_vs_blk: 44 格窗口级 vs 块级经验 size 对照 (哑铃图)
+Fig1 tau_map: 9 dataset × 3 stride   tau_seg (log axis)
+Fig2 size_vs_tau: window-level empirical size vs tau_seg —— inflation monotone in segment structure (core figure)
+Fig3 power_curves: conditional power curves (K/2K/4K) + 5 AUROC -point target line
+Fig4 win_vs_blk: 44 -cell window-level vs block-level empirical size comparison (dumbbell plot)
 """
 import json
 import os
@@ -22,8 +22,8 @@ SKY, BLUE, COBALT = "#A7CFF2", "#3B82D6", "#0D47A1"
 SAND = "#E7C9A0"
 plt.rcParams.update({"font.size": 9, "axes.spines.top": False, "axes.spines.right": False,
                      "figure.dpi": 300, "savefig.bbox": "tight"})
-RES = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
-FIG = r"D:/0科研/工作1/第15篇SCI/03_论文/figs"
+RES = r"D:/0keyan/gongzuo1/paper15/02_shiyanjilu/results"
+FIG = r"D:/0keyan/gongzuo1/paper15/03_lunwen/figs"
 os.makedirs(FIG, exist_ok=True)
 
 # ---------- Fig 1: tau map ----------

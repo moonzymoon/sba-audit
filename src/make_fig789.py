@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 """fig7: CRSE rejection-rate bars; fig8: rho_fresh vs rho_paired scatter;
 fig9: AUROC variance decomposition (stacked bar + per-dataset V_eval bars).
-All data read from 02_实验记录/results/; no hardcoded headline numbers."""
+All data read from 02_shiyanjilu/results/; no hardcoded headline numbers."""
 import csv, json, os
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-ROOT = r"D:\0科研\工作1\第15篇SCI"
-RES = os.path.join(ROOT, "02_实验记录", "results")
-FIGS = os.path.join(ROOT, "03_论文", "figs")
+ROOT = r"D:\0keyan\gongzuo1\paper15"
+RES = os.path.join(ROOT, "02_shiyanjilu", "results")
+FIGS = os.path.join(ROOT, "03_lunwen", "figs")
 
 plt.rcParams.update({"font.size": 9, "axes.spines.top": False,
                      "axes.spines.right": False})

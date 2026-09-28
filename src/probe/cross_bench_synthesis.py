@@ -12,7 +12,7 @@ import json
 import numpy as np
 from scipy import stats as st
 
-R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
+R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
 j = json.load(open(R + "e1_full_components.json"))["AUROC"]
 si = np.sqrt(j["V_detxds_resid"])           # detector x dataset interaction SD (AUROC)
 tau = np.sqrt(2) * si                        # pair-level heterogeneity

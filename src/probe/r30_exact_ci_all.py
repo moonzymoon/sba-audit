@@ -37,13 +37,13 @@ import os, sys, json, itertools
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
+sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
 from bootstrap.e3_clean import load_goodness  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from common.blocks import build_blocks, block_stats  # noqa: E402
 
 ALPHA, M = 0.05, 999
-RES = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results"
+RES = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results"
 d = pd.read_csv(os.path.join(RES, "direct_scale_verdict.csv"), encoding="utf-8-sig")
 pairs = [(r["bm"], *r["pair"].split("-")) for _, r in d.iterrows()]
 import json as _j

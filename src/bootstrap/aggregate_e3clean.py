@@ -1,4 +1,4 @@
-"""聚合 _resample_cache 的 e3clean_*.npz -> E3-clean 主表 CSV (Type I + 95%Wilson CI)."""
+"""aggregation _resample_cache   e3clean_*.npz -> E3-clean main table CSV (Type I + 95%Wilson CI)."""
 from __future__ import annotations
 
 import glob
@@ -7,8 +7,8 @@ import os
 import numpy as np
 import pandas as pd
 
-RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
-OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results/e3_clean_summary.csv"
+RCACHE = r"D:/0keyan/gongzuo1/paper15/_resample_cache"
+OUT = r"D:/0keyan/gongzuo1/paper15/02_shiyanjilu/results/e3_clean_summary.csv"
 ALPHA = 0.05
 
 
@@ -27,7 +27,7 @@ def main():
     for f in sorted(glob.glob(os.path.join(RCACHE, "e3clean_*.npz"))):
         d = np.load(f)
         tag = os.path.basename(f)[len("e3clean_"):-len(".npz")]
-        ds, scorer = tag.split("_", 1)  # 数据集名无下划线: SMD/cmhmil_seed7
+        ds, scorer = tag.split("_", 1)  # dataset name without underscore: SMD/cmhmil_seed7
         row = dict(dataset=ds, scorer=scorer, B=int(d["B"]), T=int(d["T"]),
                    n_blocks=int(d["n_blocks"]),
                    V_clean=float(np.var(d["dbar"], ddof=1)))
@@ -46,7 +46,7 @@ def main():
     cols = ["dataset", "scorer", "B", "n_blocks", "size_win_t", "size_win_wilcox",
             "size_blk_t", "size_blk_wilcox", "size_n1_signperm", "V_clean"]
     print(df[cols].to_string(index=False))
-    print(f"\n已写出: {OUT}")
+    print(f"\nwritten: {OUT}")
 
 
 if __name__ == "__main__":

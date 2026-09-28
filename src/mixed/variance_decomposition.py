@@ -1,10 +1,10 @@
-"""E1 初版 (预注册 §7.4): 度量表 + 四源方差分解.
+"""E1 zh:zh_564 (pre-registered §7.4): zh:zh_7020table + zh:zh_7258sourcezh:zh_6254differencezh:decomposition.
 
-1) 度量表: 现有全部缓存 run -> (dataset, detector, seed, AUROC, AP) 长表;
-2) MixedLM: metric ~ 1, groups=dataset, vc={detector, seed} (REML, 近似交叉结构;
-   初版近似——seed 覆盖稀疏(仅 cmhmil×3 数据集×3 seed), E5 十种子后重拟, 见文档注);
-3) MoM-ANOVA: cmhmil 平衡块 (3 数据集 × 3 seed) 的经典 EMS 解 (与 MSA 笔记 §3 同式);
-4) V_residual: 来自 E3-clean N2 的 d̄* 方差缓存 (成分对齐, v2 必改 2).
+1) zh:zh_7020table: zh:zh_4028allcache run -> (dataset, detector, seed, AUROC, AP) zh:zh_1935table;
+2) MixedLM: metric ~ 1, groups=dataset, vc={detector, seed} (REML, zh:zh_1873;
+   zh:zh_3603——seed zh:zh_1309(only cmhmil×3 dataset×3 seed), E5 zh:zh_9092seedzh_9177, zh:zh_2125);
+3) MoM-ANOVA: cmhmil zh:zh_7211block (3 dataset × 3 seed)  zh:zh_4253 EMS zh:zh_2387 (with MSA zh:zh_129 §3 samezh:zh_624);
+4) V_residual: zh:zh_7902 E3-clean N2   d̄* zh:zh_6254differencecache (zh:componentpairzh:zh_4248, v2 zh:zh_6446 2).
 """
 from __future__ import annotations
 
@@ -16,11 +16,11 @@ import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
-RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
-OUTDIR = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
+RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
+OUTDIR = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
 
-# 现有缓存 run 清单 (阶段1; E5 后扩展)
+# zh:zh_4028cache run zh:zh_7558 (zh:zh_5303segment1; E5 zh:zh_6535)
 RUNS = []
 for ds in ["SMD", "PSM", "SWaT"]:
     for seed in [7, 42, 123]:
@@ -54,7 +54,7 @@ def metric_table():
 
 
 def mixedlm_components(df, metric="AUROC"):
-    """MixedLM: groups=dataset 随机截距; vc: detector(交叉近似), seed(嵌套近似)."""
+    """MixedLM: groups=dataset zh:randomzh_3426; vc: detector(zh:zh_5991), seed(zh:zh_6551)."""
     import statsmodels.formula.api as smf
     sub = df.copy()
     sub["detector"] = sub.detector.astype(str)
@@ -67,11 +67,11 @@ def mixedlm_components(df, metric="AUROC"):
         fit = md.fit(reml=True, method="lbfgs")
         p = fit.params
         comps = {
-            "V_dataset": float(p.get("Group Var", np.nan)),      # groups=dataset 随机截距
-            "V_detxds_approx": float(p.get("detector Var", np.nan)),  # 嵌套vc: 吸收交互, 近似
+            "V_dataset": float(p.get("Group Var", np.nan)),      # groups=dataset zh:randomzh_3426
+            "V_detxds_approx": float(p.get("detector Var", np.nan)),  # zh:zh_891vc: zh:zh_4477interaction, zh:zh_1549
             "V_seed": float(p.get("seed Var", np.nan)),
             "V_residual": float(fit.scale),
-            "note": "statsmodels vc 为组内嵌套近似(非真交叉); 边界不稳, E5 后重拟",
+            "note": "statsmodels vc is zh:zh_549(zh:zh_7501); zh:boundarynotzh:zh_8202, E5 zh:zh_9177",
         }
         return comps, fit
     except Exception as e:  # noqa: BLE001
@@ -79,16 +79,16 @@ def mixedlm_components(df, metric="AUROC"):
 
 
 def mom_anova_cmhmil(df, metric="AUROC"):
-    """cmhmil 平衡块 (3 数据集 × 3 seed) 的 EMS 矩估计.
+    """cmhmil zh:zh_7211block (3 dataset × 3 seed)   EMS zh:zh_1651estimate.
 
-    模型 X_ds = μ + D_d + S_s + ε (数据集与 seed 交叉, 无重复 -> 交互并入残差).
-    MS_D / MS_S / MS_E -> σ²_dataset, σ²_seed, σ²_resid(+交互).
+    zh:model X_ds = μ + D_d + S_s + ε (datasetwith seed zh:zh_6592, no replicates -> zh:interactionzh_468difference).
+    MS_D / MS_S / MS_E -> σ²_dataset, σ²_seed, σ²_resid(+zh:interaction).
     """
     piv = df[(df.detector == "cmhmil") & df.seed.isin([7, 42, 123])] \
         .pivot_table(index="dataset", columns="seed", values=metric)
     piv = piv.dropna()
     if piv.shape != (3, 3):
-        return dict(note=f"平衡块不完整: {piv.shape}", n_ds=int(piv.shape[0]), n_seed=int(piv.shape[1]))
+        return dict(note=f"zh:zh_7211blocknotzh:zh_2476: {piv.shape}", n_ds=int(piv.shape[0]), n_seed=int(piv.shape[1]))
     a, b, X = piv.shape[0], piv.shape[1], piv.values
     gm = X.mean()
     ms_d = b * ((X.mean(axis=1) - gm) ** 2).sum() / (a - 1)
@@ -100,7 +100,7 @@ def mom_anova_cmhmil(df, metric="AUROC"):
         V_seed=max(0.0, (ms_s - ms_e) / a),
         V_resid_inter=ms_e,
         MS_D=ms_d, MS_S=ms_s, MS_E=ms_e,
-        note="交互并入残差; 3x3 平衡块, 描述性初值")
+        note="zh:interactionzh_468difference; 3x3 zh:zh_7211block, zh:zh_449value")
 
 
 def v_eval_from_cache(ds, scorer="cmhmil_seed7"):
@@ -114,21 +114,21 @@ def v_eval_from_cache(ds, scorer="cmhmil_seed7"):
 def main():
     df = metric_table()
     df.to_csv(os.path.join(OUTDIR, "e1_metric_table.csv"), index=False, encoding="utf-8-sig")
-    print(f"度量表: {len(df)} runs")
+    print(f"zh:zh_7020table: {len(df)} runs")
     out = {}
     for metric in ["AUROC", "AP"]:
         comps, fit = mixedlm_components(df, metric)
         out[f"MixedLM_{metric}"] = comps
         print(metric, "MixedLM:", {k: (round(v, 8) if isinstance(v, float) else v) for k, v in comps.items()})
         out[f"MoM_{metric}"] = mom_anova_cmhmil(df, metric)
-        print(metric, "MoM(cmhmil平衡块):", out[f"MoM_{metric}"])
+        print(metric, "MoM(cmhmilzh:zh_7211block):", out[f"MoM_{metric}"])
     veval = {ds: v_eval_from_cache(ds) for ds in ["SMD", "PSM", "MSL", "SMAP", "WADI"]}
     out["V_eval_dbar_clean"] = veval
-    print("V_eval (E3-clean d̄* 方差, 秩尺度):", {k: f"{v:.2e}" for k, v in veval.items()})
+    print("V_eval (E3-clean d̄* zh:zh_6254difference, rankzh:zh_405):", {k: f"{v:.2e}" for k, v in veval.items()})
     import json
     with open(os.path.join(OUTDIR, "e1_variance_components.json"), "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2, default=str)
-    print("已写出 e1_variance_components.json")
+    print("written e1_variance_components.json")
 
 
 if __name__ == "__main__":

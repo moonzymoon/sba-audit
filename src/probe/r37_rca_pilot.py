@@ -30,10 +30,10 @@ Output: results/r37_rca_pilot.json
 import os, sys, json
 import numpy as np
 
-sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
+sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
 from scorers_extra import load_te  # noqa: E402
 
-RES = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results"
+RES = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results"
 W = 16
 
 X, Y = load_te()          # z-scored full series, labels

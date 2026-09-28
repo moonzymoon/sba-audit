@@ -14,8 +14,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats as st
 
-RES = "D:/0科研/工作1/第15篇SCI/02_实验记录/results"
-FIG = "D:/0科研/工作1/第15篇SCI/03_论文/figs"
+RES = "D:/0keyan/gongzuo1/paper15/02_shiyanjilu/results"
+FIG = "D:/0keyan/gongzuo1/paper15/03_lunwen/figs"
 BLUE, COBALT, O = "#2c7fb8", "#1c4f81", "#e08214"
 BMS = ["SMD", "PSM", "MSL", "SMAP", "WADI"]
 K0 = {"SMD": 14, "PSM": 107, "MSL": 61, "SMAP": 97, "WADI": 16}

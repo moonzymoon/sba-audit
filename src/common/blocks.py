@@ -1,18 +1,18 @@
-"""块结构 (预注册 §3 硬约束的代码化).
+"""blockzh:zh_7202 (pre-registered §3 zh:zh_9806approxzh_2453 zh:zh_4699).
 
-整个 test 序列划分为互不重叠的块 = 事件段块 ∪ 正常间隔块.
-任何重采样中块为最小进出单位: 段内窗口同进同出, 禁止跨段切窗.
-微段规则: 原始时长 <10 点的事件段块不进入块级检验的配对序列 (预注册 §3).
+zh:zh_8990  test zh:serieszh_9448is zh:zh_9290notzh:zh_8297 block = zh:eventsegmentblock ∪ zh:normalzh_6966block.
+zh:zh_8318resamplingzh_4657blockis zh:zh_3850bit: segmentzh:zh_3990windowsamezh:zh_3207samezh:zh_8942, zh:zh_7240segmentzh:zh_1061.
+zh:zh_5458segmentzh:zh_9291: zh:zh_2276 <10 zh:point zh:eventsegmentblocknotzh:zh_534blockzh:zh_4542test pairedzh:series (pre-registered §3).
 """
 from __future__ import annotations
 
 import numpy as np
 
-MIN_SEG = 10  # 微段门槛 (预注册)
+MIN_SEG = 10  # zh:zh_5458segmentzh:zh_5340 (pre-registered)
 
 
 def build_blocks(events, T):
-    """[(kind, start, end), ...] 按时间序覆盖 [0,T). kind ∈ {'normal','event'}."""
+    """[(kind, start, end), ...] perzh:zh_6959 [0,T). kind ∈ {'normal','event'}."""
     blocks = []
     prev = 0
     for s, e in events:
@@ -26,19 +26,19 @@ def build_blocks(events, T):
 
 
 def block_ids(blocks, T):
-    """每个位置的块编号数组 (长度 T)."""
+    """each  zh:bitzh_3977 blockzh:zh_5571array (zh:length T)."""
     bid = np.full(T, -1, dtype=np.int32)
     for k, (_, s, e) in enumerate(blocks):
         bid[s:e] = k
-    assert (bid >= 0).all(), "块划分未覆盖全序列"
+    assert (bid >= 0).all(), "blockzh:zh_6563series"
     return bid
 
 
 def block_stats(d, blocks, min_seg=MIN_SEG, kind=None):
-    """块级统计量 m_k (块内 d 均值) 与块元数据.
+    """blockzh:zh_4542statisticszh_1031 m_k (blockzh:zh_3990 d mean) withblockzh:zh_9586data.
 
-    只保留进入块级检验的块: 事件块须 >=min_seg; 正常块全保留 (可被裁剪的只有重采样尾部,
-    原始正常块本身完整). kind 可选 'event'/'normal' 过滤.
+    zh:zh_5551blockzh:zh_4542test block: zh:eventblockzh:zh_2972 >=min_seg; zh:normalblockzh:zh_9518 (zh:zh_2442 zh:zh_1021resamplingtail,
+    zh:zh_3710normalblockzh:zh_2060). kind zh:zh_6804 'event'/'normal' zh:zh_2307.
     """
     out = []
     for k, (kd, s, e) in enumerate(blocks):
@@ -51,26 +51,26 @@ def block_stats(d, blocks, min_seg=MIN_SEG, kind=None):
 
 
 def resample_blocks(x, blocks, rng, min_seg=MIN_SEG):
-    """N2 事件段 block bootstrap (硬约束核心).
+    """N2 zh:eventsegment block bootstrap (zh:zh_9806approxzh_2453core).
 
-    事件块: 有放回重抽, 数量不变, **整块进出, 永不截断**;
-    正常块: 有放回重抽补足长度, 最后一块可截断 (正常块不是事件段, 允许);
-    拼接结构模仿原始 (以正常块开头/结尾, 若原始如此), 总长 == T.
+    zh:eventblock: zh:zh_7879, zh:countnotzh:zh_3688, **zh:zh_8990blockzh:zh_2338, zh:zh_443notzh:zh_24**;
+    zh:normalblock: zh:zh_4070length, zh:lastzh_6443blockzh:zh_3902 (zh:normalblocknotzh:zh_5050eventsegment, zh:zh_8227);
+    zh:zh_4508 (zh:zh_5665normalblockzh:zh_5737/zh:zh_233, zh:zh_5415), zh:zh_3510 == T.
 
-    Returns: (x*, block_origin) — block_origin[k] = 拼接后第 k 块来自的原始块编号,
-             以及拼接块列表 [(kind, start, end)].
+    Returns: (x*, block_origin) — block_origin[k] = zh:zh_4892paper  k blockzh:zh_7902 zh:zh_3710blockzh:zh_5571,
+             zh:zh_5665andzh:zh_260blocklist [(kind, start, end)].
     """
     T = len(x)
     ev = [(i, b) for i, b in enumerate(blocks) if b[0] == "event"]
     no = [(i, b) for i, b in enumerate(blocks) if b[0] == "normal"]
-    # 事件块有放回重抽 (拒绝采样: 总长不得超过 T —— 高事件覆盖率下小概率触发重抽)
+    # zh:eventblockzh:zh_7879 (zh:zh_5465sampling: zh:zh_3510notzh:zh_6483 T —— zh:zh_1834eventzh_8518ratezh_7031ratezh_7171)
     for _ in range(1000):
         drawn_ev = [(ev[j][0], ev[j][1][1], ev[j][1][2]) for j in rng.integers(0, len(ev), len(ev))]
         len_ev = sum(e - s for _, s, e in drawn_ev)
         if len_ev <= T:
             break
     else:
-        raise RuntimeError("事件块拒绝采样 1000 次未成功 — 覆盖率病态")
+        raise RuntimeError("zh:eventblockzh:zh_5465sampling 1000 zh:zh_8814success — zh:zh_8518ratezh_1066")
     need_no = T - len_ev
     drawn_no, acc = [], 0
     while acc < need_no:
@@ -79,7 +79,7 @@ def resample_blocks(x, blocks, rng, min_seg=MIN_SEG):
         take = min(e - s, need_no - acc)
         drawn_no.append((i, s, s + take))
         acc += take
-    # 拼接: 开头块类型与原始一致
+    # zh:zh_260: zh:zh_5737blockzh:typewithzh:zh_3710identical
     starts_normal = blocks[0][0] == "normal"
     order = []
     if starts_normal and drawn_no:
@@ -89,7 +89,7 @@ def resample_blocks(x, blocks, rng, min_seg=MIN_SEG):
             order.append(drawn_ev.pop(0))
         if drawn_no:
             order.append(drawn_no.pop(0))
-        # 交替, 事件块优先排在正常块前 (结构近似即可, 关键是块完整性)
+        # zh:zh_518, zh:eventblockzh:zh_2100normalblockzh:zh_17 (zh:zh_7514i.e.zh_542, zh:zh_124keyzh_5050blockzh:completeness)
     out = np.empty(T, dtype=x.dtype)
     new_blocks, origin, pos = [], [], 0
     blocks_by_idx = dict(enumerate(blocks))
@@ -101,12 +101,12 @@ def resample_blocks(x, blocks, rng, min_seg=MIN_SEG):
         new_blocks.append((kd, pos, pos + n))
         origin.append((i, pos, n))
         pos += n
-    assert pos == T, f"拼接长度 {pos} != {T}"
+    assert pos == T, f"zh:zh_260length {pos} != {T}"
     return out, new_blocks, origin
 
 
 def check_hard_constraint(blocks, new_blocks, origin):
-    """验证重采样未分裂任何事件块: 每个使用中的原始事件块, 其所有出现都是完整拷贝."""
+    """zh:verifyresamplingzh_8603eventblock: each  zh:usezh_4657 zh:zh_3710eventblock, zh:zh_7753allzh_3530."""
     from collections import defaultdict
     occ = defaultdict(int)
     for i, _, n in origin:
@@ -114,5 +114,5 @@ def check_hard_constraint(blocks, new_blocks, origin):
             occ[(i, n)] += 1
     for (i, n), _ in occ.items():
         _, s, e = blocks[i]
-        assert n == e - s, f"事件块 {i} 被截断: 出现长度 {n} != 原长 {e - s}"
+        assert n == e - s, f"zh:eventblock {i} zh:zh_3264: zh:zh_421length {n} != zh:zh_2431 {e - s}"
     return True

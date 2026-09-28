@@ -1,15 +1,15 @@
-"""E1 全量: 8 检测器 × 11 数据集 四源方差分解 + NDC (读法B, R3 扩充).
+"""E1 zh:zh_1343: 8 detector × 11 dataset zh:zh_7258sourcezh:zh_6254differencezh:decomposition + NDC (zh:readzh_2614B, R3 extended).
 
-检测器族: MIL(cmhmil) / 关联(AT) / 树(iforest) / 线性(pca) / 密度(gmm+ocsvm) / 近邻(lof)
-数据集: SMD PSM MSL SMAP SWaT WADI TE MetroPT3 BATADAL NEweather(窗口级) [+TSB 见附表]
+detectorzh:zh_7860: MIL(cmhmil) / zh:zh_1105(AT) / zh:zh_3107(iforest) / zh:zh_579(pca) / zh:zh_7158(gmm+ocsvm) / zh:zh_4807(lof)
+dataset: SMD PSM MSL SMAP SWaT WADI TE MetroPT3 BATADAL NEweather(windowzh:zh_4542) [+TSB zh:zh_7813table]
 
-产出:
-1) 度量表: (detector, dataset, seed) -> AUROC/AP;
-2) 四源方差 (AUROC 尺度): V_dataset / V_detector / V_det×ds (MoM-ANOVA, 无重复时交互并入残差;
-   有 cmhmil 种子重复处单列 V_seed);
-3) V_eval 换算: V_clean(秩尺度 d̄*)/(2π)² -> AUROC 尺度 (U 统计量线性化);
-4) MSA 式 %Contribution 表 + NDC = 1.41·σ_det/σ_GRR (零件=检测器, 预注册 §13 读法B),
-   附 %GRR 与两套 AIAG 判据的对照.
+zh:zh_7185:
+1) zh:zh_7020table: (detector, dataset, seed) -> AUROC/AP;
+2) zh:zh_7258sourcezh:zh_6254difference (AUROC zh:zh_405): V_dataset / V_detector / V_det×ds (MoM-ANOVA, no replicateszh:zh_5104interactionzh_468difference;
+   zh:zh_6379 cmhmil zh:seedreplicateszh:zh_9168 V_seed);
+3) V_eval zh:zh_897: V_clean(rankzh:zh_405 d̄*)/(2π)² -> AUROC zh:zh_405 (U zh:statisticszh_9498);
+4) MSA zh:zh_624 %Contribution zh:table + NDC = 1.41·σ_det/σ_GRR (zh:zh_2348=detector, pre-registered §13 zh:readzh_2614B),
+   zh:zh_826 %GRR withzh:zh_8365 AIAG zh:zh_5335 pairzh:zh_9388.
 """
 from __future__ import annotations
 
@@ -24,13 +24,13 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from bootstrap.e3_clean import cache_file  # noqa: E402
 from bootstrap.r_ratio import load_clean_dbar  # noqa: E402
 
-CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
-OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
+OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
 
 DATASETS = ["SMD", "PSM", "MSL", "SMAP", "SWaT", "WADI", "TE", "MetroPT3", "BATADAL", "NEweather"]
 
 DETECTORS = ["cmhmil_seed7", "AT", "iforest", "pca", "gmm", "ocsvm", "lof"]
-# cmhmil 种子重复 (V_seed 单列)
+# cmhmil zh:seedreplicates (V_seed zh:zh_8958)
 CMH_SEEDS = {"SMD": 10, "PSM": 10, "SWaT": 10, "MSL": 11, "SMAP": 11, "WADI": 11}
 
 
@@ -52,7 +52,7 @@ def build_table():
             if os.path.exists(f):
                 rows.append(dict(dataset=ds, detector=det.replace("_seed7", ""),
                                  seed=7, AUROC=auroc_of(f), AP=ap_of(f)))
-        # cmhmil 种子重复
+        # cmhmil zh:seedreplicates
         n_seed = CMH_SEEDS.get(ds, 1)
         for s in [0, 1, 2, 3, 31, 42, 97, 123, 2024, 4, 5, 6, 8, 9, 10][:n_seed - 1]:
             f = cache_file(f"cmhmil_seed{s}", ds)
@@ -63,10 +63,10 @@ def build_table():
 
 
 def mom_two_way(df, metric="AUROC"):
-    """两因素交叉 MoM; 无重复 -> 交互并入残差; cmhmil 多种子先去种子均值.
+    """zh:zh_9599 MoM; no replicates -> zh:interactionzh_468difference; cmhmil zh:zh_909seedzh_9617seedmean.
 
-    主分解用平衡完整子表: 6 核心数据集 × 6 检测器 {cmhmil, iforest, pca, gmm, ocsvm, lof}
-    (AT 仅 2 数据集、新数据集检测器覆盖不全 -> 只进度量表, 不进 MoM, 诚实记录).
+    zh:zh_8529decompositionzh_7488table: 6 zh:coredataset × 6 detector {cmhmil, iforest, pca, gmm, ocsvm, lof}
+    (AT only 2 dataset、newdatasetdetectorzh:zh_8518notzh:zh_9405 -> zh:zh_2516table, notzh:zh_3207 MoM, zh:zh_5018record).
     """
     cmh = df[df.detector == "cmhmil"]
     v_seed_cells = cmh.groupby("dataset")[metric].var(ddof=1)
@@ -78,7 +78,7 @@ def mom_two_way(df, metric="AUROC"):
     det6 = ["cmhmil", "iforest", "pca", "gmm", "ocsvm", "lof"]
     sub = d2[d2.dataset.isin(core6) & d2.detector.isin(det6)]
     piv = sub.pivot_table(index="dataset", columns="detector", values=metric)
-    assert not piv.isna().any().any(), "平衡子表仍有缺格: %s" % piv.isna().sum().to_dict()
+    assert not piv.isna().any().any(), "zh:zh_717tablezh_9168cell: %s" % piv.isna().sum().to_dict()
     a, b, X = piv.shape[0], piv.shape[1], piv.values
     gm = X.mean()
     ms_d = b * ((X.mean(1) - gm) ** 2).sum() / (a - 1)
@@ -93,7 +93,7 @@ def mom_two_way(df, metric="AUROC"):
 
 
 def v_eval_auroc(ds):
-    """秩尺度 V_clean -> AUROC 尺度: Var(ΔA) = V_clean/(2π(1-π))². R7桥接修正."""
+    """rankzh:zh_405 V_clean -> AUROC zh:zh_405: Var(ΔA) = V_clean/(2π(1-π))². R7zh:zh_1259corrected."""
     db = load_clean_dbar(ds)
     if db is None:
         return np.nan
@@ -105,14 +105,14 @@ def v_eval_auroc(ds):
 def main():
     df = build_table()
     df.to_csv(os.path.join(OUT, "e1_full_metric_table.csv"), index=False, encoding="utf-8-sig")
-    print(f"度量表: {df.groupby(['dataset', 'detector']).ngroups} 格, {len(df)} runs")
+    print(f"zh:zh_7020table: {df.groupby(['dataset', 'detector']).ngroups} cell, {len(df)} runs")
     out = {}
     for metric in ["AUROC", "AP"]:
         comps = mom_two_way(df, metric)
         ve = {ds: v_eval_auroc(ds) for ds in DATASETS}
         ve = {k: v for k, v in ve.items() if np.isfinite(v)}
         v_eval_mean = float(np.mean(list(ve.values()))) if ve else np.nan
-        # MSA %Contribution (AUROC): 总方差 = dataset + detector + 交互残差 + seed + eval
+        # MSA %Contribution (AUROC): zh:zh_7037difference = dataset + detector + zh:interactionzh_869difference + seed + eval
         tot = comps["V_dataset"] + comps["V_detector"] + comps["V_detxds_resid"] \
             + comps["V_seed"] + v_eval_mean
         tab = {
@@ -122,7 +122,7 @@ def main():
         }
         tab_pct = {k + "_pct": round(100 * v / tot, 1) if tot > 0 else np.nan
                    for k, v in tab.items()}
-        # NDC 读法B: 零件=检测器; GRR = seed + eval + det×ds
+        # NDC zh:readzh_2614B: zh:zh_2348=detector; GRR = seed + eval + det×ds
         grr2 = comps["V_seed"] + v_eval_mean + comps["V_detxds_resid"]
         ndc = 1.41 * np.sqrt(comps["V_detector"] / grr2) if grr2 > 0 else np.inf
         grr_pct_sv = np.sqrt(grr2 / tot) * 100  # %Study Var
@@ -137,7 +137,7 @@ def main():
     import json
     with open(os.path.join(OUT, "e1_full_components.json"), "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=2)
-    print("\n已写出 e1_full_components.json + e1_full_metric_table.csv")
+    print("\nwritten e1_full_components.json + e1_full_metric_table.csv")
 
 
 if __name__ == "__main__":

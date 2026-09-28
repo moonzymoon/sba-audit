@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""R8 预防性增补: (a) 聚类稳健SE vs 块级t vs 朴素窗口t 数值对照 (75对);
-(b) %GRR 对 V_eval 缩减的稳健性; (c) 基准明细表数据."""
+"""R8 zh:zh_5793: (a) zh:zh_5509SE vs blockzh:zh_4542t vs zh:zh_533windowt zh:zh_4930valuepairzh:zh_9388 (75pair);
+(b) %GRR pair V_eval zh:zh_3551 zh:zh_7253; (c) zh:benchmarkzh_796tabledata."""
 import json
 import sys
 
@@ -8,13 +8,13 @@ import numpy as np
 import pandas as pd
 from scipy import stats as st
 
-sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src")
-sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src/bootstrap")
+sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src")
+sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src/bootstrap")
 from common.blocks import build_blocks, block_ids  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness  # noqa: E402
 
-R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
+R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
 BMS = ["SMD", "PSM", "MSL", "SMAP", "WADI"]
 SC = {"cmhmil_seed7": "deep", "iforest": "iforest", "pca": "pca", "gmm": "gmm", "ocsvm": "ocsvm", "lof": "lof"}
 MIN_SEG = 10
@@ -28,7 +28,7 @@ for bm in BMS:
         gs[sc] = g
     blocks = build_blocks(events_from_binary(y), len(y))
     bid = block_ids(blocks, len(y))
-    # 合格块掩码 (事件段>=10) — 与 block_stats 一致
+    # zh:zh_7974cellblockzh:zh_4161 (zh:eventsegment>=10) — with block_stats identical
     qual = np.zeros(len(blocks), dtype=bool)
     for k, (_, s, e) in enumerate(blocks):
         qual[k] = (_[0] if isinstance(_, str) else blocks[k][0]) == "normal" or (e - s) >= MIN_SEG
@@ -38,9 +38,9 @@ for bm in BMS:
             d = gs[ks[i]] - gs[ks[j]]
             Tn = len(d)
             dbar = d.mean()
-            # 朴素窗口 t (T-1 df)
+            # zh:zh_533window t (T-1 df)
             p_naive = st.ttest_1samp(d, 0.0).pvalue
-            # 块级 t: 合格块的块均值差, K-1 df
+            # blockzh:zh_4542 t: zh:zh_7974cellblock blockmeandifference, K-1 df
             mask = qual[bid]
             dm, cnt = {}, {}
             for t in range(Tn):
@@ -50,12 +50,12 @@ for bm in BMS:
             dmeans = np.array([dm[b] / cnt[b] for b in sorted(dm)])
             K = len(dmeans)
             p_block = st.ttest_1samp(dmeans, 0.0).pvalue
-            # CR1 聚类稳健 (以块为簇, K-1 df)
+            # CR1 zh:zh_5509 (zh:zh_5665blockis zh:zh_8965, K-1 df)
             S = {b: 0.0 for b in dm}
             for t in range(Tn):
                 if bid[t] in S:
                     S[bid[t]] += d[t] - dbar * cnt.get(bid[t], 1) / cnt.get(bid[t], 1)
-            # CR1: sum_j (S_j - n_j*dbar)^2 / T^2 * K/(K-1), S_j=簇内和
+            # CR1: sum_j (S_j - n_j*dbar)^2 / T^2 * K/(K-1), S_j=zh:zh_4499
             Sj = np.array([dm[b] for b in sorted(dm)]) * np.array([cnt[b] for b in sorted(dm)])
             nj = np.array([cnt[b] for b in sorted(dm)])
             Vcr = (K / (K - 1)) * np.sum((Sj - nj * dbar) ** 2) / Tn**2
@@ -73,7 +73,7 @@ print("75 pairs: naive p<.05: %.2f | CRSE p<.05: %.2f | block p<.05: %.2f" % (na
 print("|p_CR - p_block| median %.4f max %.4f" % (df.d_cr_block.median(), df.d_cr_block.max()))
 print(df.nlargest(3, "d_cr_block")[["bm", "pair", "p_naive", "p_cr", "p_block", "d_cr_block"]].round(4).to_string())
 
-# (b) %GRR 对 V_eval 缩减
+# (b) %GRR pair V_eval zh:zh_3551
 j = json.load(open(R + "e1_full_components.json", encoding="utf-8"))["AUROC"]
 Ve, Vsd, Vdd, Vds, Vdet = j["V_eval(mean)"], j["V_seed"], j["V_detxds_resid"], j["V_dataset"], j["V_detector"]
 for scale in [1, 2, 4, 8]:
@@ -83,7 +83,7 @@ for scale in [1, 2, 4, 8]:
     ndc = 1.41 * np.sqrt(Vdet / (Vsd + ve + Vdd))
     print("Veval/%d: %%GRR=%.1f NDC=%.3f" % (scale, grr, ndc))
 
-# (c) 基准明细
+# (c) zh:benchmarkzh_796
 e3 = pd.read_csv(R + "e3_clean_summary.csv")
 e4 = pd.read_csv(R + "e4_mde_table.csv")
 tau = pd.read_csv(R + "e2_tau_map.csv")

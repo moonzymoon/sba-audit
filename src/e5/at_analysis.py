@@ -1,11 +1,11 @@
-"""E5b: 第二深度族 (Anomaly Transformer) 种子方差分析.
+"""E5b: paper zh:zh_2315 (Anomaly Transformer) zh:seedzh_6254differencezh:zh_7069.
 
-问题 (limits iv): R=V_seed/V_clean≪1 是否限于 CMH-MIL 单族?
-方法: 5 种子 × {SMD, PSM} 的 at2_* 缓存, 10 对/数据集;
-  dbar_k = 配对差均值 (秩尺度, 与 e5 同构); V_run = Var_k(dbar);
-  R = max(0, V_run − V_clean) / V_clean  (V_clean 来自 at2_seed7 的 E3-clean 格).
+zh:zh_5535 (limits iv): R=V_seed/V_clean≪1 zh:zh_1737 CMH-MIL zh:zh_6452?
+zh:method: 5 zh:seed × {SMD, PSM}   at2_* cache, 10 pair/dataset;
+  dbar_k = paireddifferencemean (rankzh:zh_405, with e5 samezh:zh_2058); V_run = Var_k(dbar);
+  R = max(0, V_run − V_clean) / V_clean  (V_clean zh:zh_7902 at2_seed7   E3-clean cell).
 
-用法: python e5/at_analysis.py
+zh:zh_966: python e5/at_analysis.py
 """
 import os
 import sys
@@ -16,9 +16,9 @@ import pandas as pd
 from scipy.stats import rankdata
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
-RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
-RES = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
+RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
+RES = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
 SEEDS = [7, 42, 123, 202, 999]
 
 
@@ -47,7 +47,7 @@ def main():
             v_clean = float(np.var(np.load(f)["dbar"], ddof=1))
         else:
             v_clean = np.nan
-            print(f"[warn] {ds}: V_clean 缓存未找到, R 记 nan")
+            print(f"[warn] {ds}: V_clean cachezh:zh_9954, R zh:zh_1152 nan")
         r = max(0.0, v_run - v_clean) / v_clean if np.isfinite(v_clean) else np.nan
         rows.append(dict(dataset=ds, n_seeds=len(SEEDS), n_pairs=len(dbars),
                          auroc_min=min(au.values()), auroc_max=max(au.values()),

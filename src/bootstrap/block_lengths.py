@@ -1,9 +1,9 @@
-"""三档块长 (预注册 §8): b_short / b_mid(PWSD 自动) / b_long.
+"""zh:zh_1918blockzh:zh_1935 (pre-registered §8): b_short / b_mid(PWSD zh:automatic) / b_long.
 
-块结构硬约束优先: 事件段块永不切分; 三档块长只作用于**正常间隔块内部**的子块划分
-(重采样前把正常块按长度 b 切成子块, 再与完整事件段块一起进重抽样池).
-b_short = max(段长中位数, w/Δ);  b_mid = arch PWSD (Politis-White 修正版 Patton 2009);
-b_long = 2·b_mid. 判定"块选择不主导": 三档 E3-clean Type I ∈ [0.035,0.065] 且 SE 相对差 <25%.
+blockzh:zh_3893approxzh_4936: zh:eventsegmentblockzh:zh_443notzh:zh_311; zh:zh_1918blockzh:zh_6956**zh:normalzh_6966blockzh:internal** zh:zh_70blockzh:zh_9448
+(zh:resamplingzh_2059normalblockperzh:length b zh:zh_2073block, zh:zh_9095withzh:zh_2476eventsegmentblockzh:zh_1576resamplingzh_5414).
+b_short = max(segmentzh:zh_8199bitzh_4930, w/Δ);  b_mid = arch PWSD (Politis-White correctedzh:zh_2687 Patton 2009);
+b_long = 2·b_mid. zh:zh_598"blockzh:zh_5736notzh:zh_7467": zh:zh_1918 E3-clean Type I ∈ [0.035,0.065] and SE zh:zh_9362pairdifference <25%.
 """
 from __future__ import annotations
 
@@ -18,7 +18,7 @@ from common.events import events_from_binary  # noqa: E402
 
 
 def tier_lengths(g, events, T, w=16, delta=1.0):
-    """返回 (b_short, b_mid, b_long)."""
+    """returns (b_short, b_mid, b_long)."""
     ev_lens = [e - s for s, e in events if e - s >= 10]
     b_short = max(float(np.median(ev_lens)) if ev_lens else w, w / delta)
     try:
@@ -27,14 +27,14 @@ def tier_lengths(g, events, T, w=16, delta=1.0):
         b_mid = float(obl.loc["g", "stationary"]) if "g" in set(obl.index.get_level_values(0)) \
             else float(obl.iloc[0, 0])
     except Exception as e:  # noqa: BLE001
-        print(f"[block_lengths] PWSD 失败({e}), 回退 b_mid = b_short")
+        print(f"[block_lengths] PWSD zh:fail({e}), zh:zh_4769 b_mid = b_short")
         b_mid = b_short
     b_long = 2.0 * b_mid
     return dict(b_short=b_short, b_mid=b_mid, b_long=b_long)
 
 
 def subdivide_normals(blocks, b):
-    """把正常块按长度 b 切子块 (事件块原样保留) — 供三档敏感性用."""
+    """zh:zh_1239normalblockperzh:length b zh:zh_4496block (zh:eventblockzh:zh_9362) — zh:zh_7331sensitivezh_140."""
     out = []
     for kind, s, e in blocks:
         if kind == "event" or e - s <= b:
@@ -48,7 +48,7 @@ def subdivide_normals(blocks, b):
 
 
 def resample_blocks_tier(x, blocks, rng, b=None):
-    """带块长档位的重采样: 正常块先按 b 细分再重抽; 事件块整块进出."""
+    """zh:zh_2864blockzh:zh_5375bit zh:resampling: zh:normalblockzh:zh_386per b zh:zh_5917; zh:eventblockzh:zh_8990blockzh:zh_2338."""
     from common.blocks import resample_blocks
     if b is None:
         return resample_blocks(x, blocks, rng)
