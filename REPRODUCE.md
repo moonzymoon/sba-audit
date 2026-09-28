@@ -35,33 +35,33 @@ See the claim-to-artifact traceability table in the main text; every file lives 
 
 ## 22. Friedman omnibus test (R5)
 ```
-cd src && python probe/friedman_omnibus.py   # deterministic性, no resampling; 输出 results/friedman_omnibus.csv
+cd src && python probe/friedman_omnibus.py   # deterministic, no resampling; writes results/friedman_omnibus.csv
 ```
 
 ## 23. synthetic factorial grid (R6)
 ```
-cd src && python probe/synthetic_grid.py   # 18格 x B=5000, ~7分钟; 输出 results/synthetic_grid.csv
+cd src && python probe/synthetic_grid.py   # 18 cells x B=5000, ~7 min; writes results/synthetic_grid.csv
 ```
 
 ## 24. R7 bridge correction recompute (2π→2π(1−π))
 ```
-cd src && python mixed/e4_mde.py && python mixed/e1_full.py   # bridge corrected; 输出 e4_mde_table/e1_full_components
+cd src && python mixed/e4_mde.py && python mixed/e1_full.py   # bridge corrected; writes e4_mde_table / e1_full_componentsonents
 python make_fig56.py && python make_figures.py                 # figs 3/5/6 (corrected) + figs 1/2/4
 ```
 ## 25. paired-scale robustness (R7)
 ```
-cd src && python probe/pair_correlation.py   # 输出 results/pair_scale_analysis.csv
+cd src && python probe/pair_correlation.py   # writes results/pair_scale_analysis.csv
 ```
 
 ## 26. CRSE comparison and scenario analysis (R8)
 ```
-cd src && python probe/crse_demo.py   # 输出 results/crse_vs_block.csv + %GRR场景 + 基准表数据
+cd src && python probe/crse_demo.py   # writes results/crse_vs_block.csv + %GRR scenarios + benchmark-table data
 ```
 
-27. 图 7-9（CRSE 柱状 / 配对尺度散点 / 方差分解双面板）：`python src/make_fig789.py`（读取 results/ 下 crse_vs_block.csv、pair_scale_analysis.csv、e1_full_components.json，全部现算）。
+27. Figs 7-9 (CRSE bars / paired-scale scatter / variance-decomposition panels): `python src/make_fig789.py` (reads results/crse_vs_block.csv, results/pair_scale_analysis.csv, results/e1_direct_components.json; all computed on the fly).
 
-28. Deep-derivation artifacts (R11): `python src/probe/pr_bridge_mc.py` (MC for AP-bridge nonexistence, 400 replicas x 3 cells -> results/pr_bridge_mc.csv); `python src/probe/length_effects.py` (block-length ratio-estimator effects -> results/length_effects.csv; source of the 18.3 / 5.9 / 126-52336 numbers in Appendix A).
+28. Deep-derivation artifacts (R11): `python src/probe/pr_bridge_mc.py` (MC for AP-bridge nonexistence, 400 replicas x 3 cells -> results/pr_bridge_mc.csv); `python src/probe/length_effects.py` (block-length ratio-estimator effects -> results/length_effects.csv; source of the 18.3 / 5.9 / 126-52336 numbers in Supplement S1).
 
-29. deep-derivation artifacts (batch 2)（R14）：`python src/probe/cross_bench_synthesis.py`（cross-benchmark synthesis：FE 合并 MDE/RE 地板/41 套/种子噪声→cross_bench_synthesis.csv）；block concentration 75 对statistics saved by results/block_concentration.csv 保存（source of the anatomy paragraph and the honesty sentence）。
+29. Deep-derivation artifacts, batch 2 (R14): `python src/probe/cross_bench_synthesis.py` (cross-benchmark synthesis: FE pooled MDE / RE floor / 41 suites / seed noise -> cross_bench_synthesis.csv); the 75-pair block-concentration statistics are saved in results/block_concentration.csv.
 
-30. R15b direct-scale reproduction：`python src/probe/r15b_compute.py`（8 数据集 V_eval direct + AP + 75 对统计→e1_direct_components.json/r15b_summary.txt）；`python src/probe/bridge_replica_check.py`（bridge replica distortion quantification）；`python src/make_fig_direct.py`（fig3/5/6 direct）；make_fig789.py 现读 e1_direct_components.json（fig9）。
+30. R15b direct-scale reproduction: `python src/probe/r15b_compute.py` (V_eval direct for 8 datasets + AP + 75-pair statistics -> e1_direct_components.json / r15b_summary.txt); `python src/probe/bridge_replica_check.py` (bridge replica distortion); `python src/make_fig_direct.py` (figs 3/5/6 direct); make_fig789.py now reads e1_direct_components.json (fig9).
