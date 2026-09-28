@@ -1,0 +1,46 @@
+D:\0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/src\data\loaders.py:128: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df_a["_dt"] = pd.to_datetime(df_a["Date"].astype(str) + " " + df_a["Time"].astype(str), errors="coerce")
+D:\0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/src\data\loaders.py:128: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df_a["_dt"] = pd.to_datetime(df_a["Date"].astype(str) + " " + df_a["Time"].astype(str), errors="coerce")
+[ok] pca_scores TE: T=23989
+[ok] gmm_scores TE: T=23989
+[ok] ocsvm_scores TE: T=23989
+[ok] lof_scores TE: T=23989
+[ok] pca_scores BATADAL: T=2075
+[ok] gmm_scores BATADAL: T=2075
+[ok] ocsvm_scores BATADAL: T=2075
+[ok] lof_scores BATADAL: T=2075
+[ok] pca_scores NEweather: T=9066
+[ok] gmm_scores NEweather: T=9066
+[ok] ocsvm_scores NEweather: T=9066
+[ok] lof_scores NEweather: T=9066
+[LOAD FAIL] 5ECK2022: [Errno 2] No such file or directory: 'D:\\0科研\\工作1\\第2篇SCI\\Contrastive_TopK_MIL\\datasets\\5ECK2022\\data.csv'
+[ok] pca_scores SMD: T=28465
+[ok] gmm_scores SMD: T=28465
+[ok] ocsvm_scores SMD: T=28465
+[ok] lof_scores SMD: T=28465
+[ok] pca_scores PSM: T=110147
+[ok] gmm_scores PSM: T=110147
+[ok] ocsvm_scores PSM: T=110147
+[ok] lof_scores PSM: T=110147
+[ok] pca_scores MSL: T=66009
+[ok] gmm_scores MSL: T=66009
+[ok] ocsvm_scores MSL: T=66009
+[ok] lof_scores MSL: T=66009
+[ok] pca_scores SMAP: T=281385
+[ok] gmm_scores SMAP: T=281385
+[ok] ocsvm_scores SMAP: T=281385
+[ok] lof_scores SMAP: T=281385
+[ok] pca_scores SWaT: T=144158
+[ok] gmm_scores SWaT: T=144158
+[ok] ocsvm_scores SWaT: T=144158
+[ok] lof_scores SWaT: T=144158
+[ok] pca_scores WADI: T=69106
+[ok] gmm_scores WADI: T=69106
+[ok] ocsvm_scores WADI: T=69106
+[ok] lof_scores WADI: T=69106
+[ok] pca_scores MetroPT3: T=1516934
+[ok] gmm_scores MetroPT3: T=1516934
+[skip] ocsvm_scores MetroPT3: ocsvm: 测试集过大 (1516949)
+[skip] lof_scores MetroPT3: lof: 测试集过大 (1516949)
+score_all 完成

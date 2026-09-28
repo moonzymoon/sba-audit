@@ -1,0 +1,11 @@
+  [PSM/pca] 1000/10000 reps, 39s
+  [PSM/pca] 2000/10000 reps, 81s
+  [PSM/pca] 3000/10000 reps, 123s
+  [PSM/pca] 4000/10000 reps, 164s
+  [PSM/pca] 5000/10000 reps, 205s
+  [PSM/pca] 6000/10000 reps, 246s
+  [PSM/pca] 7000/10000 reps, 287s
+  [PSM/pca] 8000/10000 reps, 328s
+  [PSM/pca] 9000/10000 reps, 369s
+  [PSM/pca] 10000/10000 reps, 410s
+{'dataset': 'PSM', 'scorer': 'pca', 'B': 10000, 'T': 110146, 'n_blocks': 145, 'size_win_t': 0.9682, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.9674, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.048, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0481, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0459, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0471, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9806, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9774, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0493, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0494, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0136}

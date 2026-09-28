@@ -1,0 +1,17 @@
+{
+ "sigma_suite_median_pts": {
+  "SMD": 3.63,
+  "PSM": 5.494,
+  "MSL": 5.194,
+  "SMAP": 6.81,
+  "WADI": 11.156
+ },
+ "multiplier_z": 2.8016,
+ "pooled_floor_pts": 6.68,
+ "plus_one_MSL": 6.07,
+ "MSL_class_needed_for_5pts": 4,
+ "SMD_class_needed": 2,
+ "WADI_class_needed": 18,
+ "source": "direct_scale_verdict.csv",
+ "rule": "pooled floor = z/sqrt(sum 1/sigma_i^2); need sum >= (z/5)^2"
+}

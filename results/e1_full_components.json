@@ -1,0 +1,58 @@
+{
+  "AUROC": {
+    "V_dataset": 0.02818878,
+    "V_detector": 0.00127954,
+    "V_detxds_resid": 0.00654775,
+    "V_seed": 0.00586333,
+    "V_eval(mean)": 0.20509399,
+    "V_total": 0.2469734,
+    "V_dataset_pct": 11.4,
+    "V_detector_pct": 0.5,
+    "V_detxds_resid_pct": 2.7,
+    "V_seed_pct": 2.4,
+    "V_eval(mean)_pct": 83.0,
+    "V_total_pct": 100.0,
+    "NDC": 0.11,
+    "GRR_pctSV": 93.8,
+    "V_eval_by_ds": {
+      "SMD": "2.19e-01",
+      "PSM": "1.07e-01",
+      "MSL": "5.01e-02",
+      "SMAP": "4.11e-02",
+      "SWaT": "0.00e+00",
+      "WADI": "1.20e+00",
+      "TE": "1.65e-02",
+      "MetroPT3": "1.15e-02"
+    },
+    "n_ds": 6,
+    "n_det": 6
+  },
+  "AP": {
+    "V_dataset": 0.06920429,
+    "V_detector": 0.00276283,
+    "V_detxds_resid": 0.01342732,
+    "V_seed": 0.01164209,
+    "V_eval(mean)": 0.20509399,
+    "V_total": 0.30213053,
+    "V_dataset_pct": 22.9,
+    "V_detector_pct": 0.9,
+    "V_detxds_resid_pct": 4.4,
+    "V_seed_pct": 3.9,
+    "V_eval(mean)_pct": 67.9,
+    "V_total_pct": 100.0,
+    "NDC": 0.15,
+    "GRR_pctSV": 87.3,
+    "V_eval_by_ds": {
+      "SMD": "2.19e-01",
+      "PSM": "1.07e-01",
+      "MSL": "5.01e-02",
+      "SMAP": "4.11e-02",
+      "SWaT": "0.00e+00",
+      "WADI": "1.20e+00",
+      "TE": "1.65e-02",
+      "MetroPT3": "1.15e-02"
+    },
+    "n_ds": 6,
+    "n_det": 6
+  }
+}

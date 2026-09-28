@@ -1,0 +1,11 @@
+  [TE/pca] 1000/10000 reps, 607s
+  [TE/pca] 2000/10000 reps, 1224s
+  [TE/pca] 3000/10000 reps, 1834s
+  [TE/pca] 4000/10000 reps, 2436s
+  [TE/pca] 5000/10000 reps, 3000s
+  [TE/pca] 6000/10000 reps, 3532s
+  [TE/pca] 7000/10000 reps, 4062s
+  [TE/pca] 8000/10000 reps, 4592s
+  [TE/pca] 9000/10000 reps, 5127s
+  [TE/pca] 10000/10000 reps, 5655s
+{'dataset': 'TE', 'scorer': 'pca', 'B': 10000, 'T': 23989, 'n_blocks': 12, 'size_win_t': 0.8708, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.9019, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0378, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0456, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0497, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0494, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9229, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9291, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0338, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0452, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0035}

@@ -1,0 +1,11 @@
+  [SMD/iforest] 1000/10000 reps, 20s
+  [SMD/iforest] 2000/10000 reps, 41s
+  [SMD/iforest] 3000/10000 reps, 62s
+  [SMD/iforest] 4000/10000 reps, 84s
+  [SMD/iforest] 5000/10000 reps, 105s
+  [SMD/iforest] 6000/10000 reps, 126s
+  [SMD/iforest] 7000/10000 reps, 148s
+  [SMD/iforest] 8000/10000 reps, 169s
+  [SMD/iforest] 9000/10000 reps, 191s
+  [SMD/iforest] 10000/10000 reps, 212s
+{'dataset': 'SMD', 'scorer': 'iforest', 'B': 10000, 'T': 28464, 'n_blocks': 17, 'size_win_t': 0.8785, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.8886, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0509, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0474, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0507, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0454, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9199, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9242, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0494, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.046, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0026}

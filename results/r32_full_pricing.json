@@ -1,0 +1,1202 @@
+[
+ {
+  "bm": "SMD",
+  "pair": "cmhmil_seed7-gmm",
+  "AP": {
+   "sd": 0.023,
+   "mde": 6.4,
+   "gap": 29.2,
+   "cert": true
+  },
+  "PAF1": {
+   "sd": 1.4304,
+   "mde": 4.0,
+   "gap": 9.0,
+   "cert": true
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "cmhmil_seed7-iforest",
+  "AP": {
+   "sd": 0.031,
+   "mde": 8.7,
+   "gap": 6.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 0.9571,
+   "mde": 2.7,
+   "gap": 1.4,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "cmhmil_seed7-lof",
+  "AP": {
+   "sd": 0.0802,
+   "mde": 22.5,
+   "gap": 15.0,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.1686,
+   "mde": 8.9,
+   "gap": 3.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "cmhmil_seed7-ocsvm",
+  "AP": {
+   "sd": 0.083,
+   "mde": 23.2,
+   "gap": 13.4,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 2.8008,
+   "mde": 7.8,
+   "gap": 5.6,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "cmhmil_seed7-pca",
+  "AP": {
+   "sd": 0.0388,
+   "mde": 10.9,
+   "gap": 29.6,
+   "cert": true
+  },
+  "PAF1": {
+   "sd": 1.541,
+   "mde": 4.3,
+   "gap": 9.1,
+   "cert": true
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "gmm-iforest",
+  "AP": {
+   "sd": 0.0442,
+   "mde": 12.4,
+   "gap": 35.3,
+   "cert": true
+  },
+  "PAF1": {
+   "sd": 1.3351,
+   "mde": 3.7,
+   "gap": 10.4,
+   "cert": true
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "gmm-lof",
+  "AP": {
+   "sd": 0.069,
+   "mde": 19.3,
+   "gap": 14.1,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 2.5791,
+   "mde": 7.2,
+   "gap": 6.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "gmm-ocsvm",
+  "AP": {
+   "sd": 0.0723,
+   "mde": 20.2,
+   "gap": 15.8,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 2.915,
+   "mde": 8.2,
+   "gap": 3.4,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "gmm-pca",
+  "AP": {
+   "sd": 0.0237,
+   "mde": 6.6,
+   "gap": 0.4,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 1.2698,
+   "mde": 3.6,
+   "gap": 0.1,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "iforest-lof",
+  "AP": {
+   "sd": 0.1061,
+   "mde": 29.7,
+   "gap": 21.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.5967,
+   "mde": 10.1,
+   "gap": 4.4,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "iforest-ocsvm",
+  "AP": {
+   "sd": 0.1059,
+   "mde": 29.6,
+   "gap": 19.6,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.4167,
+   "mde": 9.6,
+   "gap": 7.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "iforest-pca",
+  "AP": {
+   "sd": 0.0598,
+   "mde": 16.7,
+   "gap": 35.8,
+   "cert": true
+  },
+  "PAF1": {
+   "sd": 1.7842,
+   "mde": 5.0,
+   "gap": 10.5,
+   "cert": true
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "lof-ocsvm",
+  "AP": {
+   "sd": 0.0357,
+   "mde": 10.0,
+   "gap": 1.6,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 2.1403,
+   "mde": 6.0,
+   "gap": 2.6,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "lof-pca",
+  "AP": {
+   "sd": 0.0559,
+   "mde": 15.7,
+   "gap": 14.6,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 2.2571,
+   "mde": 6.3,
+   "gap": 6.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMD",
+  "pair": "ocsvm-pca",
+  "AP": {
+   "sd": 0.0552,
+   "mde": 15.5,
+   "gap": 16.2,
+   "cert": true
+  },
+  "PAF1": {
+   "sd": 2.2867,
+   "mde": 6.4,
+   "gap": 3.5,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "cmhmil_seed7-gmm",
+  "AP": {
+   "sd": 0.1157,
+   "mde": 32.4,
+   "gap": 6.5,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 15.7627,
+   "mde": 44.1,
+   "gap": 3.3,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "cmhmil_seed7-iforest",
+  "AP": {
+   "sd": 0.1662,
+   "mde": 46.5,
+   "gap": 17.0,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 19.5235,
+   "mde": 54.7,
+   "gap": 4.5,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "cmhmil_seed7-lof",
+  "AP": {
+   "sd": 0.0466,
+   "mde": 13.0,
+   "gap": 1.4,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 13.9785,
+   "mde": 39.1,
+   "gap": 2.5,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "cmhmil_seed7-ocsvm",
+  "AP": {
+   "sd": 0.0824,
+   "mde": 23.1,
+   "gap": 4.8,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 12.526,
+   "mde": 35.1,
+   "gap": 3.8,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "cmhmil_seed7-pca",
+  "AP": {
+   "sd": 0.0464,
+   "mde": 13.0,
+   "gap": 6.7,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 12.6894,
+   "mde": 35.5,
+   "gap": 0.7,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "gmm-iforest",
+  "AP": {
+   "sd": 0.117,
+   "mde": 32.8,
+   "gap": 10.5,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 10.9414,
+   "mde": 30.6,
+   "gap": 1.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "gmm-lof",
+  "AP": {
+   "sd": 0.1016,
+   "mde": 28.5,
+   "gap": 5.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 4.5476,
+   "mde": 12.7,
+   "gap": 0.8,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "gmm-ocsvm",
+  "AP": {
+   "sd": 0.0961,
+   "mde": 26.9,
+   "gap": 11.3,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 7.7329,
+   "mde": 21.7,
+   "gap": 0.5,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "gmm-pca",
+  "AP": {
+   "sd": 0.1014,
+   "mde": 28.4,
+   "gap": 13.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 5.3997,
+   "mde": 15.1,
+   "gap": 2.6,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "iforest-lof",
+  "AP": {
+   "sd": 0.1674,
+   "mde": 46.9,
+   "gap": 15.7,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 13.0797,
+   "mde": 36.6,
+   "gap": 2.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "iforest-ocsvm",
+  "AP": {
+   "sd": 0.1764,
+   "mde": 49.4,
+   "gap": 21.8,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 13.5422,
+   "mde": 37.9,
+   "gap": 0.7,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "iforest-pca",
+  "AP": {
+   "sd": 0.1405,
+   "mde": 39.3,
+   "gap": 23.7,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 12.4013,
+   "mde": 34.7,
+   "gap": 3.8,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "lof-ocsvm",
+  "AP": {
+   "sd": 0.0495,
+   "mde": 13.9,
+   "gap": 6.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 6.1827,
+   "mde": 17.3,
+   "gap": 1.3,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "lof-pca",
+  "AP": {
+   "sd": 0.0617,
+   "mde": 17.3,
+   "gap": 8.1,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.7561,
+   "mde": 10.5,
+   "gap": 1.8,
+   "cert": false
+  }
+ },
+ {
+  "bm": "PSM",
+  "pair": "ocsvm-pca",
+  "AP": {
+   "sd": 0.0893,
+   "mde": 25.0,
+   "gap": 1.9,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 6.2634,
+   "mde": 17.5,
+   "gap": 3.1,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "cmhmil_seed7-gmm",
+  "AP": {
+   "sd": 0.0186,
+   "mde": 5.2,
+   "gap": 0.6,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.8804,
+   "mde": 10.9,
+   "gap": 1.6,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "cmhmil_seed7-iforest",
+  "AP": {
+   "sd": 0.0376,
+   "mde": 10.5,
+   "gap": 2.5,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 6.1795,
+   "mde": 17.3,
+   "gap": 6.8,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "cmhmil_seed7-lof",
+  "AP": {
+   "sd": 0.0275,
+   "mde": 7.7,
+   "gap": 4.9,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 8.5113,
+   "mde": 23.8,
+   "gap": 13.1,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "cmhmil_seed7-ocsvm",
+  "AP": {
+   "sd": 0.0187,
+   "mde": 5.2,
+   "gap": 1.4,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.8649,
+   "mde": 10.8,
+   "gap": 7.4,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "cmhmil_seed7-pca",
+  "AP": {
+   "sd": 0.0196,
+   "mde": 5.5,
+   "gap": 0.9,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.5215,
+   "mde": 9.9,
+   "gap": 7.4,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "gmm-iforest",
+  "AP": {
+   "sd": 0.037,
+   "mde": 10.4,
+   "gap": 3.1,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 5.5024,
+   "mde": 15.4,
+   "gap": 5.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "gmm-lof",
+  "AP": {
+   "sd": 0.0293,
+   "mde": 8.2,
+   "gap": 5.5,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 7.4087,
+   "mde": 20.7,
+   "gap": 11.5,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "gmm-ocsvm",
+  "AP": {
+   "sd": 0.0142,
+   "mde": 4.0,
+   "gap": 1.9,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 4.392,
+   "mde": 12.3,
+   "gap": 5.8,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "gmm-pca",
+  "AP": {
+   "sd": 0.0142,
+   "mde": 4.0,
+   "gap": 1.5,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 4.0175,
+   "mde": 11.2,
+   "gap": 5.8,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "iforest-lof",
+  "AP": {
+   "sd": 0.0497,
+   "mde": 13.9,
+   "gap": 2.4,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 9.2829,
+   "mde": 26.0,
+   "gap": 6.3,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "iforest-ocsvm",
+  "AP": {
+   "sd": 0.0364,
+   "mde": 10.2,
+   "gap": 1.1,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 6.1587,
+   "mde": 17.2,
+   "gap": 0.6,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "iforest-pca",
+  "AP": {
+   "sd": 0.0378,
+   "mde": 10.6,
+   "gap": 1.6,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 6.0458,
+   "mde": 16.9,
+   "gap": 0.6,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "lof-ocsvm",
+  "AP": {
+   "sd": 0.028,
+   "mde": 7.8,
+   "gap": 3.5,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 8.8342,
+   "mde": 24.7,
+   "gap": 5.8,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "lof-pca",
+  "AP": {
+   "sd": 0.0278,
+   "mde": 7.8,
+   "gap": 4.0,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 8.6352,
+   "mde": 24.2,
+   "gap": 5.7,
+   "cert": false
+  }
+ },
+ {
+  "bm": "MSL",
+  "pair": "ocsvm-pca",
+  "AP": {
+   "sd": 0.0031,
+   "mde": 0.9,
+   "gap": 0.5,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 1.564,
+   "mde": 4.4,
+   "gap": 0.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "cmhmil_seed7-gmm",
+  "AP": {
+   "sd": 0.0552,
+   "mde": 15.5,
+   "gap": 9.3,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 9.2032,
+   "mde": 25.8,
+   "gap": 15.4,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "cmhmil_seed7-iforest",
+  "AP": {
+   "sd": 0.0542,
+   "mde": 15.2,
+   "gap": 10.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 9.2701,
+   "mde": 26.0,
+   "gap": 15.5,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "cmhmil_seed7-lof",
+  "AP": {
+   "sd": 0.0501,
+   "mde": 14.0,
+   "gap": 6.7,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 8.6366,
+   "mde": 24.2,
+   "gap": 1.8,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "cmhmil_seed7-ocsvm",
+  "AP": {
+   "sd": 0.0553,
+   "mde": 15.5,
+   "gap": 9.3,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 9.2142,
+   "mde": 25.8,
+   "gap": 15.4,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "cmhmil_seed7-pca",
+  "AP": {
+   "sd": 0.0553,
+   "mde": 15.5,
+   "gap": 9.4,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 9.2147,
+   "mde": 25.8,
+   "gap": 15.4,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "gmm-iforest",
+  "AP": {
+   "sd": 0.0044,
+   "mde": 1.2,
+   "gap": 0.9,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 2.5676,
+   "mde": 7.2,
+   "gap": 0.1,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "gmm-lof",
+  "AP": {
+   "sd": 0.0158,
+   "mde": 4.4,
+   "gap": 2.6,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 9.3187,
+   "mde": 26.1,
+   "gap": 17.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "gmm-ocsvm",
+  "AP": {
+   "sd": 0.0004,
+   "mde": 0.1,
+   "gap": 0.0,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 0.1836,
+   "mde": 0.5,
+   "gap": 0.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "gmm-pca",
+  "AP": {
+   "sd": 0.0007,
+   "mde": 0.2,
+   "gap": 0.1,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 0.1831,
+   "mde": 0.5,
+   "gap": 0.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "iforest-lof",
+  "AP": {
+   "sd": 0.0144,
+   "mde": 4.0,
+   "gap": 3.5,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 9.2796,
+   "mde": 26.0,
+   "gap": 17.3,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "iforest-ocsvm",
+  "AP": {
+   "sd": 0.0044,
+   "mde": 1.2,
+   "gap": 1.0,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 2.5198,
+   "mde": 7.1,
+   "gap": 0.1,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "iforest-pca",
+  "AP": {
+   "sd": 0.0044,
+   "mde": 1.2,
+   "gap": 0.9,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 2.5204,
+   "mde": 7.1,
+   "gap": 0.1,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "lof-ocsvm",
+  "AP": {
+   "sd": 0.0159,
+   "mde": 4.5,
+   "gap": 2.6,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 9.3172,
+   "mde": 26.1,
+   "gap": 17.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "lof-pca",
+  "AP": {
+   "sd": 0.0158,
+   "mde": 4.4,
+   "gap": 2.6,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 9.3173,
+   "mde": 26.1,
+   "gap": 17.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "SMAP",
+  "pair": "ocsvm-pca",
+  "AP": {
+   "sd": 0.0007,
+   "mde": 0.2,
+   "gap": 0.1,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 0.0146,
+   "mde": 0.0,
+   "gap": 0.0,
+   "cert": true
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "cmhmil_seed7-gmm",
+  "AP": {
+   "sd": 0.0035,
+   "mde": 1.0,
+   "gap": 0.0,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 1.2931,
+   "mde": 3.6,
+   "gap": 2.7,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "cmhmil_seed7-iforest",
+  "AP": {
+   "sd": 0.0383,
+   "mde": 10.7,
+   "gap": 2.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 18.7183,
+   "mde": 52.4,
+   "gap": 21.5,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "cmhmil_seed7-lof",
+  "AP": {
+   "sd": 0.0028,
+   "mde": 0.8,
+   "gap": 0.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 0.6946,
+   "mde": 1.9,
+   "gap": 2.7,
+   "cert": true
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "cmhmil_seed7-ocsvm",
+  "AP": {
+   "sd": 0.0104,
+   "mde": 2.9,
+   "gap": 0.7,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 18.0818,
+   "mde": 50.6,
+   "gap": 20.3,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "cmhmil_seed7-pca",
+  "AP": {
+   "sd": 0.0077,
+   "mde": 2.1,
+   "gap": 0.8,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.7963,
+   "mde": 10.6,
+   "gap": 2.7,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "gmm-iforest",
+  "AP": {
+   "sd": 0.0385,
+   "mde": 10.8,
+   "gap": 2.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 19.0856,
+   "mde": 53.4,
+   "gap": 24.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "gmm-lof",
+  "AP": {
+   "sd": 0.0031,
+   "mde": 0.9,
+   "gap": 0.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 1.0985,
+   "mde": 3.1,
+   "gap": 0.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "gmm-ocsvm",
+  "AP": {
+   "sd": 0.0104,
+   "mde": 2.9,
+   "gap": 0.7,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 18.5158,
+   "mde": 51.8,
+   "gap": 23.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "gmm-pca",
+  "AP": {
+   "sd": 0.0057,
+   "mde": 1.6,
+   "gap": 0.8,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.6986,
+   "mde": 10.4,
+   "gap": 0.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "iforest-lof",
+  "AP": {
+   "sd": 0.04,
+   "mde": 11.2,
+   "gap": 2.4,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 19.0517,
+   "mde": 53.3,
+   "gap": 24.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "iforest-ocsvm",
+  "AP": {
+   "sd": 0.029,
+   "mde": 8.1,
+   "gap": 1.5,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 11.1908,
+   "mde": 31.3,
+   "gap": 1.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "iforest-pca",
+  "AP": {
+   "sd": 0.0362,
+   "mde": 10.1,
+   "gap": 1.4,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 19.2279,
+   "mde": 53.8,
+   "gap": 24.2,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "lof-ocsvm",
+  "AP": {
+   "sd": 0.0121,
+   "mde": 3.4,
+   "gap": 0.9,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 18.4331,
+   "mde": 51.6,
+   "gap": 23.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "lof-pca",
+  "AP": {
+   "sd": 0.0084,
+   "mde": 2.4,
+   "gap": 1.0,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 3.8506,
+   "mde": 10.8,
+   "gap": 0.0,
+   "cert": false
+  }
+ },
+ {
+  "bm": "WADI",
+  "pair": "ocsvm-pca",
+  "AP": {
+   "sd": 0.0089,
+   "mde": 2.5,
+   "gap": 0.2,
+   "cert": false
+  },
+  "PAF1": {
+   "sd": 18.5504,
+   "mde": 51.9,
+   "gap": 23.0,
+   "cert": false
+  }
+ }
+]

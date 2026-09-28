@@ -1,0 +1,80 @@
+{
+ "AUROC": {
+  "V_dataset": 0.02818878,
+  "V_detector": 0.00127954,
+  "V_detxds_resid": 0.00654775,
+  "V_seed": 0.00586333,
+  "V_eval_direct": 0.0038826683572009317,
+  "V_total": 0.04576206835720093,
+  "V_dataset_pct": 61.6,
+  "V_detector_pct": 2.8,
+  "V_detxds_resid_pct": 14.3,
+  "V_seed_pct": 12.8,
+  "V_eval_direct_pct": 8.5,
+  "NDC": 0.4,
+  "GRR_pctSV": 59.7,
+  "V_eval_direct_by_ds": {
+   "SMD": 0.002337,
+   "PSM": 0.004406,
+   "MSL": 0.002089,
+   "SMAP": 0.003595,
+   "SWaT": 0.0,
+   "WADI": 0.007687,
+   "TE": 0.007502,
+   "MetroPT3": 0.003445
+  },
+  "shrink_series": [
+   [
+    2,
+    57.2
+   ],
+   [
+    4,
+    55.9
+   ],
+   [
+    8,
+    55.2
+   ]
+  ]
+ },
+ "AP": {
+  "V_dataset": 0.06920429,
+  "V_detector": 0.00276283,
+  "V_detxds_resid": 0.01342732,
+  "V_seed": 0.01164209,
+  "V_eval_direct": 0.00503457496680656,
+  "V_total": 0.10207110496680655,
+  "V_dataset_pct": 67.8,
+  "V_detector_pct": 2.7,
+  "V_detxds_resid_pct": 13.2,
+  "V_seed_pct": 11.4,
+  "V_eval_direct_pct": 4.9,
+  "NDC": 0.43,
+  "GRR_pctSV": 54.3,
+  "V_eval_direct_by_ds": {
+   "SMD": 0.007051,
+   "PSM": 0.026595,
+   "MSL": 0.001734,
+   "SMAP": 0.001336,
+   "SWaT": 0.0,
+   "WADI": 0.000769,
+   "TE": 0.002536,
+   "MetroPT3": 0.000255
+  },
+  "shrink_series": [
+   [
+    2,
+    52.6
+   ],
+   [
+    4,
+    51.8
+   ],
+   [
+    8,
+    51.3
+   ]
+  ]
+ }
+}

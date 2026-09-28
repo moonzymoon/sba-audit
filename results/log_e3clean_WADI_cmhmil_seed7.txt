@@ -1,0 +1,11 @@
+  [WADI/cmhmil_seed7] 1000/10000 reps, 25s
+  [WADI/cmhmil_seed7] 2000/10000 reps, 52s
+  [WADI/cmhmil_seed7] 3000/10000 reps, 80s
+  [WADI/cmhmil_seed7] 4000/10000 reps, 107s
+  [WADI/cmhmil_seed7] 5000/10000 reps, 134s
+  [WADI/cmhmil_seed7] 6000/10000 reps, 161s
+  [WADI/cmhmil_seed7] 7000/10000 reps, 188s
+  [WADI/cmhmil_seed7] 8000/10000 reps, 215s
+  [WADI/cmhmil_seed7] 9000/10000 reps, 238s
+  [WADI/cmhmil_seed7] 10000/10000 reps, 262s
+{'dataset': 'WADI', 'scorer': 'cmhmil_seed7', 'B': 10000, 'T': 69106, 'n_blocks': 17, 'size_win_t': 0.8425, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.8522, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0508, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0482, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0487, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0478, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9033, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9091, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0504, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0482, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0004}

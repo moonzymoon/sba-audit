@@ -1,0 +1,27 @@
+[
+ {
+  "dataset": "SMD",
+  "r_compfixed": 2.39,
+  "size_compfixed": 0.383
+ },
+ {
+  "dataset": "PSM",
+  "r_compfixed": 86.6,
+  "size_compfixed": 0.838
+ },
+ {
+  "dataset": "MSL",
+  "r_compfixed": 57.24,
+  "size_compfixed": 0.811
+ },
+ {
+  "dataset": "SMAP",
+  "r_compfixed": 553.78,
+  "size_compfixed": 0.928
+ },
+ {
+  "dataset": "WADI",
+  "r_compfixed": 37.52,
+  "size_compfixed": 0.502
+ }
+]

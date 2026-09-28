@@ -1,0 +1,17 @@
+{
+ "n": 103,
+ "cells": 38,
+ "reml": {
+  "V_ds": 0.02393,
+  "V_det": 0.00082,
+  "V_int": 0.00263,
+  "V_run": 0.0048
+ },
+ "note": "V_int at/below ~1e-5 => boundary (confirms netted reading); V_run vs Table6 V_seed=0.00586; V_ds vs 0.02819; V_det vs 0.00128",
+ "table6_reference": {
+  "V_ds": 0.02819,
+  "V_det": 0.00128,
+  "V_seed(run)": 0.00586
+ },
+ "converged": true
+}

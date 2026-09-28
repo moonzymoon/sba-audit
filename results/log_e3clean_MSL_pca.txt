@@ -1,0 +1,11 @@
+  [MSL/pca] 1000/10000 reps, 26s
+  [MSL/pca] 2000/10000 reps, 53s
+  [MSL/pca] 3000/10000 reps, 78s
+  [MSL/pca] 4000/10000 reps, 104s
+  [MSL/pca] 5000/10000 reps, 130s
+  [MSL/pca] 6000/10000 reps, 157s
+  [MSL/pca] 7000/10000 reps, 182s
+  [MSL/pca] 8000/10000 reps, 208s
+  [MSL/pca] 9000/10000 reps, 234s
+  [MSL/pca] 10000/10000 reps, 261s
+{'dataset': 'MSL', 'scorer': 'pca', 'B': 10000, 'T': 66008, 'n_blocks': 61, 'size_win_t': 0.8959, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.893, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0496, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0515, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0473, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0444, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9227, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9247, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0461, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0461, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0012}

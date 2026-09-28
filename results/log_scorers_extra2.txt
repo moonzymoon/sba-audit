@@ -1,0 +1,72 @@
+D:\0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/src\data\loaders.py:128: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
+  df_a["_dt"] = pd.to_datetime(df_a["Date"].astype(str) + " " + df_a["Time"].astype(str), errors="coerce")
+D:\0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/src\data\loaders.py:128: PerformanceWarning: DataFrame is highly fragmented.  This is usually the result of calling `frame.insert` many times, which has poor performance.  Consider joining all columns at once using pd.concat(axis=1) instead. To get a de-fragmented frame, use `newframe = frame.copy()`
+  df_a["_dt"] = pd.to_datetime(df_a["Date"].astype(str) + " " + df_a["Time"].astype(str), errors="coerce")
+[ok] pca_scores TE: T=23989
+[ok] gmm_scores TE: T=23989
+[ok] ocsvm_scores TE: T=23989
+[ok] lof_scores TE: T=23989
+[ok] pca_scores BATADAL: T=2074
+[ok] gmm_scores BATADAL: T=2074
+[ok] ocsvm_scores BATADAL: T=2074
+[ok] lof_scores BATADAL: T=2074
+[ok] pca_scores NEweather: T=9065
+[ok] gmm_scores NEweather: T=9065
+[ok] ocsvm_scores NEweather: T=9065
+[ok] lof_scores NEweather: T=9065
+[ok] pca_scores SMD: T=28464
+[ok] gmm_scores SMD: T=28464
+[ok] ocsvm_scores SMD: T=28464
+[ok] lof_scores SMD: T=28464
+[ok] pca_scores PSM: T=110146
+[ok] gmm_scores PSM: T=110146
+[ok] ocsvm_scores PSM: T=110146
+[ok] lof_scores PSM: T=110146
+[ok] pca_scores MSL: T=66008
+[ok] gmm_scores MSL: T=66008
+[ok] ocsvm_scores MSL: T=66008
+[ok] lof_scores MSL: T=66008
+[ok] pca_scores SMAP: T=281385
+[ok] gmm_scores SMAP: T=281385
+[ok] ocsvm_scores SMAP: T=281385
+[ok] lof_scores SMAP: T=281385
+[ok] pca_scores SWaT: T=144157
+[ok] gmm_scores SWaT: T=144157
+[ok] ocsvm_scores SWaT: T=144157
+[ok] lof_scores SWaT: T=144157
+[ok] pca_scores WADI: T=69106
+[ok] gmm_scores WADI: T=69106
+[ok] ocsvm_scores WADI: T=69106
+[ok] lof_scores WADI: T=69106
+[ok] pca_scores MetroPT3: T=1516933
+[ok] gmm_scores MetroPT3: T=1516933
+[skip] ocsvm_scores MetroPT3: ocsvm: 测试集过大 (1516948)
+[skip] lof_scores MetroPT3: lof: 测试集过大 (1516948)
+score_all 完成
+[ok] TSB000 001_Genesis_id_1_Sensor_tr_4055_1st_1553 T=8095
+[ok] TSB001 002_MSL_id_1_Sensor_tr_500_1st_900.csv T=899
+[ok] TSB002 003_MSL_id_2_Sensor_tr_883_1st_1238.csv T=1753
+[ok] TSB017 018_Daphnet_id_1_HumanActivity_tr_9693_1 T=19372
+[ok] TSB018 019_MITDB_id_1_Medical_tr_37500_1st_1032 T=74985
+[ok] TSB019 020_MITDB_id_2_Medical_tr_50000_1st_5231 T=324985
+[ok] TSB031 032_GHL_id_1_Sensor_tr_50000_1st_65001.c T=99986
+[ok] TSB032 033_GHL_id_2_Sensor_tr_50000_1st_51001.c T=99986
+[ok] TSB056 057_SMD_id_1_Facility_tr_4529_1st_4629.c T=11832
+[ok] TSB057 058_SMD_id_2_Facility_tr_1087_1st_1187.c T=14348
+[ok] TSB078 079_LTDB_id_1_Medical_tr_3618_1st_3718.c T=49985
+[ok] TSB083 084_SVDB_id_1_Medical_tr_12973_1st_13073 T=115185
+C:\Users\PC\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\mixture\_base.py:293: ConvergenceWarning: Best performing initialization did not converge. Try different init parameters, or increase max_iter, tol, or check for degenerate data.
+  warnings.warn(
+[ok] TSB084 085_SVDB_id_2_Medical_tr_50000_1st_54982 T=115185
+[ok] TSB114 115_PSM_id_1_Facility_tr_50000_1st_12987 T=108797
+[ok] TSB115 116_TAO_id_1_Environment_tr_500_1st_3.cs T=4985
+[ok] TSB116 117_TAO_id_2_Environment_tr_500_1st_1.cs T=4985
+[ok] TSB128 129_OPPORTUNITY_id_1_HumanActivity_tr_18 T=12332
+[ok] TSB136 137_CreditCard_id_1_Finance_tr_500_1st_5 T=142389
+[ok] TSB137 138_CATSv2_id_1_Sensor_tr_16568_1st_1666 T=49985
+[ok] TSB143 144_SMAP_id_1_Sensor_tr_2052_1st_5300.cs T=4090
+[ok] TSB144 145_SMAP_id_2_Sensor_tr_2133_1st_5400.cs T=4251
+[ok] TSB170 171_SWaT_id_1_Sensor_tr_3749_1st_9522.cs T=7483
+[ok] TSB172 173_GECCO_id_1_Sensor_tr_16165_1st_16265 T=69246
+[ok] TSB173 174_Exathlon_id_1_Facility_tr_10766_1st_ T=21518
+[ok] TSB174 175_Exathlon_id_2_Facility_tr_10684_1st_ T=23313

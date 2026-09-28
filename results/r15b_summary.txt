@@ -1,0 +1,41 @@
+[veval] SMD cmhmil_seed7: B=400 Var(AUROC)=0.004056 Var(AP)=0.007243
+[veval] SMD pca: B=400 Var(AUROC)=0.000827 Var(AP)=0.008127
+[veval] SMD iforest: B=400 Var(AUROC)=0.002129 Var(AP)=0.005783
+[veval] PSM cmhmil_seed7: B=400 Var(AUROC)=0.005417 Var(AP)=0.033031
+[veval] PSM pca: B=400 Var(AUROC)=0.003028 Var(AP)=0.028339
+[veval] PSM iforest: B=400 Var(AUROC)=0.004774 Var(AP)=0.018416
+[veval] MSL cmhmil_seed7: B=400 Var(AUROC)=0.002245 Var(AP)=0.001742
+[veval] MSL pca: B=400 Var(AUROC)=0.001627 Var(AP)=0.001364
+[veval] MSL iforest: B=400 Var(AUROC)=0.002396 Var(AP)=0.002094
+[veval] SMAP cmhmil_seed7: B=400 Var(AUROC)=0.004269 Var(AP)=0.003490
+[veval] SMAP pca: B=400 Var(AUROC)=0.003238 Var(AP)=0.000219
+[veval] SMAP iforest: B=400 Var(AUROC)=0.003277 Var(AP)=0.000300
+[veval] SWaT cmhmil_seed7: B=300 Var(AUROC)=0.000000 Var(AP)=0.000000
+[veval] SWaT pca: B=300 Var(AUROC)=0.000000 Var(AP)=0.000000
+[veval] SWaT iforest: B=300 Var(AUROC)=0.000000 Var(AP)=0.000000
+[veval] WADI cmhmil_seed7: B=400 Var(AUROC)=0.002135 Var(AP)=0.000008
+[veval] WADI pca: B=400 Var(AUROC)=0.005269 Var(AP)=0.000073
+[veval] WADI iforest: B=400 Var(AUROC)=0.015658 Var(AP)=0.002225
+[veval] TE cmhmil_seed7: B=300 Var(AUROC)=0.007952 Var(AP)=0.002643
+[veval] TE pca: B=300 Var(AUROC)=0.007051 Var(AP)=0.002429
+[veval] MetroPT3 cmhmil_seed7: B=300 Var(AUROC)=0.000034 Var(AP)=0.000143
+[veval] MetroPT3 pca: B=300 Var(AUROC)=0.006856 Var(AP)=0.000367
+[e1-direct AUROC] %GRR=59.7 NDC=0.4 eval%=8.5 dataset%=61.6 shrink=[(2, np.float64(57.2)), (4, np.float64(55.9)), (8, np.float64(55.2))]
+[e1-direct AP] %GRR=54.3 NDC=0.43 eval%=4.9 dataset%=67.8 shrink=[(2, np.float64(52.6)), (4, np.float64(51.8)), (8, np.float64(51.3))]
+[75] median rho=0.24 max rho=1.61 certifiable=2/75
+   CERT: SMD iforest-pca gap 24.40222512610125 mde 15.120246782682642 rho 1.61
+   CERT: SMD iforest-gmm gap 22.091175319102597 mde 14.73791961284077 rho 1.5
+[bonf] multiplier=1.348 max rho adj=1.20 cert-after-bonf=2/75
+[bm] SMD: median SD=7.88 median MDE=22.1 K=14 K_needed(5pts)=273
+[bm] PSM: median SD=11.37 median MDE=31.8 K=107 K_needed(5pts)=4335
+[bm] MSL: median SD=6.33 median MDE=17.7 K=61 K_needed(5pts)=767
+[bm] SMAP: median SD=7.93 median MDE=22.2 K=97 K_needed(5pts)=1913
+[bm] WADI: median SD=13.23 median MDE=37.0 K=16 K_needed(5pts)=878
+[pool] FE pooled direct MDE = 10.6 pts (per-suite median basis)
+[pool] RE floor 5 suites = 14.3 pts; suites for 5 = 41
+[power.9] mult=1.16 SMD floor 22.1->25.6
+[walkthrough] SMD deep-pca: gap 19.0 mde_direct=20.5 rho=0.93 rho_bonf=0.69
+[replay] MSL gap 1.6: rho=0.090
+[replay] PSM gap 0.5: rho=0.016
+[replay] WADI gap 1.6: rho=0.043
+[replay] PSM gap 3.9: rho=0.123

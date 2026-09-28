@@ -1,0 +1,57 @@
+[
+ {
+  "dataset": "SMD",
+  "family": "iforest",
+  "n_runs": 10,
+  "n_pairs": 45,
+  "win_rej": 44,
+  "win_rate": 0.978,
+  "blk_rej": 30,
+  "blk_rate": 0.667,
+  "auroc_spread_pts": 2.59
+ },
+ {
+  "dataset": "PSM",
+  "family": "iforest",
+  "n_runs": 10,
+  "n_pairs": 45,
+  "win_rej": 44,
+  "win_rate": 0.978,
+  "blk_rej": 36,
+  "blk_rate": 0.8,
+  "auroc_spread_pts": 5.81
+ },
+ {
+  "dataset": "MSL",
+  "family": "iforest",
+  "n_runs": 10,
+  "n_pairs": 45,
+  "win_rej": 45,
+  "win_rate": 1.0,
+  "blk_rej": 43,
+  "blk_rate": 0.956,
+  "auroc_spread_pts": 2.07
+ },
+ {
+  "dataset": "SMAP",
+  "family": "iforest",
+  "n_runs": 10,
+  "n_pairs": 45,
+  "win_rej": 45,
+  "win_rate": 1.0,
+  "blk_rej": 38,
+  "blk_rate": 0.844,
+  "auroc_spread_pts": 3.55
+ },
+ {
+  "dataset": "WADI",
+  "family": "iforest",
+  "n_runs": 10,
+  "n_pairs": 45,
+  "win_rej": 44,
+  "win_rate": 0.978,
+  "blk_rej": 25,
+  "blk_rate": 0.556,
+  "auroc_spread_pts": 3.24
+ }
+]

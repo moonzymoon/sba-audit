@@ -1,0 +1,25 @@
+{
+ "sigma_pts": {
+  "SMD": 7.88,
+  "PSM": 11.37,
+  "MSL": 6.33,
+  "SMAP": 7.93,
+  "WADI": 13.23
+ },
+ "base_floor_pts": 10.6,
+ "add_MSL-class": {
+  "n_to_reach_5pts": 10,
+  "floor_after_1": 9.1,
+  "floor_after_n": 5.0
+ },
+ "add_SMD-class": {
+  "n_to_reach_5pts": 16,
+  "floor_after_1": 9.5,
+  "floor_after_n": 4.9
+ },
+ "add_WADI-class": {
+  "n_to_reach_5pts": 43,
+  "floor_after_1": 10.1,
+  "floor_after_n": 5.0
+ }
+}

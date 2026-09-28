@@ -1,0 +1,4 @@
+  b_short(b=74): win_t=0.6821 blk_t=0.0507 SE(d̄)=6.47e-03  [32s]
+  b_mid(b=774): win_t=0.8515 blk_t=0.0484 SE(d̄)=1.40e-02  [46s]
+  b_long(b=1549): win_t=0.8744 blk_t=0.0477 SE(d̄)=1.68e-02  [60s]
+对块结构敏感(明报) | SE_relspread = 0.829

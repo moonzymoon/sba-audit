@@ -1,0 +1,11 @@
+  [WADI/pca] 1000/10000 reps, 31s
+  [WADI/pca] 2000/10000 reps, 62s
+  [WADI/pca] 3000/10000 reps, 92s
+  [WADI/pca] 4000/10000 reps, 123s
+  [WADI/pca] 5000/10000 reps, 154s
+  [WADI/pca] 6000/10000 reps, 184s
+  [WADI/pca] 7000/10000 reps, 213s
+  [WADI/pca] 8000/10000 reps, 242s
+  [WADI/pca] 9000/10000 reps, 271s
+  [WADI/pca] 10000/10000 reps, 300s
+{'dataset': 'WADI', 'scorer': 'pca', 'B': 10000, 'T': 69106, 'n_blocks': 17, 'size_win_t': 0.9075, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.9259, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0514, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.048, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0483, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0472, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9568, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9596, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.048, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0445, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0034}

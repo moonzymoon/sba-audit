@@ -1,0 +1,108 @@
+{
+ "AUROC": {
+  "V_detxds_net_raw": -0.003198248357200932,
+  "V_detxds_net_truncated": 0.0,
+  "V_grr_net": 0.00974599835720093,
+  "V_total_net": 0.039214318357200934,
+  "GRR_pctSV_net": 49.9,
+  "NDC_net": 0.51,
+  "shares_net": {
+   "dataset": 71.9,
+   "detector": 3.3,
+   "detxds_net": 0.0,
+   "seed": 15.0,
+   "eval": 9.9
+  },
+  "shrink_series_net": [
+   [
+    2,
+    45.8
+   ],
+   [
+    4,
+    43.4
+   ],
+   [
+    8,
+    42.1
+   ]
+  ],
+  "GRR_stratified": 94.0,
+  "GRR_ds_inside": 98.4,
+  "NDC_implied_twocomponent": 2.45,
+  "sigma_GRR_points": 9.9,
+  "zoo_sigma_det_required_points": 35.0,
+  "NDC_cap_veval0": 0.66,
+  "old": {
+   "GRR": 59.7,
+   "NDC": 0.4,
+   "shrink": [
+    [
+     2,
+     57.2
+    ],
+    [
+     4,
+     55.9
+    ],
+    [
+     8,
+     55.2
+    ]
+   ]
+  }
+ },
+ "AP": {
+  "V_detxds_net_raw": -0.0032493449668065614,
+  "V_detxds_net_truncated": 0.0,
+  "V_grr_net": 0.01667666496680656,
+  "V_total_net": 0.08864378496680655,
+  "GRR_pctSV_net": 43.4,
+  "NDC_net": 0.57,
+  "shares_net": {
+   "dataset": 78.1,
+   "detector": 3.1,
+   "detxds_net": 0.0,
+   "seed": 13.1,
+   "eval": 5.7
+  },
+  "shrink_series_net": [
+   [
+    2,
+    40.5
+   ],
+   [
+    4,
+    39.0
+   ],
+   [
+    8,
+    38.2
+   ]
+  ],
+  "GRR_stratified": 92.6,
+  "GRR_ds_inside": 98.4,
+  "NDC_implied_twocomponent": 2.93,
+  "sigma_GRR_points": 12.9,
+  "zoo_sigma_det_required_points": 45.8,
+  "NDC_cap_veval0": 0.69,
+  "old": {
+   "GRR": 54.3,
+   "NDC": 0.43,
+   "shrink": [
+    [
+     2,
+     52.6
+    ],
+    [
+     4,
+     51.8
+    ],
+    [
+     8,
+     51.3
+    ]
+   ]
+  }
+ }
+}

@@ -1,0 +1,4 @@
+  b_short(b=121): win_t=0.8674 blk_t=0.0519 SE(d̄)=2.89e-02  [24s]
+  b_mid(b=771): win_t=0.8848 blk_t=0.0491 SE(d̄)=3.24e-02  [41s]
+  b_long(b=1542): win_t=0.8970 blk_t=0.0499 SE(d̄)=3.54e-02  [56s]
+块选择不主导 | SE_relspread = 0.204

@@ -1,0 +1,76 @@
+{
+ "n_segments": 6,
+ "pca_components": 318,
+ "truth_sets": {
+  "0": [
+   0,
+   3,
+   10,
+   17,
+   19
+  ],
+  "1": [
+   0,
+   3,
+   10,
+   17,
+   19
+  ],
+  "2": [
+   6,
+   8,
+   9,
+   12,
+   38
+  ],
+  "3": [
+   6,
+   8,
+   12,
+   15,
+   38
+  ],
+  "4": [
+   6,
+   8,
+   12,
+   15,
+   20
+  ],
+  "5": [
+   6,
+   8,
+   12,
+   15,
+   20
+  ]
+ },
+ "top3_acc_A": [
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0,
+  1.0
+ ],
+ "top3_acc_B": [
+  0.667,
+  0.667,
+  0.0,
+  0.0,
+  0.333,
+  0.333
+ ],
+ "mean_diff_pts": 66.7,
+ "bootstrap_sd": 0.1124,
+ "MDE_power80_pts": 31.5,
+ "segments_required_for_10pt_claim": 10,
+ "interpretation": "difference in Top-3 attribution accuracy certifiable at power .8 with the available independent fault segments; compare S42's 15-point single-run claim (0.72->0.87)",
+ "honest_caveat": "proxy A shares its statistic with the truth-set definition (top-5 by standardized shift) -> A is an oracle, its 1.0 is definitional; the meaningful quantities are proxy B (independent PCA-residual mechanism) against shift-defined truth.",
+ "conservative_unpaired": {
+  "sd_B_segments": 0.2983,
+  "sd_diff_two_independent_methods": 0.1722,
+  "MDE_power80_pts": 48.2,
+  "segments_required_for_10pt_claim": 24
+ }
+}

@@ -1,0 +1,11 @@
+  [PSM/iforest] 1000/10000 reps, 43s
+  [PSM/iforest] 2000/10000 reps, 86s
+  [PSM/iforest] 3000/10000 reps, 128s
+  [PSM/iforest] 4000/10000 reps, 171s
+  [PSM/iforest] 5000/10000 reps, 213s
+  [PSM/iforest] 6000/10000 reps, 256s
+  [PSM/iforest] 7000/10000 reps, 298s
+  [PSM/iforest] 8000/10000 reps, 341s
+  [PSM/iforest] 9000/10000 reps, 384s
+  [PSM/iforest] 10000/10000 reps, 425s
+{'dataset': 'PSM', 'scorer': 'iforest', 'B': 10000, 'T': 110146, 'n_blocks': 145, 'size_win_t': 0.9711, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.9681, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0533, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0508, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0511, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0516, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9785, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9759, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0523, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.053, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0115}

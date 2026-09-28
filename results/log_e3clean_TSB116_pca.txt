@@ -1,0 +1,15 @@
+  [TSB116/pca] 1000/10000 reps, 12s
+  [TSB116/pca] 2000/10000 reps, 25s
+  [TSB116/pca] 3000/10000 reps, 37s
+  [TSB116/pca] 4000/10000 reps, 49s
+  [TSB116/pca] 5000/10000 reps, 62s
+  [TSB116/pca] 6000/10000 reps, 74s
+  [TSB116/pca] 7000/10000 reps, 86s
+  [TSB116/pca] 8000/10000 reps, 98s
+  [TSB116/pca] 9000/10000 reps, 111s
+  [TSB116/pca] 10000/10000 reps, 123s
+D:\0科研\工作1\第15篇SCI\src\bootstrap\e3_clean.py:147: RuntimeWarning: Mean of empty slice
+  out[f"size_{k}"] = float((v < alpha).mean())
+C:\Users\PC\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\_core\_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+{'dataset': 'TSB116', 'scorer': 'pca', 'B': 10000, 'T': 4985, 'n_blocks': 1235, 'size_win_t': 0.1493, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.2169, 'n_valid_win_wilcox': 10000, 'size_blk_t': nan, 'n_valid_blk_t': 0, 'size_blk_wilcox': nan, 'n_valid_blk_wilcox': 0, 'size_blk_signperm': nan, 'n_valid_blk_signperm': 0, 'size_n1_signperm': nan, 'n_valid_n1_signperm': 0, 'size_r_win_t': 0.3059, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.3761, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': nan, 'n_valid_r_blk_t': 0, 'size_r_blk_wilcox': nan, 'n_valid_r_blk_wilcox': 0, 'V_clean_dbar': 0.0002}

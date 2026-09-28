@@ -1,0 +1,11 @@
+  [WADI/iforest] 1000/10000 reps, 30s
+  [WADI/iforest] 2000/10000 reps, 62s
+  [WADI/iforest] 3000/10000 reps, 95s
+  [WADI/iforest] 4000/10000 reps, 127s
+  [WADI/iforest] 5000/10000 reps, 160s
+  [WADI/iforest] 6000/10000 reps, 192s
+  [WADI/iforest] 7000/10000 reps, 223s
+  [WADI/iforest] 8000/10000 reps, 252s
+  [WADI/iforest] 9000/10000 reps, 279s
+  [WADI/iforest] 10000/10000 reps, 306s
+{'dataset': 'WADI', 'scorer': 'iforest', 'B': 10000, 'T': 69106, 'n_blocks': 17, 'size_win_t': 0.8408, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.8359, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0477, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0475, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0479, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0486, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.8794, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.874, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0487, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0475, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0002}

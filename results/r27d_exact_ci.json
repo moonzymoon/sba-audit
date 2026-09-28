@@ -1,0 +1,65 @@
+[
+ {
+  "bm": "SMD",
+  "pair": "cmhmil_seed7-pca",
+  "K": 14,
+  "exact": true,
+  "point_pts": 18.9,
+  "CI_pts": [
+   -13.7,
+   41.2
+  ],
+  "set_envelope": [
+   -13.7,
+   41.2
+  ],
+  "set_envelope_full": [
+   -13.8,
+   41.4
+  ],
+  "excursions": 1,
+  "covers_zero": true
+ },
+ {
+  "bm": "EMG",
+  "pair": "gmm-lof",
+  "K": 54,
+  "exact": false,
+  "point_pts": 18.8,
+  "CI_pts": [
+   -8.0,
+   46.2
+  ],
+  "set_envelope": [
+   -8.0,
+   46.2
+  ],
+  "set_envelope_full": [
+   -9.3,
+   53.6
+  ],
+  "excursions": 7,
+  "covers_zero": true
+ },
+ {
+  "bm": "MSL",
+  "pair": "cmhmil_seed7-pca",
+  "K": 61,
+  "exact": false,
+  "point_pts": 1.7,
+  "CI_pts": [
+   -28.3,
+   39.0
+  ],
+  "set_envelope": [
+   -28.3,
+   39.0
+  ],
+  "set_envelope_full": [
+   -29.2,
+   39.0
+  ],
+  "excursions": 2,
+  "covers_zero": true
+ }
+]

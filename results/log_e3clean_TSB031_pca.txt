@@ -1,0 +1,17 @@
+C:\Users\PC\AppData\Local\Programs\Python\Python311\Lib\site-packages\scipy\stats\_wilcoxon.py:181: RuntimeWarning: invalid value encountered in scalar divide
+  z = (r_plus - mn) / se
+  [TSB031/pca] 1000/10000 reps, 12s
+  [TSB031/pca] 2000/10000 reps, 24s
+  [TSB031/pca] 3000/10000 reps, 36s
+  [TSB031/pca] 4000/10000 reps, 48s
+  [TSB031/pca] 5000/10000 reps, 60s
+  [TSB031/pca] 6000/10000 reps, 71s
+  [TSB031/pca] 7000/10000 reps, 83s
+  [TSB031/pca] 8000/10000 reps, 95s
+  [TSB031/pca] 9000/10000 reps, 107s
+  [TSB031/pca] 10000/10000 reps, 119s
+D:\0科研\工作1\第15篇SCI\src\bootstrap\e3_clean.py:147: RuntimeWarning: Mean of empty slice
+  out[f"size_{k}"] = float((v < alpha).mean())
+C:\Users\PC\AppData\Local\Programs\Python\Python311\Lib\site-packages\numpy\_core\_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+{'dataset': 'TSB031', 'scorer': 'pca', 'B': 10000, 'T': 99986, 'n_blocks': 1, 'size_win_t': nan, 'n_valid_win_t': 0, 'size_win_wilcox': nan, 'n_valid_win_wilcox': 0, 'size_blk_t': nan, 'n_valid_blk_t': 0, 'size_blk_wilcox': nan, 'n_valid_blk_wilcox': 0, 'size_blk_signperm': nan, 'n_valid_blk_signperm': 0, 'size_n1_signperm': nan, 'n_valid_n1_signperm': 0, 'size_r_win_t': nan, 'n_valid_r_win_t': 0, 'size_r_win_wilcox': nan, 'n_valid_r_win_wilcox': 0, 'size_r_blk_t': nan, 'n_valid_r_blk_t': 0, 'size_r_blk_wilcox': nan, 'n_valid_r_blk_wilcox': 0, 'V_clean_dbar': 0.0}

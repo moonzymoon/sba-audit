@@ -1,0 +1,22 @@
+[
+ {
+  "bm": "SMAP",
+  "pair": "cmhmil_seed7-pca",
+  "B": 400,
+  "sd_PA_F1_pts": 10.638,
+  "MDE_PA_F1_pts": 29.79,
+  "PA_F1_A": 63.4239,
+  "PA_F1_B": 48.0118,
+  "gap_pts": 15.41
+ },
+ {
+  "bm": "WADI",
+  "pair": "cmhmil_seed7-pca",
+  "B": 400,
+  "sd_PA_F1_pts": 5.057,
+  "MDE_PA_F1_pts": 14.16,
+  "PA_F1_A": 2.6603,
+  "PA_F1_B": 0.0,
+  "gap_pts": 2.66
+ }
+]

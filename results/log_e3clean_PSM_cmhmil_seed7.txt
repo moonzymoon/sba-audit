@@ -1,0 +1,11 @@
+  [PSM/cmhmil_seed7] 1000/10000 reps, 41s
+  [PSM/cmhmil_seed7] 2000/10000 reps, 81s
+  [PSM/cmhmil_seed7] 3000/10000 reps, 121s
+  [PSM/cmhmil_seed7] 4000/10000 reps, 162s
+  [PSM/cmhmil_seed7] 5000/10000 reps, 202s
+  [PSM/cmhmil_seed7] 6000/10000 reps, 242s
+  [PSM/cmhmil_seed7] 7000/10000 reps, 282s
+  [PSM/cmhmil_seed7] 8000/10000 reps, 322s
+  [PSM/cmhmil_seed7] 9000/10000 reps, 362s
+  [PSM/cmhmil_seed7] 10000/10000 reps, 402s
+{'dataset': 'PSM', 'scorer': 'cmhmil_seed7', 'B': 10000, 'T': 110146, 'n_blocks': 145, 'size_win_t': 0.969, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.9646, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0517, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0516, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0504, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0472, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9788, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.977, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0462, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0465, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0128}

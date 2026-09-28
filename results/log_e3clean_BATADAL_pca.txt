@@ -1,0 +1,11 @@
+  [BATADAL/pca] 1000/10000 reps, 49s
+  [BATADAL/pca] 2000/10000 reps, 103s
+  [BATADAL/pca] 3000/10000 reps, 156s
+  [BATADAL/pca] 4000/10000 reps, 208s
+  [BATADAL/pca] 5000/10000 reps, 260s
+  [BATADAL/pca] 6000/10000 reps, 312s
+  [BATADAL/pca] 7000/10000 reps, 364s
+  [BATADAL/pca] 8000/10000 reps, 416s
+  [BATADAL/pca] 9000/10000 reps, 469s
+  [BATADAL/pca] 10000/10000 reps, 523s
+{'dataset': 'BATADAL', 'scorer': 'pca', 'B': 10000, 'T': 2074, 'n_blocks': 9, 'size_win_t': 0.5438, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.5411, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0476, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0266, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0269, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.6666, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.666, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0466, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0253, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0019}

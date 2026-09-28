@@ -1,0 +1,22 @@
+[
+ {
+  "bm": "SMD",
+  "pair": "cmhmil_seed7-pca",
+  "B": 400,
+  "sd_PA_F1_pts": 5.062,
+  "MDE_PA_F1_pts": 14.17,
+  "PA_F1_A": 76.5745,
+  "PA_F1_B": 85.687,
+  "gap_pts": 9.11
+ },
+ {
+  "bm": "MSL",
+  "pair": "cmhmil_seed7-pca",
+  "B": 400,
+  "sd_PA_F1_pts": 9.46,
+  "MDE_PA_F1_pts": 26.49,
+  "PA_F1_A": 66.8425,
+  "PA_F1_B": 59.4001,
+  "gap_pts": 7.44
+ }
+]

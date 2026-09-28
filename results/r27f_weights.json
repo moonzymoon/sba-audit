@@ -1,0 +1,52 @@
+[
+ {
+  "dataset": "SMD",
+  "K": 14,
+  "unw_size": 0.034,
+  "unw_pow5": 0.066,
+  "len_size": 0.031,
+  "len_pow5": 0.032,
+  "iv_size": 0.03,
+  "iv_pow5": 0.083
+ },
+ {
+  "dataset": "PSM",
+  "K": 107,
+  "unw_size": 0.046,
+  "unw_pow5": 0.085,
+  "len_size": 0.05,
+  "len_pow5": 0.055,
+  "iv_size": 0.044,
+  "iv_pow5": 0.1
+ },
+ {
+  "dataset": "MSL",
+  "K": 61,
+  "unw_size": 0.047,
+  "unw_pow5": 0.053,
+  "len_size": 0.048,
+  "len_pow5": 0.053,
+  "iv_size": 0.042,
+  "iv_pow5": 0.054
+ },
+ {
+  "dataset": "SMAP",
+  "K": 97,
+  "unw_size": 0.05,
+  "unw_pow5": 0.052,
+  "len_size": 0.048,
+  "len_pow5": 0.046,
+  "iv_size": 0.044,
+  "iv_pow5": 0.053
+ },
+ {
+  "dataset": "WADI",
+  "K": 16,
+  "unw_size": 0.029,
+  "unw_pow5": 0.042,
+  "len_size": 0.0,
+  "len_pow5": 0.0,
+  "iv_size": 0.037,
+  "iv_pow5": 0.037
+ }
+]

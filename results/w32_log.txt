@@ -1,0 +1,28 @@
+[cache] pca_w32_SMD: T=28448
+[cell] SMD/pca_w32 rc=0
+09s
+  [SMD/pca_w32] 7000/10000 reps, 243s
+  [SMD/pca_w32] 8000/10000 reps, 277s
+  [SMD/pca_w32] 9000/10000 reps, 309s
+  [SMD/pca_w32] 10000/10000 reps, 340s
+{'dataset': 'SMD', 'scorer': 'pca_w32', 'B': 10000, 'T': 28448, 'n_blocks': 17, 'size_win_t': 0.911, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.9139, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0425, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0452, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0477, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0471, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9537, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9547, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0451, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0508, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.01}
+
+[cache] pca_w32_MSL: T=65992
+[cell] MSL/pca_w32 rc=0
+
+  [MSL/pca_w32] 7000/10000 reps, 258s
+  [MSL/pca_w32] 8000/10000 reps, 293s
+  [MSL/pca_w32] 9000/10000 reps, 328s
+  [MSL/pca_w32] 10000/10000 reps, 364s
+{'dataset': 'MSL', 'scorer': 'pca_w32', 'B': 10000, 'T': 65992, 'n_blocks': 61, 'size_win_t': 0.8948, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.8955, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0505, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0515, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0482, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0449, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9241, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9257, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0457, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0466, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0013}
+
+[cache] pca_w32_PSM: T=110130
+[cell] PSM/pca_w32 rc=0
+
+  [PSM/pca_w32] 7000/10000 reps, 401s
+  [PSM/pca_w32] 8000/10000 reps, 460s
+  [PSM/pca_w32] 9000/10000 reps, 516s
+  [PSM/pca_w32] 10000/10000 reps, 566s
+{'dataset': 'PSM', 'scorer': 'pca_w32', 'B': 10000, 'T': 110130, 'n_blocks': 145, 'size_win_t': 0.9695, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.9704, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0459, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0473, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.045, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0481, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9767, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.9776, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.0486, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.048, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0137}
+
+w32 chain done

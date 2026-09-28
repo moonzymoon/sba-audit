@@ -1,0 +1,11 @@
+  [TSB172/pca] 1000/10000 reps, 32s
+  [TSB172/pca] 2000/10000 reps, 64s
+  [TSB172/pca] 3000/10000 reps, 95s
+  [TSB172/pca] 4000/10000 reps, 127s
+  [TSB172/pca] 5000/10000 reps, 158s
+  [TSB172/pca] 6000/10000 reps, 190s
+  [TSB172/pca] 7000/10000 reps, 222s
+  [TSB172/pca] 8000/10000 reps, 253s
+  [TSB172/pca] 9000/10000 reps, 283s
+  [TSB172/pca] 10000/10000 reps, 314s
+{'dataset': 'TSB172', 'scorer': 'pca', 'B': 10000, 'T': 69246, 'n_blocks': 45, 'size_win_t': 0.8696, 'n_valid_win_t': 10000, 'size_win_wilcox': 0.8727, 'n_valid_win_wilcox': 10000, 'size_blk_t': 0.0515, 'n_valid_blk_t': 10000, 'size_blk_wilcox': 0.0513, 'n_valid_blk_wilcox': 10000, 'size_blk_signperm': 0.0493, 'n_valid_blk_signperm': 10000, 'size_n1_signperm': 0.0488, 'n_valid_n1_signperm': 10000, 'size_r_win_t': 0.9184, 'n_valid_r_win_t': 10000, 'size_r_win_wilcox': 0.917, 'n_valid_r_win_wilcox': 10000, 'size_r_blk_t': 0.047, 'n_valid_r_blk_t': 10000, 'size_r_blk_wilcox': 0.0491, 'n_valid_r_blk_wilcox': 10000, 'V_clean_dbar': 0.0006}

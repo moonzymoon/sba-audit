@@ -1,0 +1,131 @@
+{
+ "suite_bootstrap": {
+  "1": {
+   "tau_med": 0.867,
+   "tau_iqr": [
+    0.2,
+    0.867
+   ],
+   "top1_share": {
+    "cmhmil": 0.0,
+    "iforest": 0.0,
+    "pca": 0.511,
+    "gmm": 0.325,
+    "ocsvm": 0.0,
+    "lof": 0.164
+   }
+  },
+  "2": {
+   "tau_med": 0.733,
+   "tau_iqr": [
+    0.2,
+    0.867
+   ],
+   "top1_share": {
+    "cmhmil": 0.123,
+    "iforest": 0.0,
+    "pca": 0.556,
+    "gmm": 0.115,
+    "ocsvm": 0.0,
+    "lof": 0.206
+   }
+  },
+  "3": {
+   "tau_med": 0.6,
+   "tau_iqr": [
+    0.467,
+    0.867
+   ],
+   "top1_share": {
+    "cmhmil": 0.027,
+    "iforest": 0.0,
+    "pca": 0.625,
+    "gmm": 0.079,
+    "ocsvm": 0.0,
+    "lof": 0.269
+   }
+  },
+  "4": {
+   "tau_med": 0.733,
+   "tau_iqr": [
+    0.467,
+    0.867
+   ],
+   "top1_share": {
+    "cmhmil": 0.018,
+    "iforest": 0.0,
+    "pca": 0.775,
+    "gmm": 0.071,
+    "ocsvm": 0.0,
+    "lof": 0.136
+   }
+  },
+  "5": {
+   "tau_med": 0.867,
+   "tau_iqr": [
+    0.467,
+    1.0
+   ],
+   "top1_share": {
+    "cmhmil": 0.015,
+    "iforest": 0.0,
+    "pca": 0.801,
+    "gmm": 0.041,
+    "ocsvm": 0.0,
+    "lof": 0.143
+   }
+  },
+  "6": {
+   "tau_med": 0.867,
+   "tau_iqr": [
+    0.6,
+    1.0
+   ],
+   "top1_share": {
+    "cmhmil": 0.01,
+    "iforest": 0.0,
+    "pca": 0.82,
+    "gmm": 0.029,
+    "ocsvm": 0.0,
+    "lof": 0.141
+   }
+  }
+ },
+ "seed_axis": {
+  "2": {
+   "median": 2.0,
+   "ci": [
+    1,
+    2
+   ]
+  },
+  "4": {
+   "median": 1.0,
+   "ci": [
+    1,
+    2
+   ]
+  },
+  "6": {
+   "median": 2.0,
+   "ci": [
+    1,
+    2
+   ]
+  },
+  "8": {
+   "median": 1.0,
+   "ci": [
+    1,
+    2
+   ]
+  },
+  "10": {
+   "median": 1.0,
+   "ci": [
+    1,
+    2
+   ]
+  }
+ }
+}
