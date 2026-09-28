@@ -11,7 +11,7 @@ import os, sys, itertools, json
 import numpy as np
 from scipy import stats
 
-sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
+sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
 from bootstrap.e3_clean import load_goodness  # noqa: E402
 
 DATASETS = {
@@ -22,8 +22,8 @@ DATASETS = {
     "SMAP": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     "WADI": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 }
-OUT = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results\r21a_cluster_ci.csv"
-JS = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results\r21a_cluster_ci.json"
+OUT = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results\r21a_cluster_ci.csv"
+JS = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results\r21a_cluster_ci.json"
 
 pairs = []  # (dataset, seedA, seedB, p_win_t)
 for ds, seeds in DATASETS.items():

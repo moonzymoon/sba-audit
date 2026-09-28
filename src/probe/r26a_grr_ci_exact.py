@@ -6,14 +6,14 @@ sub-table with replacement; V_seed/V_eval held fixed; interaction netted."""
 import sys, json
 import numpy as np
 
-sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src\mixed")
-sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
+sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src\mixed")
+sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
 from e1_full import build_table, mom_two_way  # noqa: E402
 from bootstrap.e3_clean import cache_file  # noqa: E402
 from e1_full import auroc_of  # noqa: E402
 import os
 
-RES = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results"
+RES = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results"
 CORE6 = ["SMD", "PSM", "MSL", "SMAP", "SWaT", "WADI"]
 DET6 = ["cmhmil", "iforest", "pca", "gmm", "ocsvm", "lof"]
 CMH_SEEDS = {"SMD": 10, "PSM": 10, "SWaT": 10, "MSL": 11, "SMAP": 11, "WADI": 11}

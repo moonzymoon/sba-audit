@@ -7,10 +7,10 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src")
-sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src/bootstrap")
+sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src")
+sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src/bootstrap")
 
-R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
+R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
 
 print("=== 1) bridge (1-pi) zh:zh_4930valueverify ===")
 rng = np.random.default_rng(7)

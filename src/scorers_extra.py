@@ -14,9 +14,9 @@ import sys
 
 import numpy as np
 
-P2 = r"D:/0keyan/gongzuo1/paper2/Contrastive_TopK_MIL/src"
-DS_ROOT = r"D:/0keyan/gongzuo1/paper2/Contrastive_TopK_MIL/datasets"
-CACHE = r"D:/0keyan/gongzuo1/paper6/src/_score_cache"
+P2 = r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/src"
+DS_ROOT = r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/datasets"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
 W = 16
 
 
@@ -35,7 +35,7 @@ def _split(T):
 # ============ new dataset loader (return the full series (X, Y), with paper 2 loader same convention) ============
 # TE with MetroPT3 use paper 9's authoritative loader (with existing cmhmil cache from the same source, labels bit-identical):
 
-P9_SRC = r"D:/0keyan/gongzuo1/paper9/code_release/src"
+P9_SRC = r"D:/0科研/工作1/paper9/code_release/src"
 
 
 AIR_LEAK_EVENTS = [  # failure report gas-leak interval (closed interval), paper9 metropt3.py same source

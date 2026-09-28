@@ -8,8 +8,8 @@ import sys
 import numpy as np
 from scipy.stats import friedmanchisquare
 
-sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 15SCI/src")
-sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 15SCI/src/bootstrap")
+sys.path.insert(0, r"D:/0科研/工作1/第15篇SCI/src")
+sys.path.insert(0, r"D:/0科研/工作1/第15篇SCI/src/bootstrap")
 from common.blocks import build_blocks, block_stats  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from e3_clean import load_goodness  # noqa: E402
@@ -37,7 +37,7 @@ if __name__ == "__main__":
         chi2, p = friedmanchisquare(*mats)
         rows.append((bm, K, float(chi2), float(p)))
         print("%-6s K=%3d  chi2(5)=%8.2f  p=%.4f" % (bm, K, chi2, p))
-    out = os.path.join(r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results", "friedman_omnibus.csv")
+    out = os.path.join(r"D:/0科研/工作1/第15篇SCI/02_实验记录/results", "friedman_omnibus.csv")
     with open(out, "w", encoding="utf-8") as f:
         f.write("dataset,K,chi2_df5,p\n")
         for bm, K, c, p in rows:

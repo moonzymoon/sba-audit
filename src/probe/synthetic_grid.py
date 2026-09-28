@@ -61,6 +61,6 @@ if __name__ == "__main__":
                 rows.append(dict(K=K, phi=phi, sigma_b=sb, r=r, pred=pred, win_t=pw, blk_t=pb))
                 print("K=%2d phi=%.1f sb=%.1f  r=%8.1f  pred=%.3f  win=%.3f  blk=%.3f"
                       % (K, phi, sb, r, pred, pw, pb))
-    out = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/synthetic_grid.csv"
+    out = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/synthetic_grid.csv"
     pd.DataFrame(rows).to_csv(out, index=False)
     print("saved:", out)

@@ -8,7 +8,7 @@ import json
 import numpy as np
 import pandas as pd
 
-RES = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results"
+RES = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results"
 d = pd.read_csv(RES + r"\direct_scale_verdict.csv", encoding="utf-8-sig")
 sig = d.groupby("bm")["sd_direct_pts"].median()[["SMD", "PSM", "MSL", "SMAP", "WADI"]]
 zz = 2.8

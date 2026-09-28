@@ -6,8 +6,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-FIG = r"D:\0keyan\gongzuo1\paper15\03_lunwen\figs"
-d = json.load(open(os.path.join(r"D:\0keyan\gongzuo1\paper15\02_shiyanjilu\results", "r38_rankstab.json")))
+FIG = r"D:\0科研\工作1\第15篇SCI\03_论文\figs"
+d = json.load(open(os.path.join(r"D:\0科研\工作1\第15篇SCI\02_实验记录\results", "r38_rankstab.json")))
 BLUE, COBALT, O = "#2c7fb8", "#1c4f81", "#e08214"
 
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.0, 2.8))

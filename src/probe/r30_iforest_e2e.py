@@ -9,8 +9,8 @@ import numpy as np
 from scipy import stats as st
 from sklearn.ensemble import IsolationForest
 
-sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
-sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 6SCI\src")
+sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
+sys.path.insert(0, r"D:\0科研\工作1\第6篇SCI\src")
 from cadms.scorers import get_scorer  # for labels alignment via iforest cache
 from common.events import events_from_binary  # noqa: E402
 from common.blocks import build_blocks, block_stats  # noqa: E402
@@ -18,7 +18,7 @@ from common.blocks import build_blocks, block_stats  # noqa: E402
 W = 16
 SEEDS = list(range(10))
 BMS = ["SMD", "PSM", "MSL", "SMAP", "WADI"]
-RES = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results"
+RES = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results"
 
 def win(A):
     return np.lib.stride_tricks.sliding_window_view(A, W, axis=0).reshape(-1, A.shape[1] * W)
@@ -26,7 +26,7 @@ def win(A):
 out = []
 for ds in BMS:
     # load raw series via paper-2 loader (same path as suite protocol)
-    sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 2SCI\Contrastive_TopK_MIL\src")
+    sys.path.insert(0, r"D:\0科研\工作1\第2篇SCI\Contrastive_TopK_MIL\src")
     from data.loaders import load_dataset
     X, Y = load_dataset(ds)
     T = len(X)

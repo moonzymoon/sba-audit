@@ -16,9 +16,9 @@ import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
-RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
-OUTDIR = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
+RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
+OUTDIR = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
 
 # zh:zh_4028cache run zh:zh_7558 (zh:zh_5303segment1; E5 zh:zh_6535)
 RUNS = []

@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common.events import events_from_binary  # noqa: E402
 from scorers_extra import (load_any, load_tsb, tsb_select, _split, W)  # noqa: E402
 
-OUT_DIR = r"D:/0keyan/gongzuo1/paper 15SCI/01_zh:zh_8028withzh:zh_9766/zh:eventsegmentzh:zh_7558"
+OUT_DIR = r"D:/0科研/工作1/第15篇SCI/01_zh:zh_8028withzh:zh_9766/zh:eventsegmentzh:zh_7558"
 
 
 def test_labels(Y):

@@ -10,7 +10,7 @@ import os
 
 import numpy as np
 
-RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
+RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
 
 
 def compute_R(dbar_clean, dbar_seeds):

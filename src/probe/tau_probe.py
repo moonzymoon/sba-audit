@@ -28,8 +28,8 @@ import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common.events import events_from_binary  # noqa: E402
 
-CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
-OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/tau_probe.csv"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
+OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results/tau_probe.csv"
 THRESH = 1.212
 STRIDES = (1, 4, 16)
 W = 16  # cmhmil/iforest zh:zh_33windowzh:zh_1935

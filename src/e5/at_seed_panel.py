@@ -1,6 +1,6 @@
 """E5b: paper zh:zh_2315 (Anomaly Transformer) zh:seedpanel — zh:zh_8152 limits (iv)  zh:zh_5645.
 
-zh:zh_2647 paper2 GITHUB_UPLOAD   AT zh:zh_3965withzh:zh_8539 (win 100, stride 50, d_model 64, 10 epochs,
+zh:zh_2647 第2篇 GITHUB_UPLOAD   AT zh:zh_3965withzh:zh_8539 (win 100, stride 50, d_model 64, 10 epochs,
 lr 1e-4, lam 3.0, 35/10/10/45 zh:zh_7258blockzh:zh_5007), zh:zh_2843 seed trainingzh:zh_58savetestsegmentzh:scorecache
 at2_{ds}_seed{N}.npz (scores/labels same _score_cache zh:approxzh_6266).
 
@@ -13,13 +13,13 @@ import time
 import numpy as np
 import torch
 
-AT_SRC = r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/GITHUB_UPLOAD/src"
+AT_SRC = r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/GITHUB_UPLOAD/src"
 sys.path.insert(0, AT_SRC)
-sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 15SCI/src")
+sys.path.insert(0, r"D:/0科研/工作1/第15篇SCI/src")
 from baseline_anomaly_transformer import AnomalyTransformerModel, _make_windows  # noqa: E402
 from scorers_extra import load_any  # noqa: E402
 
-CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
 SEEDS = [7, 42, 123, 202, 999]
 DATASETS = ["SMD", "PSM"]
 WIN, STRIDE, EPOCHS, BS, LR, LAM = 100, 50, 10, 32, 1e-4, 3.0

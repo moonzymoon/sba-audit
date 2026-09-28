@@ -16,9 +16,9 @@ import pandas as pd
 from scipy.stats import rankdata
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
-RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
-RES = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
+RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
+RES = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
 SEEDS = [7, 42, 123, 202, 999]
 
 

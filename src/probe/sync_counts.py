@@ -6,7 +6,7 @@ newzh:zh_9164cellzh:zh_796(per dataset×scorer zh:zh_271, notzh:zh_8749rowzh:zh_
 """
 import pandas as pd
 
-R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
+R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
 df = pd.read_csv(R + "e3_clean_summary.csv")
 print("total cells:", len(df))
 

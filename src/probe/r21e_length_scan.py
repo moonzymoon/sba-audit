@@ -50,5 +50,5 @@ for i, L in enumerate((50, 200, 800)):
 
 import json
 json.dump([{"L": r[0], "r_mean": r[1], "size_emp": r[2], "size_pred": r[3]} for r in rows],
-          open(r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results\r21e_length_scan.json", "w"), indent=1)
+          open(r"D:\0科研\工作1\第15篇SCI\02_实验记录\results\r21e_length_scan.json", "w"), indent=1)
 print("saved r21e_length_scan.json")

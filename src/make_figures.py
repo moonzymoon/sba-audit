@@ -22,8 +22,8 @@ SKY, BLUE, COBALT = "#A7CFF2", "#3B82D6", "#0D47A1"
 SAND = "#E7C9A0"
 plt.rcParams.update({"font.size": 9, "axes.spines.top": False, "axes.spines.right": False,
                      "figure.dpi": 300, "savefig.bbox": "tight"})
-RES = r"D:/0keyan/gongzuo1/paper15/02_shiyanjilu/results"
-FIG = r"D:/0keyan/gongzuo1/paper15/03_lunwen/figs"
+RES = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+FIG = r"D:/0科研/工作1/第15篇SCI/03_论文/figs"
 os.makedirs(FIG, exist_ok=True)
 
 # ---------- Fig 1: tau map ----------
@@ -69,7 +69,8 @@ ax.set_ylabel("window-level empirical size")
 ax.set_ylim(0, 1.02)
 ax.legend(frameon=False, fontsize=7.5, loc="lower right")
 ax.set_title(f"Empirical size vs. $r$, {len(sub)} cells (corr {corr_r:.3f})", fontsize=9)
-fig.savefig(os.path.join(FIG, "fig2_size_vs_tau.png"))
+fig.tight_layout()
+fig.savefig(os.path.join(FIG, "fig2_size_vs_tau.png"), bbox_inches="tight", pad_inches=0.15)
 plt.close(fig)
 
 # ---------- Fig 3: conditional power curves ----------

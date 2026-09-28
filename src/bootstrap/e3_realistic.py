@@ -33,8 +33,8 @@ def real_block_pvalues(d, blocks, min_seg=10):
         p4 = 1.0
     return p3, p4
 
-RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
-OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/e3_realistic.csv"
+RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
+OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results/e3_realistic.csv"
 SEEDS = [7, 42, 123]
 DATASETS = ["SMD", "PSM", "SWaT"]
 

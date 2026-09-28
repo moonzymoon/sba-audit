@@ -13,10 +13,9 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-RES = os.path.join(HERE, '..', '02shiyanjilu'.encode('ascii', 'ignore').decode('ascii'))
 
 def find_res():
-    cand = [os.path.join(HERE, '..', '02_shiyanjilu', 'results', 'direct_scale_verdict.csv'),
+    cand = [os.path.join(HERE, '..', '02_实验记录', 'results', 'direct_scale_verdict.csv'),
             os.path.join(HERE, 'results', 'direct_scale_verdict.csv'),
             'direct_scale_verdict.csv']
     for c in cand:

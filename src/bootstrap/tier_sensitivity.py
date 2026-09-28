@@ -22,7 +22,7 @@ from bootstrap.e3_clean import (load_goodness, proto_pvalues,  # noqa: E402
                                 block_level_pvalues, GLOBAL_SEED)
 from bootstrap.block_lengths import tier_lengths, resample_blocks_tier  # noqa: E402
 
-RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
+RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
 
 
 def run_tiers(dataset, scorer, B=10000, seed_offset=5000000):

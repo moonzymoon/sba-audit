@@ -1,7 +1,7 @@
 """E2 τ zh:figurezh_6786 (R3 extended): zh:zh_9405dataset × stride {1,4,16}  zh:eventsegmentzh:zh_4542 τ + zh:zh_9405series τ.
 
 paired: cmhmil_seed7 vs pca (each datasetzh:zh_4751cache; AT/iforest pairzh:zh_409segment0zh:zh_6901).
-writes 02_shiyanjilu/results/e2_tau_map.csv —— lunwenzh:corefigure zh:zh_4930valuezh_5127.
+writes 02_实验记录/results/e2_tau_map.csv —— lunwenzh:corefigure zh:zh_4930valuezh_5127.
 """
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from probe.tau_probe import load_pair, zscore, ips_tau, cluster_ips_tau  # noqa: E402
 
-OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/e2_tau_map.csv"
+OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results/e2_tau_map.csv"
 DATASETS = ["SMD", "PSM", "MSL", "SMAP", "WADI", "TE", "MetroPT3", "BATADAL", "NEweather"]
 PAIRS = [("cmhmil_SMD_seed7", "iforest_SMD", "SMD")]  # zh:zh_5303segment0 zh:zh_6379, skipzh:zh_4286
 
@@ -24,8 +24,8 @@ def main():
     for ds in DATASETS:
         n1 = f"cmhmil_{ds}_seed7"
         n2 = f"pca_{ds}"
-        f1 = os.path.join(r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache", f"{n1}.npz")
-        f2 = os.path.join(r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache", f"{n2}.npz")
+        f1 = os.path.join(r"D:/0科研/工作1/第6篇SCI/src/_score_cache", f"{n1}.npz")
+        f2 = os.path.join(r"D:/0科研/工作1/第6篇SCI/src/_score_cache", f"{n2}.npz")
         if not (os.path.exists(f1) and os.path.exists(f2)):
             print(f"[skip] {ds}: cachenotzh:zh_9405")
             continue

@@ -9,8 +9,8 @@ import pytest
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common.events import events_from_binary, windows_in_event  # noqa: E402
 
-CADMS = r"D:/0keyan/gongzuo1/paper 6SCI/src"
-INV = r"D:/0keyan/gongzuo1/paper 15SCI/01_zh:zh_8028withzh:zh_9766/zh:eventsegmentzh:zh_7558"
+CADMS = r"D:/0科研/工作1/第6篇SCI/src"
+INV = r"D:/0科研/工作1/第15篇SCI/01_zh:zh_8028withzh:zh_9766/zh:eventsegmentzh:zh_7558"
 
 
 def cadms_events(b):

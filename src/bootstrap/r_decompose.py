@@ -27,7 +27,7 @@ from bootstrap.e3_clean import load_goodness, block_mean_pools  # noqa: E402
 from common.blocks import build_blocks, resample_blocks, block_stats  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 
-RES = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
+RES = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
 MC = 4000
 SEED = 20260902
 

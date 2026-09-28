@@ -10,8 +10,8 @@ import numpy as np
 import pandas as pd
 from scipy import stats as st
 
-RES = "D:/0keyan/gongzuo1/paper15/02_shiyanjilu/results"
-FIG = "D:/0keyan/gongzuo1/paper15/03_lunwen/figs"
+RES = "D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+FIG = "D:/0科研/工作1/第15篇SCI/03_论文/figs"
 BLUE, COBALT, O = "#2c7fb8", "#1c4f81", "#e08214"
 
 e4 = pd.read_csv(os.path.join(RES, "e4_mde_table.csv"))

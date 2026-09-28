@@ -4,13 +4,13 @@
 import json, sys, os, itertools
 import numpy as np
 
-sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
+sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
 from bootstrap.e3_clean import run, load_goodness  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from common.blocks import build_blocks  # noqa: E402
 from sklearn.metrics import roc_auc_score  # noqa: E402
 
-RES = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results"
+RES = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results"
 SC = ["iforest", "pca", "gmm", "ocsvm", "lof"]
 
 # segment inventory on the cached label stream (test half, as the suite uses)

@@ -7,8 +7,8 @@ import os
 import numpy as np
 import pandas as pd
 
-RCACHE = r"D:/0keyan/gongzuo1/paper15/_resample_cache"
-OUT = r"D:/0keyan/gongzuo1/paper15/02_shiyanjilu/results/e3_clean_summary.csv"
+RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
+OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results/e3_clean_summary.csv"
 ALPHA = 0.05
 
 

@@ -24,8 +24,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from bootstrap.e3_clean import cache_file  # noqa: E402
 from bootstrap.r_ratio import load_clean_dbar  # noqa: E402
 
-CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
-OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
+OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
 
 DATASETS = ["SMD", "PSM", "MSL", "SMAP", "SWaT", "WADI", "TE", "MetroPT3", "BATADAL", "NEweather"]
 

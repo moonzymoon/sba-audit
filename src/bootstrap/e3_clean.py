@@ -25,8 +25,8 @@ from common.blocks import build_blocks, resample_blocks, block_stats  # noqa: E4
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.n1_split_sign import n1_pvalue  # noqa: E402
 
-CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
-RCACHE = r"D:/0keyan/gongzuo1/paper 15SCI/_resample_cache"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
+RCACHE = r"D:/0科研/工作1/第15篇SCI/_resample_cache"
 GLOBAL_SEED = 20260902  # pre-registered §6
 
 

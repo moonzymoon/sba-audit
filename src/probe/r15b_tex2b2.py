@@ -2,8 +2,8 @@
 """R15b tex 2b continuation: GRR/NDC rows, e1 paragraph, fig9 caption+body."""
 import json
 
-R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
-p = "D:/0keyan/gongzuo1/paper 15SCI/03_lunwen/main.tex"
+R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
+p = "D:/0科研/工作1/第15篇SCI/03_论文/main.tex"
 s = open(p, encoding="utf-8").read()
 BS = chr(92)
 A = json.load(open(R + "e1_direct_components.json"))["AUROC"]

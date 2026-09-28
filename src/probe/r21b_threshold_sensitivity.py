@@ -10,14 +10,14 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
+sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
 from bootstrap.e3_clean import load_goodness  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from common.blocks import build_blocks  # noqa: E402
 
 BMS = ["SMD", "PSM", "MSL", "SMAP", "WADI", "TE", "MetroPT3", "BATADAL"]
-e4 = pd.read_csv(r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results\e4_mde_table.csv").set_index("dataset")
-OUT = r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results\r21b_threshold_sensitivity.csv"
+e4 = pd.read_csv(r"D:\0科研\工作1\第15篇SCI\02_实验记录\results\e4_mde_table.csv").set_index("dataset")
+OUT = r"D:\0科研\工作1\第15篇SCI\02_实验记录\results\r21b_threshold_sensitivity.csv"
 
 rows = []
 for ds in BMS:

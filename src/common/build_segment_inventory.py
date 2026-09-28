@@ -26,9 +26,9 @@ import pandas as pd
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from common.events import events_from_binary  # noqa: E402
 
-CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
-DS_ROOT = r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/datasets"
-OUT_DIR = r"D:/0keyan/gongzuo1/paper 15SCI/01_zh:zh_8028withzh:zh_9766/zh:eventsegmentzh:zh_7558"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
+DS_ROOT = r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/datasets"
+OUT_DIR = r"D:/0科研/工作1/第15篇SCI/01_zh:zh_8028withzh:zh_9766/zh:eventsegmentzh:zh_7558"
 W_TRIM = 15  # cmhmil cachelabelzh:zh_9362pairzh:zh_3710 test zh:zh_8664point zh:zh_3576 (w-1)
 
 DATASETS = ["SMD", "PSM", "MSL", "SMAP", "SWaT", "WADI"]
@@ -55,7 +55,7 @@ def parse_smd_interpretation(path):
 
 def rebuild_test_labels(ds):
     """paper 2 loader zh:zh_335 (train+test zh:zh_9405serieslabel, test zh:zh_8664pointzh_853). returns (Y_all, n_before_test)."""
-    sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/src")
+    sys.path.insert(0, r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/src")
     from data.loaders import load_dataset
     from data.split import chronological_split
     _, Y = load_dataset(ds)

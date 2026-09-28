@@ -25,7 +25,7 @@ from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness, block_mean_pools  # noqa: E402
 from bootstrap.r_ratio import load_clean_dbar  # noqa: E402
 
-OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
+OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
 GLOBAL_SEED = 20260902
 SEEDS = {"SMD": [0, 1, 2, 3, 7, 31, 42, 97, 123, 2024],
          "PSM": [0, 1, 2, 3, 7, 31, 42, 97, 123, 2024],

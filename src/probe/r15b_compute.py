@@ -14,13 +14,13 @@ import numpy as np
 from sklearn.metrics import roc_auc_score, average_precision_score
 from scipy import stats as st
 
-sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src")
-sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src/bootstrap")
+sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src")
+sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src/bootstrap")
 from common.blocks import build_blocks, resample_blocks  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness  # noqa: E402
 
-R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
+R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
 rng = np.random.default_rng(20260907)
 OUT = []
 

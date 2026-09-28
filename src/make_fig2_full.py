@@ -16,9 +16,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common.events import events_from_binary                    # noqa: E402
 from probe.tau_probe import load_pair, zscore, cluster_ips_tau  # noqa: E402
 
-RES = r"D:/0keyan/gongzuo1/paper15/02_shiyanjilu/results"
-FIG = r"D:/0keyan/gongzuo1/paper15/03_lunwen/figs"
-CACHE = r"D:/0keyan/gongzuo1/paper6/src/_score_cache"
+RES = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
+FIG = r"D:/0科研/工作1/第15篇SCI/03_论文/figs"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
 
 summ = pd.read_csv(os.path.join(RES, "e3_clean_summary.csv"))
 summ = summ[summ.size_win_t.notna()].copy()

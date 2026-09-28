@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """STAGE 3 deterministic fixes S1,S2,S4,S6,S7,S9,S10,S11 to main.tex."""
 BS = chr(92)
-p = r"D:\0keyan\gongzuo1\paper 15SCI\03_lunwen\main.tex"
+p = r"D:\0科研\工作1\第15篇SCI\03_论文\main.tex"
 s = open(p, encoding="utf-8").read()
 n0 = len(s)
 

@@ -22,7 +22,7 @@ from common.blocks import build_blocks, block_stats  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness, block_mean_pools, GLOBAL_SEED  # noqa: E402
 
-OUT = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results"
+OUT = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results"
 ALPHA, POWER = 0.05, 0.8
 DA_TARGET = 0.05  # AUROC zh:pointdifferencezh:zh_3829
 

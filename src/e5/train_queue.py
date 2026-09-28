@@ -11,12 +11,12 @@ import sys
 import time
 import traceback
 
-sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/src")
-sys.path.insert(0, r"D:/0keyan/gongzuo1/paper 6SCI/src")
+sys.path.insert(0, r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/src")
+sys.path.insert(0, r"D:/0科研/工作1/第6篇SCI/src")
 
-CKPT_DIR = r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/results/checkpoints"
-CACHE = r"D:/0keyan/gongzuo1/paper 6SCI/src/_score_cache"
-LOG = r"D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/e5_train_queue.log"
+CKPT_DIR = r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/results/checkpoints"
+CACHE = r"D:/0科研/工作1/第6篇SCI/src/_score_cache"
+LOG = r"D:/0科研/工作1/第15篇SCI/02_实验记录/results/e5_train_queue.log"
 
 QUEUE = [
     ("SMD", [0, 1, 2, 3]),
@@ -41,7 +41,7 @@ def main():
     args = ap.parse_args()
     import torch
     from utils.repro import load_config
-    cfg = load_config(r"D:/0keyan/gongzuo1/paper 2SCI/Contrastive_TopK_MIL/configs/default.yaml")
+    cfg = load_config(r"D:/0科研/工作1/第2篇SCI/Contrastive_TopK_MIL/configs/default.yaml")
     device = "cuda" if torch.cuda.is_available() else "cpu"
     log(f"E5 trainingzh:zh_5486, device={device}")
     from train import train_one_seed

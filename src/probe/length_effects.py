@@ -11,13 +11,13 @@ import sys
 
 import numpy as np
 
-sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src")
-sys.path.insert(0, "D:/0keyan/gongzuo1/paper 15SCI/src/bootstrap")
+sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src")
+sys.path.insert(0, "D:/0科研/工作1/第15篇SCI/src/bootstrap")
 from common.blocks import build_blocks  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness  # noqa: E402
 
-R = "D:/0keyan/gongzuo1/paper 15SCI/02_shiyanjilu/results/"
+R = "D:/0科研/工作1/第15篇SCI/02_实验记录/results/"
 rows = []
 for bm in ["WADI", "SMD", "PSM", "MSL", "SMAP"]:
     g, y = load_goodness("pca", bm)

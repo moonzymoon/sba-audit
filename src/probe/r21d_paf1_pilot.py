@@ -11,8 +11,8 @@ Cells: (SMD, cmhmil_seed7 vs pca), (MSL, cmhmil_seed7 vs pca).
 import sys
 import numpy as np
 
-sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src")
-sys.path.insert(0, r"D:\0keyan\gongzuo1\paper 15SCI\src\bootstrap")
+sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src")
+sys.path.insert(0, r"D:\0科研\工作1\第15篇SCI\src\bootstrap")
 from common.blocks import build_blocks, resample_blocks  # noqa: E402
 from common.events import events_from_binary  # noqa: E402
 from bootstrap.e3_clean import load_goodness  # noqa: E402
@@ -76,5 +76,5 @@ for bm, sa, sb in CELLS:
     print(rec)
 
 import json
-json.dump(out, open(r"D:\0keyan\gongzuo1\paper 15SCI\02_shiyanjilu\results\r21d_paf1_pilot.json", "w"), indent=1)
+json.dump(out, open(r"D:\0科研\工作1\第15篇SCI\02_实验记录\results\r21d_paf1_pilot.json", "w"), indent=1)
 print("saved r21d_paf1_pilot.json")
