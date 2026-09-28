@@ -5,7 +5,7 @@ before any experiment). Everything after the freeze is a numbered revision (R1-R
 run on the same machine, same protocol, and logged per round; only the frozen
 six-benchmark x two-family core carries the confirmatory label.
 
-Hash chain: the working log `02_实验记录` side of the authors' environment holds the
+Hash chain: the working log kept in the authors' environment holds the
 full per-round text with SHA-256 hashes. The submission-version summary:
 
 | Round | Nature | One-line summary |
